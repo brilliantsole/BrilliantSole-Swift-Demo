@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5FBC34992D38728000B0DB20 /* BrilliantKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC34982D38728000B0DB20 /* BrilliantKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5FBC347B2D38722200B0DB20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FBC34992D38728000B0DB20 /* BrilliantKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = BrilliantSoleSwiftDemo;
 			packageProductDependencies = (
+				5FBC34982D38728000B0DB20 /* BrilliantKit */,
 			);
 			productName = BrilliantSoleSwiftDemo;
 			productReference = 5FBC34692D38722100B0DB20 /* BrilliantSoleSwiftDemo.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 5FBC34602D38722100B0DB20;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5FBC34972D38728000B0DB20 /* XCLocalSwiftPackageReference "../BrilliantKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5FBC346A2D38722100B0DB20 /* Products */;
 			projectDirPath = "";
@@ -591,6 +600,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5FBC34972D38728000B0DB20 /* XCLocalSwiftPackageReference "../BrilliantKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../BrilliantKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FBC34982D38728000B0DB20 /* BrilliantKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BrilliantKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FBC34612D38722100B0DB20 /* Project object */;
 }
