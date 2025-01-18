@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5FBC34992D38728000B0DB20 /* BrilliantKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC34982D38728000B0DB20 /* BrilliantKit */; };
+		5F99FCF92D3B8647005FB783 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F99FCF82D3B8647005FB783 /* BrilliantSole */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FBC34992D38728000B0DB20 /* BrilliantKit in Frameworks */,
+				5F99FCF92D3B8647005FB783 /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F8910DB2D3B84540097BBFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5FBC34602D38722100B0DB20 = {
 			isa = PBXGroup;
 			children = (
 				5FBC346B2D38722100B0DB20 /* BrilliantSoleSwiftDemo */,
 				5FBC347D2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests */,
 				5FBC34872D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests */,
+				5F8910DB2D3B84540097BBFC /* Frameworks */,
 				5FBC346A2D38722100B0DB20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,7 +125,7 @@
 			);
 			name = BrilliantSoleSwiftDemo;
 			packageProductDependencies = (
-				5FBC34982D38728000B0DB20 /* BrilliantKit */,
+				5F99FCF82D3B8647005FB783 /* BrilliantSole */,
 			);
 			productName = BrilliantSoleSwiftDemo;
 			productReference = 5FBC34692D38722100B0DB20 /* BrilliantSoleSwiftDemo.app */;
@@ -202,7 +210,7 @@
 			mainGroup = 5FBC34602D38722100B0DB20;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5FBC34972D38728000B0DB20 /* XCLocalSwiftPackageReference "../BrilliantKit" */,
+				5F8910EE2D3B86000097BBFC /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5FBC346A2D38722100B0DB20 /* Products */;
@@ -602,16 +610,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5FBC34972D38728000B0DB20 /* XCLocalSwiftPackageReference "../BrilliantKit" */ = {
+		5F8910EE2D3B86000097BBFC /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../BrilliantKit;
+			relativePath = "../BrilliantSole-Swift-Package";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5FBC34982D38728000B0DB20 /* BrilliantKit */ = {
+		5F99FCF82D3B8647005FB783 /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = BrilliantKit;
+			package = 5F8910EE2D3B86000097BBFC /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
