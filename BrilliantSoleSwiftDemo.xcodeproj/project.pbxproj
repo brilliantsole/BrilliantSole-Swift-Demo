@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F99FCF92D3B8647005FB783 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F99FCF82D3B8647005FB783 /* BrilliantSole */; };
+		5F8EA81F2D595C5400B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA81E2D595C5400B81545 /* BrilliantSole */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F99FCF92D3B8647005FB783 /* BrilliantSole in Frameworks */,
+				5F8EA81F2D595C5400B81545 /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 			);
 			name = BrilliantSoleSwiftDemo;
 			packageProductDependencies = (
-				5F99FCF82D3B8647005FB783 /* BrilliantSole */,
+				5F8EA81E2D595C5400B81545 /* BrilliantSole */,
 			);
 			productName = BrilliantSoleSwiftDemo;
 			productReference = 5FBC34692D38722100B0DB20 /* BrilliantSoleSwiftDemo.app */;
@@ -210,7 +210,7 @@
 			mainGroup = 5FBC34602D38722100B0DB20;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5F8910EE2D3B86000097BBFC /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */,
+				5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5FBC346A2D38722100B0DB20 /* Products */;
@@ -610,16 +610,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5F8910EE2D3B86000097BBFC /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */ = {
+		5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../BrilliantSole-Swift-Package";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F99FCF82D3B8647005FB783 /* BrilliantSole */ = {
+		5F8EA81E2D595C5400B81545 /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F8910EE2D3B86000097BBFC /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
 /* End XCSwiftPackageProductDependency section */

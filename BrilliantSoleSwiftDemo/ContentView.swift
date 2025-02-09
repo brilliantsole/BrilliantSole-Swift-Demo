@@ -5,6 +5,7 @@
 //  Created by Zack Qattan on 1/15/25.
 //
 
+import BrilliantSole
 import SwiftUI
 
 struct ContentView: View {
