@@ -490,7 +490,7 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "(iOS) BrilliantSole Demo/(iOS) Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -529,7 +529,7 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "(iOS) BrilliantSole Demo/(iOS) Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -571,6 +571,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
@@ -602,6 +603,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
@@ -630,7 +632,7 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "(TV) BrilliantSole Demo/(TV) Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -661,7 +663,7 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "(TV) BrilliantSole Demo/(TV) Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -693,7 +695,7 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/(VisionOS) Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -723,7 +725,7 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/(VisionOS) Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -772,7 +774,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Debug;
 		};
@@ -806,7 +808,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Release;
 		};
