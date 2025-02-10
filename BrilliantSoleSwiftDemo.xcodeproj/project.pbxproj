@@ -11,7 +11,33 @@
 		5F8EA9132D59696600B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9122D59696600B81545 /* BrilliantSole */; };
 		5F8EA9152D59696F00B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9142D59696F00B81545 /* BrilliantSole */; };
 		5F8EA9172D59697300B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9162D59697300B81545 /* BrilliantSole */; };
+		5F8EA9E02D59AF9C00B81545 /* (Watch) BrilliantSole Demo.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5F8EA9D32D59AF9B00B81545 /* (Watch) BrilliantSole Demo.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F8EAA482D59B32100B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EAA472D59B32100B81545 /* BrilliantSole */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F8EA9DE2D59AF9C00B81545 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F8EA9D22D59AF9B00B81545;
+			remoteInfo = "BrilliantSole Demo Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5F8EA9E12D59AF9C00B81545 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5F8EA9E02D59AF9C00B81545 /* (Watch) BrilliantSole Demo.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5F8EA8222D5963CF00B81545 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
@@ -19,16 +45,10 @@
 		5F8EA8562D59653700B81545 /* (Mac) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Mac) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8EA8BD2D59663100B81545 /* (TV) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(TV) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(VisionOS) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8EA9D32D59AF9B00B81545 /* (Watch) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Watch) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5F8EA8DF2D59665500B81545 /* Exceptions for "(VisionOS) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */;
-		};
 		5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(iOS) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -61,6 +81,14 @@
 			);
 			target = 5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */;
 		};
+		5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Watch) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BrilliantSoleSwiftDemoApp.swift,
+				ContentView.swift,
+			);
+			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -81,10 +109,12 @@
 		};
 		5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5F8EA8DF2D59665500B81545 /* Exceptions for "(VisionOS) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */,
-			);
 			path = "(VisionOS) BrilliantSole Demo";
+			sourceTree = "<group>";
+		};
+		5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(Watch) BrilliantSole Demo";
 			sourceTree = "<group>";
 		};
 		5FBC346B2D38722100B0DB20 /* (Shared) BrilliantSole Demo */ = {
@@ -94,6 +124,7 @@
 				5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */,
 				5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(TV) BrilliantSole Demo" target */,
 				5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */,
+				5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Watch) BrilliantSole Demo" target */,
 			);
 			path = "(Shared) BrilliantSole Demo";
 			sourceTree = "<group>";
@@ -133,6 +164,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F8EA9D02D59AF9B00B81545 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8EAA482D59B32100B81545 /* BrilliantSole in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -159,6 +198,7 @@
 				5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */,
 				5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */,
 				5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
+				5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
 				5F8910DB2D3B84540097BBFC /* Frameworks */,
 				5F8EA8D12D59665300B81545 /* Packages */,
 				5FBC346A2D38722100B0DB20 /* Products */,
@@ -172,6 +212,7 @@
 				5F8EA8562D59653700B81545 /* (Mac) BrilliantSole Demo.app */,
 				5F8EA8BD2D59663100B81545 /* (TV) BrilliantSole Demo.app */,
 				5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */,
+				5F8EA9D32D59AF9B00B81545 /* (Watch) BrilliantSole Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,10 +227,12 @@
 				5F8EA8242D59651400B81545 /* Sources */,
 				5F8EA8252D59651400B81545 /* Frameworks */,
 				5F8EA8262D59651400B81545 /* Resources */,
+				5F8EA9E12D59AF9C00B81545 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5F8EA9DF2D59AF9C00B81545 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */,
@@ -271,6 +314,29 @@
 			productReference = 5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F8EA9E42D59AF9C00B81545 /* Build configuration list for PBXNativeTarget "(Watch) BrilliantSole Demo" */;
+			buildPhases = (
+				5F8EA9CF2D59AF9B00B81545 /* Sources */,
+				5F8EA9D02D59AF9B00B81545 /* Frameworks */,
+				5F8EA9D12D59AF9B00B81545 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
+			);
+			name = "(Watch) BrilliantSole Demo";
+			packageProductDependencies = (
+				5F8EAA472D59B32100B81545 /* BrilliantSole */,
+			);
+			productName = "BrilliantSole Demo Watch App";
+			productReference = 5F8EA9D32D59AF9B00B81545 /* (Watch) BrilliantSole Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -291,6 +357,9 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					5F8EA8CE2D59665300B81545 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					5F8EA9D22D59AF9B00B81545 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -316,6 +385,7 @@
 				5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */,
 				5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */,
 				5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
+				5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -343,6 +413,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5F8EA8CD2D59665300B81545 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8EA9D12D59AF9B00B81545 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,7 +457,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F8EA9CF2D59AF9B00B81545 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F8EA9DF2D59AF9C00B81545 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
+			targetProxy = 5F8EA9DE2D59AF9C00B81545 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5F8EA84A2D59651500B81545 /* Debug */ = {
@@ -394,6 +486,9 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(iOS) BrilliantSole Demo/(iOS) Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -429,6 +524,9 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(iOS) BrilliantSole Demo/(iOS) Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,7 +566,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -497,7 +597,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -523,6 +625,9 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(TV) BrilliantSole Demo/(TV) Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -551,6 +656,9 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(TV) BrilliantSole Demo/(TV) Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -580,7 +688,9 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/(VisionOS) Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +718,9 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/(VisionOS) Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,6 +735,73 @@
 				TARGETED_DEVICE_FAMILY = 7;
 				VALIDATE_PRODUCT = YES;
 				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		5F8EA9E22D59AF9C00B81545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(Watch) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.BrilliantSole.BrilliantSole-Demo-iOS";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		5F8EA9E32D59AF9C00B81545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(Watch) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.BrilliantSole.BrilliantSole-Demo-iOS";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Release;
 		};
@@ -779,6 +958,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5F8EA9E42D59AF9C00B81545 /* Build configuration list for PBXNativeTarget "(Watch) BrilliantSole Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8EA9E22D59AF9C00B81545 /* Debug */,
+				5F8EA9E32D59AF9C00B81545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FBC34642D38722100B0DB20 /* Build configuration list for PBXProject "BrilliantSoleSwiftDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -814,6 +1002,11 @@
 			productName = BrilliantSole;
 		};
 		5F8EA9162D59697300B81545 /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
+		5F8EAA472D59B32100B81545 /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
