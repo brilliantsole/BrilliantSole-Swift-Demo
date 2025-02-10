@@ -7,70 +7,129 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F8EA81F2D595C5400B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA81E2D595C5400B81545 /* BrilliantSole */; };
+		5F8EA9112D59696300B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9102D59696300B81545 /* BrilliantSole */; };
+		5F8EA9132D59696600B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9122D59696600B81545 /* BrilliantSole */; };
+		5F8EA9152D59696F00B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9142D59696F00B81545 /* BrilliantSole */; };
+		5F8EA9172D59697300B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9162D59697300B81545 /* BrilliantSole */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5FBC347B2D38722200B0DB20 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5FBC34682D38722100B0DB20;
-			remoteInfo = BrilliantSoleSwiftDemo;
-		};
-		5FBC34852D38722200B0DB20 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5FBC34682D38722100B0DB20;
-			remoteInfo = BrilliantSoleSwiftDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		5FBC34692D38722100B0DB20 /* BrilliantSoleSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrilliantSoleSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FBC347A2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrilliantSoleSwiftDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FBC34842D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrilliantSoleSwiftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8EA8222D5963CF00B81545 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		5F8EA8282D59651400B81545 /* (iOS) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(iOS) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8EA8562D59653700B81545 /* (Mac) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Mac) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8EA8BD2D59663100B81545 /* (TV) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(TV) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(VisionOS) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5F8EA8DF2D59665500B81545 /* Exceptions for "(VisionOS) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */;
+		};
+		5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(iOS) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BrilliantSoleSwiftDemoApp.swift,
+				ContentView.swift,
+			);
+			target = 5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */;
+		};
+		5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BrilliantSoleSwiftDemoApp.swift,
+				ContentView.swift,
+			);
+			target = 5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */;
+		};
+		5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(TV) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BrilliantSoleSwiftDemoApp.swift,
+				ContentView.swift,
+			);
+			target = 5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */;
+		};
+		5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BrilliantSoleSwiftDemoApp.swift,
+				ContentView.swift,
+			);
+			target = 5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5FBC346B2D38722100B0DB20 /* BrilliantSoleSwiftDemo */ = {
+		5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BrilliantSoleSwiftDemo;
+			path = "(iOS) BrilliantSole Demo";
 			sourceTree = "<group>";
 		};
-		5FBC347D2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests */ = {
+		5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BrilliantSoleSwiftDemoTests;
+			path = "(Mac) BrilliantSole Demo";
 			sourceTree = "<group>";
 		};
-		5FBC34872D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests */ = {
+		5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BrilliantSoleSwiftDemoUITests;
+			path = "(TV) BrilliantSole Demo";
+			sourceTree = "<group>";
+		};
+		5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5F8EA8DF2D59665500B81545 /* Exceptions for "(VisionOS) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */,
+			);
+			path = "(VisionOS) BrilliantSole Demo";
+			sourceTree = "<group>";
+		};
+		5FBC346B2D38722100B0DB20 /* (Shared) BrilliantSole Demo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(iOS) BrilliantSole Demo" target */,
+				5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */,
+				5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(TV) BrilliantSole Demo" target */,
+				5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */,
+			);
+			path = "(Shared) BrilliantSole Demo";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5FBC34662D38722100B0DB20 /* Frameworks */ = {
+		5F8EA8252D59651400B81545 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8EA81F2D595C5400B81545 /* BrilliantSole in Frameworks */,
+				5F8EA9152D59696F00B81545 /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FBC34772D38722200B0DB20 /* Frameworks */ = {
+		5F8EA8532D59653700B81545 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F8EA9172D59697300B81545 /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FBC34812D38722200B0DB20 /* Frameworks */ = {
+		5F8EA8BA2D59663100B81545 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F8EA9132D59696600B81545 /* BrilliantSole in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8EA8CC2D59665300B81545 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8EA9112D59696300B81545 /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +143,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F8EA8D12D59665300B81545 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		5FBC34602D38722100B0DB20 = {
 			isa = PBXGroup;
 			children = (
-				5FBC346B2D38722100B0DB20 /* BrilliantSoleSwiftDemo */,
-				5FBC347D2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests */,
-				5FBC34872D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests */,
+				5F8EA8222D5963CF00B81545 /* TODO */,
+				5FBC346B2D38722100B0DB20 /* (Shared) BrilliantSole Demo */,
+				5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */,
+				5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */,
+				5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */,
+				5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
 				5F8910DB2D3B84540097BBFC /* Frameworks */,
+				5F8EA8D12D59665300B81545 /* Packages */,
 				5FBC346A2D38722100B0DB20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,9 +168,10 @@
 		5FBC346A2D38722100B0DB20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FBC34692D38722100B0DB20 /* BrilliantSoleSwiftDemo.app */,
-				5FBC347A2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests.xctest */,
-				5FBC34842D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests.xctest */,
+				5F8EA8282D59651400B81545 /* (iOS) BrilliantSole Demo.app */,
+				5F8EA8562D59653700B81545 /* (Mac) BrilliantSole Demo.app */,
+				5F8EA8BD2D59663100B81545 /* (TV) BrilliantSole Demo.app */,
+				5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,74 +179,97 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5FBC34682D38722100B0DB20 /* BrilliantSoleSwiftDemo */ = {
+		5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FBC348E2D38722200B0DB20 /* Build configuration list for PBXNativeTarget "BrilliantSoleSwiftDemo" */;
+			buildConfigurationList = 5F8EA8492D59651500B81545 /* Build configuration list for PBXNativeTarget "(iOS) BrilliantSole Demo" */;
 			buildPhases = (
-				5FBC34652D38722100B0DB20 /* Sources */,
-				5FBC34662D38722100B0DB20 /* Frameworks */,
-				5FBC34672D38722100B0DB20 /* Resources */,
+				5F8EA8242D59651400B81545 /* Sources */,
+				5F8EA8252D59651400B81545 /* Frameworks */,
+				5F8EA8262D59651400B81545 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5FBC346B2D38722100B0DB20 /* BrilliantSoleSwiftDemo */,
+				5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */,
 			);
-			name = BrilliantSoleSwiftDemo;
+			name = "(iOS) BrilliantSole Demo";
 			packageProductDependencies = (
-				5F8EA81E2D595C5400B81545 /* BrilliantSole */,
+				5F8EA9142D59696F00B81545 /* BrilliantSole */,
 			);
-			productName = BrilliantSoleSwiftDemo;
-			productReference = 5FBC34692D38722100B0DB20 /* BrilliantSoleSwiftDemo.app */;
+			productName = "BrilliantSole Demo iOS";
+			productReference = 5F8EA8282D59651400B81545 /* (iOS) BrilliantSole Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5FBC34792D38722200B0DB20 /* BrilliantSoleSwiftDemoTests */ = {
+		5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FBC34912D38722200B0DB20 /* Build configuration list for PBXNativeTarget "BrilliantSoleSwiftDemoTests" */;
+			buildConfigurationList = 5F8EA8622D59653800B81545 /* Build configuration list for PBXNativeTarget "(Mac) BrilliantSole Demo" */;
 			buildPhases = (
-				5FBC34762D38722200B0DB20 /* Sources */,
-				5FBC34772D38722200B0DB20 /* Frameworks */,
-				5FBC34782D38722200B0DB20 /* Resources */,
+				5F8EA8522D59653700B81545 /* Sources */,
+				5F8EA8532D59653700B81545 /* Frameworks */,
+				5F8EA8542D59653700B81545 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5FBC347C2D38722200B0DB20 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5FBC347D2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests */,
+				5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */,
 			);
-			name = BrilliantSoleSwiftDemoTests;
+			name = "(Mac) BrilliantSole Demo";
 			packageProductDependencies = (
+				5F8EA9162D59697300B81545 /* BrilliantSole */,
 			);
-			productName = BrilliantSoleSwiftDemoTests;
-			productReference = 5FBC347A2D38722200B0DB20 /* BrilliantSoleSwiftDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productName = "BrilliantSole Demo Mac";
+			productReference = 5F8EA8562D59653700B81545 /* (Mac) BrilliantSole Demo.app */;
+			productType = "com.apple.product-type.application";
 		};
-		5FBC34832D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests */ = {
+		5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FBC34942D38722200B0DB20 /* Build configuration list for PBXNativeTarget "BrilliantSoleSwiftDemoUITests" */;
+			buildConfigurationList = 5F8EA8C82D59663200B81545 /* Build configuration list for PBXNativeTarget "(TV) BrilliantSole Demo" */;
 			buildPhases = (
-				5FBC34802D38722200B0DB20 /* Sources */,
-				5FBC34812D38722200B0DB20 /* Frameworks */,
-				5FBC34822D38722200B0DB20 /* Resources */,
+				5F8EA8B92D59663100B81545 /* Sources */,
+				5F8EA8BA2D59663100B81545 /* Frameworks */,
+				5F8EA8BB2D59663100B81545 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5FBC34862D38722200B0DB20 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5FBC34872D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests */,
+				5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */,
 			);
-			name = BrilliantSoleSwiftDemoUITests;
+			name = "(TV) BrilliantSole Demo";
 			packageProductDependencies = (
+				5F8EA9122D59696600B81545 /* BrilliantSole */,
 			);
-			productName = BrilliantSoleSwiftDemoUITests;
-			productReference = 5FBC34842D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			productName = "BrilliantSole Demo TV";
+			productReference = 5F8EA8BD2D59663100B81545 /* (TV) BrilliantSole Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F8EA8E02D59665500B81545 /* Build configuration list for PBXNativeTarget "(VisionOS) BrilliantSole Demo" */;
+			buildPhases = (
+				5F8EA8CB2D59665300B81545 /* Sources */,
+				5F8EA8CC2D59665300B81545 /* Frameworks */,
+				5F8EA8CD2D59665300B81545 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
+			);
+			name = "(VisionOS) BrilliantSole Demo";
+			packageProductDependencies = (
+				5F8EA9102D59696300B81545 /* BrilliantSole */,
+			);
+			productName = "BrilliantSole Demo VisionOS";
+			productReference = 5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -187,16 +281,17 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					5FBC34682D38722100B0DB20 = {
+					5F8EA8272D59651400B81545 = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					5FBC34792D38722200B0DB20 = {
+					5F8EA8552D59653700B81545 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 5FBC34682D38722100B0DB20;
 					};
-					5FBC34832D38722200B0DB20 = {
+					5F8EA8BC2D59663100B81545 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 5FBC34682D38722100B0DB20;
+					};
+					5F8EA8CE2D59665300B81545 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -217,29 +312,37 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5FBC34682D38722100B0DB20 /* BrilliantSoleSwiftDemo */,
-				5FBC34792D38722200B0DB20 /* BrilliantSoleSwiftDemoTests */,
-				5FBC34832D38722200B0DB20 /* BrilliantSoleSwiftDemoUITests */,
+				5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */,
+				5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */,
+				5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */,
+				5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5FBC34672D38722100B0DB20 /* Resources */ = {
+		5F8EA8262D59651400B81545 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FBC34782D38722200B0DB20 /* Resources */ = {
+		5F8EA8542D59653700B81545 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FBC34822D38722200B0DB20 /* Resources */ = {
+		5F8EA8BB2D59663100B81545 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8EA8CD2D59665300B81545 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,21 +352,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5FBC34652D38722100B0DB20 /* Sources */ = {
+		5F8EA8242D59651400B81545 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FBC34762D38722200B0DB20 /* Sources */ = {
+		5F8EA8522D59653700B81545 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FBC34802D38722200B0DB20 /* Sources */ = {
+		5F8EA8B92D59663100B81545 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8EA8CB2D59665300B81545 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,20 +382,250 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		5FBC347C2D38722200B0DB20 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5FBC34682D38722100B0DB20 /* BrilliantSoleSwiftDemo */;
-			targetProxy = 5FBC347B2D38722200B0DB20 /* PBXContainerItemProxy */;
-		};
-		5FBC34862D38722200B0DB20 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5FBC34682D38722100B0DB20 /* BrilliantSoleSwiftDemo */;
-			targetProxy = 5FBC34852D38722200B0DB20 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
+		5F8EA84A2D59651500B81545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(iOS) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F8EA84B2D59651500B81545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(iOS) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F8EA8632D59653800B81545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "(Mac) BrilliantSole Demo/BrilliantSole_Demo_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(Mac) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5F8EA8642D59653800B81545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "(Mac) BrilliantSole Demo/BrilliantSole_Demo_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(Mac) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5F8EA8C92D59663200B81545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(TV) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-TV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 18.2;
+			};
+			name = Debug;
+		};
+		5F8EA8CA2D59663200B81545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(TV) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-TV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 18.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F8EA8E12D59665500B81545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(VisionOS) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-VisionOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		5F8EA8E22D59665500B81545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"(VisionOS) BrilliantSole Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-VisionOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		5FBC348C2D38722200B0DB20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -400,209 +740,50 @@
 			};
 			name = Release;
 		};
-		5FBC348F2D38722200B0DB20 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = BrilliantSoleSwiftDemo/BrilliantSoleSwiftDemo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BrilliantSoleSwiftDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = KT7J75V2U8;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrilliantSole.BrilliantSoleSwiftDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		5FBC34902D38722200B0DB20 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = BrilliantSoleSwiftDemo/BrilliantSoleSwiftDemo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BrilliantSoleSwiftDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = KT7J75V2U8;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrilliantSole.BrilliantSoleSwiftDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		5FBC34922D38722200B0DB20 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KT7J75V2U8;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrilliantSole.BrilliantSoleSwiftDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BrilliantSoleSwiftDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BrilliantSoleSwiftDemo";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		5FBC34932D38722200B0DB20 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KT7J75V2U8;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrilliantSole.BrilliantSoleSwiftDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BrilliantSoleSwiftDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BrilliantSoleSwiftDemo";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		5FBC34952D38722200B0DB20 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KT7J75V2U8;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrilliantSole.BrilliantSoleSwiftDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = BrilliantSoleSwiftDemo;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		5FBC34962D38722200B0DB20 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KT7J75V2U8;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrilliantSole.BrilliantSoleSwiftDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = BrilliantSoleSwiftDemo;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F8EA8492D59651500B81545 /* Build configuration list for PBXNativeTarget "(iOS) BrilliantSole Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8EA84A2D59651500B81545 /* Debug */,
+				5F8EA84B2D59651500B81545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F8EA8622D59653800B81545 /* Build configuration list for PBXNativeTarget "(Mac) BrilliantSole Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8EA8632D59653800B81545 /* Debug */,
+				5F8EA8642D59653800B81545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F8EA8C82D59663200B81545 /* Build configuration list for PBXNativeTarget "(TV) BrilliantSole Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8EA8C92D59663200B81545 /* Debug */,
+				5F8EA8CA2D59663200B81545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F8EA8E02D59665500B81545 /* Build configuration list for PBXNativeTarget "(VisionOS) BrilliantSole Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8EA8E12D59665500B81545 /* Debug */,
+				5F8EA8E22D59665500B81545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FBC34642D38722100B0DB20 /* Build configuration list for PBXProject "BrilliantSoleSwiftDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FBC348C2D38722200B0DB20 /* Debug */,
 				5FBC348D2D38722200B0DB20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5FBC348E2D38722200B0DB20 /* Build configuration list for PBXNativeTarget "BrilliantSoleSwiftDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FBC348F2D38722200B0DB20 /* Debug */,
-				5FBC34902D38722200B0DB20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5FBC34912D38722200B0DB20 /* Build configuration list for PBXNativeTarget "BrilliantSoleSwiftDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FBC34922D38722200B0DB20 /* Debug */,
-				5FBC34932D38722200B0DB20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5FBC34942D38722200B0DB20 /* Build configuration list for PBXNativeTarget "BrilliantSoleSwiftDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FBC34952D38722200B0DB20 /* Debug */,
-				5FBC34962D38722200B0DB20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -617,8 +798,24 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F8EA81E2D595C5400B81545 /* BrilliantSole */ = {
+		5F8EA9102D59696300B81545 /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
+		5F8EA9122D59696600B81545 /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
+		5F8EA9142D59696F00B81545 /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
+		5F8EA9162D59697300B81545 /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
 /* End XCSwiftPackageProductDependency section */
