@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "tv-back.png",
       "idiom" : "tv"
     }
   ],
