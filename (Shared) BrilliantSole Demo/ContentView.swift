@@ -6,6 +6,7 @@
 //
 
 import BrilliantSole
+import Combine
 import OSLog
 import SwiftUI
 import UkatonMacros
@@ -31,16 +32,17 @@ struct ContentView: View {
 
     private let devicePair: BSDevicePair = .shared
     var devicePairImageString: String {
-        if devicePair.isFullyConnected {
-            return "shoe.2.fill"
-        }
-        else if devicePair.isHalfConnected {
-            return "shoe.fill"
-        }
-        else {
-            return "circle.dashed"
+        switch devicePairConnectionStatus {
+        case .notConnected:
+            "circle.dashed"
+        case .halfConnected:
+            "shoe.fill"
+        case .fullyConnected:
+            "shoe.2.fill"
         }
     }
+
+    @State private var devicePairConnectionStatus: BSDevicePairConnectionStatus = .notConnected
 
     @State private var selectedTab: TabEnum = .deviceDiscovery
 
@@ -65,7 +67,10 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.devicePair)
-        }
+        }.onReceive(devicePair.connectionStatusPublisher, perform: {
+            print("updating devicePairConnectionStatus \($0.name)")
+            devicePairConnectionStatus = $0
+        })
     }
 }
 
