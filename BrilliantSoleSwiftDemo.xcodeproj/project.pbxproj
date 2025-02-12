@@ -57,6 +57,7 @@
 				ContentView.swift,
 				Views/DeviceDetail/DevicePair.swift,
 				Views/DeviceDiscovery/DeviceDiscovery.swift,
+				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/ViewModifier.swift,
 			);
@@ -70,6 +71,7 @@
 				ContentView.swift,
 				Views/DeviceDetail/DevicePair.swift,
 				Views/DeviceDiscovery/DeviceDiscovery.swift,
+				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/ViewModifier.swift,
 			);
@@ -82,6 +84,7 @@
 				ContentView.swift,
 				Views/DeviceDetail/DevicePair.swift,
 				Views/DeviceDiscovery/DeviceDiscovery.swift,
+				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/ViewModifier.swift,
 			);
@@ -94,6 +97,7 @@
 				ContentView.swift,
 				Views/DeviceDetail/DevicePair.swift,
 				Views/DeviceDiscovery/DeviceDiscovery.swift,
+				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/ViewModifier.swift,
 			);
@@ -107,6 +111,7 @@
 				ContentView.swift,
 				Views/DeviceDetail/DevicePair.swift,
 				Views/DeviceDiscovery/DeviceDiscovery.swift,
+				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/ViewModifier.swift,
 			);
@@ -138,6 +143,11 @@
 		5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "(Watch) BrilliantSole Demo";
+			sourceTree = "<group>";
+		};
+		5FA4ACF82D5B0BCD000EA421 /* (Shared) BrilliantSole Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(Shared) BrilliantSole Widget";
 			sourceTree = "<group>";
 		};
 		5FBC346B2D38722100B0DB20 /* (Shared) BrilliantSole Demo */ = {
@@ -222,6 +232,7 @@
 				5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */,
 				5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
 				5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
+				5FA4ACF82D5B0BCD000EA421 /* (Shared) BrilliantSole Widget */,
 				5F8910DB2D3B84540097BBFC /* Frameworks */,
 				5F8EA8D12D59665300B81545 /* Packages */,
 				5FBC346A2D38722100B0DB20 /* Products */,

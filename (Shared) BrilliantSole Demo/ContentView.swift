@@ -13,6 +13,8 @@ import UkatonMacros
 
 @StaticLogger
 struct ContentView: View {
+    // MARK: - tabEum
+
     @EnumName
     enum TabEnum: Identifiable {
         var id: String { name }
@@ -30,6 +32,10 @@ struct ContentView: View {
         }
     }
 
+    @State private var selectedTab: TabEnum = .deviceDiscovery
+
+    // MARK: - devicePair
+
     private let devicePair: BSDevicePair = .shared
     var devicePairImageString: String {
         switch devicePairConnectionStatus {
@@ -44,10 +50,20 @@ struct ContentView: View {
 
     @State private var devicePairConnectionStatus: BSDevicePairConnectionStatus = .notConnected
 
-    @State private var selectedTab: TabEnum = .deviceDiscovery
+    // MARK: - navigation
+
+    @StateObject private var navigationManager = NavigationManager()
+
+    // MARK: - body
 
     var body: some View {
         TabView(selection: $selectedTab) {
+//            Tab("Device Discovery", systemImage: "magnifyingglass") {
+//                DeviceDiscovery()
+//            }
+//            Tab("Device Discovery", systemImage: "magnifyingglass") {
+//                DeviceDiscovery()
+//            }
             DeviceDiscovery()
                 .modify {
                     if !isWatch {
@@ -68,9 +84,9 @@ struct ContentView: View {
                 }
                 .tag(TabEnum.devicePair)
         }.onReceive(devicePair.connectionStatusPublisher, perform: {
-            print("updating devicePairConnectionStatus \($0.name)")
             devicePairConnectionStatus = $0
         })
+        .environmentObject(navigationManager)
     }
 }
 

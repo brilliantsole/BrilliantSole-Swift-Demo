@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct BrilliantSoleSwiftDemoApp: App {
+    @Environment(\.scenePhase) private var phase
+
     var body: some Scene {
         WindowGroup {
             ContentView()
