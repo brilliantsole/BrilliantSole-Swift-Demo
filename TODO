@@ -1,3 +1,5 @@
 DeviceDiscovery
-    discoveredDevices array option
+    list discovered devices
+    toggle connection
+    udp
 DevicePair

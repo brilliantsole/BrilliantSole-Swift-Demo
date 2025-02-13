@@ -19,7 +19,8 @@ struct ContentView: View {
     enum TabEnum: Identifiable {
         var id: String { name }
 
-        case deviceDiscovery
+        case scanner
+        case devices
         case devicePair
 
         var requiresDevicePair: Bool {
@@ -32,7 +33,7 @@ struct ContentView: View {
         }
     }
 
-    @State private var selectedTab: TabEnum = .deviceDiscovery
+    @State private var selectedTab: TabEnum = .scanner
 
     // MARK: - devicePair
 
@@ -58,21 +59,25 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-//            Tab("Device Discovery", systemImage: "magnifyingglass") {
-//                DeviceDiscovery()
-//            }
-//            Tab("Device Discovery", systemImage: "magnifyingglass") {
-//                DeviceDiscovery()
-//            }
-            DeviceDiscovery()
+            Scanner()
                 .modify {
                     if !isWatch {
                         $0.tabItem {
-                            Label("Device Discovery", systemImage: "magnifyingglass")
+                            Label("Scanner", systemImage: "antenna.radiowaves.left.and.right")
                         }
                     }
                 }
-                .tag(TabEnum.deviceDiscovery)
+                .tag(TabEnum.scanner)
+
+            Devices()
+                .modify {
+                    if !isWatch {
+                        $0.tabItem {
+                            Label("Devices", systemImage: "shoe")
+                        }
+                    }
+                }
+                .tag(TabEnum.devices)
 
             DevicePair()
                 .modify {

@@ -1,5 +1,5 @@
 //
-//  DeviceDiscovery.swift
+//  Scanner.swift
 //  BrilliantSoleSwiftDemo
 //
 //  Created by Zack Qattan on 2/10/25.
@@ -8,7 +8,7 @@
 import BrilliantSole
 import SwiftUI
 
-struct DeviceDiscovery: View {
+struct Scanner: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
     @State private var selectedScannerType: BSConnectionType = .ble {
@@ -21,6 +21,8 @@ struct DeviceDiscovery: View {
     @State private var isScanning: Bool = false
     @State private var isScanningAvailable: Bool = false
 
+    @State private var discoveredDevices: [BSDiscoveredDevice] = .init()
+
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             List {
@@ -31,8 +33,15 @@ struct DeviceDiscovery: View {
                         }
                     }
                 }
+                if isScanning {
+                    HStack {
+                        Spacer()
+                        Text("scanning for devices...")
+                        Spacer()
+                    }
+                }
             }
-            .navigationTitle("Device Discovery")
+            .navigationTitle("Scanner")
             .toolbar {
                 let button = Button {
                     scanner.toggleScan()
@@ -77,16 +86,16 @@ struct DeviceDiscovery: View {
             }.onReceive(scanner.isScanningPublisher) { newIsScanning in
                 print("newIsScanning \(newIsScanning)")
                 isScanning = newIsScanning
-            }.onReceive(scanner.discoveredDevicePublisher) { discoveredDevice in
-                // FILL
-                print("new discoveredDevice \(discoveredDevice.name)")
+            }.onReceive(scanner.discoveredDevicesPublisher) { newDiscoveredDevices in
+                print("discoveredDevices \(newDiscoveredDevices.count)")
+                discoveredDevices = newDiscoveredDevices
             }
         }
     }
 }
 
 #Preview {
-    DeviceDiscovery()
+    Scanner()
         .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
