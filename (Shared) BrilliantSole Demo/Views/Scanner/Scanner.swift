@@ -40,6 +40,20 @@ struct Scanner: View {
                         Spacer()
                     }
                 }
+                if discoveredDevices.isEmpty {
+                    if !isScanning {
+                        HStack {
+                            Spacer()
+                            Text("not scanning for devices")
+                            Spacer()
+                        }
+                    }
+                }
+                else {
+                    ForEach(discoveredDevices) { discoveredDevice in
+                        DiscoveredDeviceRow(discoveredDevice: discoveredDevice)
+                    }
+                }
             }
             .navigationTitle("Scanner")
             .toolbar {
@@ -80,16 +94,13 @@ struct Scanner: View {
                     }
                 #endif
             }
-            .onReceive(scanner.isScanningAvailablePublisher) { newIsScanningAvailable in
-                print("newIsScanningAvailable \(newIsScanningAvailable)")
-                isScanningAvailable = newIsScanningAvailable
-            }.onReceive(scanner.isScanningPublisher) { newIsScanning in
-                print("newIsScanning \(newIsScanning)")
-                isScanning = newIsScanning
-            }.onReceive(scanner.discoveredDevicesPublisher) { newDiscoveredDevices in
-                print("discoveredDevices \(newDiscoveredDevices.count)")
-                discoveredDevices = newDiscoveredDevices
-            }
+        }
+        .onReceive(scanner.isScanningAvailablePublisher) { newIsScanningAvailable in
+            isScanningAvailable = newIsScanningAvailable
+        }.onReceive(scanner.isScanningPublisher) { newIsScanning in
+            isScanning = newIsScanning
+        }.onReceive(scanner.discoveredDevicesPublisher) { newDiscoveredDevices in
+            discoveredDevices = newDiscoveredDevices
         }
     }
 }
@@ -99,6 +110,5 @@ struct Scanner: View {
         .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
-
     #endif
 }

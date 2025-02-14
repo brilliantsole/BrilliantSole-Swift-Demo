@@ -1,5 +1,4 @@
-DeviceDiscovery
-    list discovered devices
-    toggle connection
-    udp
+Scanner
+    DeviceRow
+    Udp Scanner
 DevicePair
