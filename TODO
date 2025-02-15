@@ -1,6 +1,4 @@
 Scanner
-    DeviceRow
-        UI
     Udp Scanner
 Devices
     List

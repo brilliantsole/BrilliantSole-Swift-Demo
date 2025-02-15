@@ -20,24 +20,11 @@ struct DiscoveredDeviceRow: View {
             }
             else {
                 VStack {
-                    HStack {
-                        DiscoveredDeviceRowHeader(discoveredDevice: discoveredDevice)
-                        Spacer()
-                    }
-#if os(tvOS)
-                    .focusSection()
-#endif
+                    DiscoveredDeviceRowHeader(discoveredDevice: discoveredDevice)
                     DiscoveredDeviceRowConnection(discoveredDevice: discoveredDevice)
-#if os(tvOS)
-                        .focusSection()
-#endif
                     DiscoveredDeviceRowStatus(discoveredDevice: discoveredDevice)
                 }
-
                 .padding()
-#if os(tvOS)
-                    .focusSection()
-#endif
             }
         }
         .id(discoveredDevice.id)

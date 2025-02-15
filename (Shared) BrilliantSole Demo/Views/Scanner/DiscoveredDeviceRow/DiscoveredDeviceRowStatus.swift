@@ -13,7 +13,7 @@ struct DiscoveredDeviceRowStatus: View {
 
     let discoveredDevice: BSDiscoveredDevice
 
-    @State private var rssi: Int? = nil
+    @State private var rssi: Int?
     @State private var timeSinceLastUpdate: TimeInterval?
 
     var body: some View {

@@ -16,36 +16,25 @@ struct DeviceRow: View {
 
     var body: some View {
         VStack {
-            HStack {
-                DeviceRowHeader(device: device)
-                Spacer()
-                if isConnected {
-                    Button(action: {
-                        onSelectDevice?()
-                    }) {
-                        Label("select", systemImage: "chevron.right.circle")
-                            .labelStyle(LabelSpacing(spacing: 4))
-                    }
-                    .buttonStyle(.borderedProminent)
+            if isConnected {
+                Button(action: {
+                    onSelectDevice?()
+                }) {
+                    DeviceRowHeader(device: device)
                 }
+                .buttonStyle(.borderedProminent)
+
+            } else {
+                DeviceRowHeader(device: device)
             }
-            #if os(tvOS)
-            .focusSection()
-            #endif
             DeviceRowConnection(device: device)
-            #if os(tvOS)
-                .focusSection()
-            #endif
             DeviceRowStatus(device: device)
         }
         .id(device.id)
+        .padding()
         .onReceive(device.isConnectedPublisher) { _, newIsConnected in
             isConnected = newIsConnected
         }
-        .padding()
-        #if os(tvOS)
-            .focusSection()
-        #endif
     }
 }
 
