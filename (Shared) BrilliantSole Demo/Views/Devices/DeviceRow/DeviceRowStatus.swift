@@ -12,8 +12,57 @@ import SwiftUI
 struct DeviceRowStatus: View {
     let device: BSDevice
 
+    @State private var isConnected: Bool = false
+
+    @State private var batteryLevel: BSBatteryLevel = .zero
+    private var batteryLevelSystemImage: String {
+        switch batteryLevel {
+        case 85 ... 100:
+            "battery.100"
+        case 65 ... 85:
+            "battery.75"
+        case 35 ... 65:
+            "battery.50"
+        case 15 ... 35:
+            "battery.25"
+        default:
+            "battery.0"
+        }
+    }
+
+    private var batteryLevelColor: Color {
+        switch batteryLevel {
+        case 70 ... 100:
+            .green
+        case 25 ... 70:
+            .orange
+        case 0 ... 25:
+            .red
+        default:
+            .red
+        }
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
+
+        layout {
+            if isConnected {
+                Label {
+                    Text("\(batteryLevel)%")
+                } icon: {
+                    Image(systemName: batteryLevelSystemImage)
+                        .foregroundColor(batteryLevelColor)
+                }
+            }
+        }
+        .onReceive(device.batteryLevelPublisher, perform: { _, newBatteryLevel in batteryLevel = newBatteryLevel
+        })
+        .onReceive(device.isConnectedPublisher, perform: { _, newIsConnected in isConnected = newIsConnected
+        })
+        .labelStyle(LabelSpacing(spacing: 4))
+        .font(Font.system(isWatch ? .caption2 : .caption, design: .monospaced))
+        .padding(.top, 2)
     }
 }
 

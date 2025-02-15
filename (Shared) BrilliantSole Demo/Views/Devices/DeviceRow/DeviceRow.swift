@@ -10,9 +10,41 @@ import SwiftUI
 
 struct DeviceRow: View {
     let device: BSDevice
+    var onSelectDevice: (() -> Void)?
+
+    @State private var isConnected: Bool = false
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                DeviceRowHeader(device: device)
+                Spacer()
+                if isConnected {
+                    Button(action: {
+                        onSelectDevice?()
+                    }) {
+                        Label("select", systemImage: "chevron.right.circle")
+                            .labelStyle(LabelSpacing(spacing: 4))
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            #if os(tvOS)
+            .focusSection()
+            #endif
+            DeviceRowConnection(device: device)
+            #if os(tvOS)
+                .focusSection()
+            #endif
+            DeviceRowStatus(device: device)
+        }
+        .onReceive(device.isConnectedPublisher) { _, newIsConnected in
+            isConnected = newIsConnected
+        }
+        .padding()
+        #if os(tvOS)
+            .focusSection()
+        #endif
     }
 }
 

@@ -14,39 +14,14 @@ struct DiscoveredDeviceRowHeader: View {
     @State private var name: String = ""
     @State private var deviceType: BSDeviceType? = nil
 
-    var deviceTypeSystemImage: String? {
-        switch discoveredDevice.deviceType {
-        case .leftInsole, .rightInsole:
-            "shoe"
-        case nil:
-            nil
-        }
-    }
-
     var body: some View {
-        VStack(alignment: isWatch ? .center : .leading) {
-            Text(name)
-                .font(.title2)
-                .bold()
-
-            if let deviceType {
-                HStack(spacing: 4) {
-                    Image(systemName: deviceTypeSystemImage!)
-                        .modify {
-                            if deviceType == .leftInsole {
-                                $0.scaleEffect(x: -1)
-                            }
-                        }
-                    Text(deviceType.name)
-                }
+        GenericDeviceRowHeader(name: name, deviceType: deviceType)
+            .onReceive(discoveredDevice.deviceTypePublisher) { _, newDeviceType in
+                deviceType = newDeviceType
             }
-        }
-        .onReceive(discoveredDevice.deviceTypePublisher) { _, newDeviceType in
-            deviceType = newDeviceType
-        }
-        .onReceive(discoveredDevice.namePublisher) { _, newName in
-            name = newName
-        }
+            .onReceive(discoveredDevice.namePublisher) { _, newName in
+                name = newName
+            }
     }
 }
 

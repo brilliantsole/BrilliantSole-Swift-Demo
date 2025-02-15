@@ -13,35 +13,6 @@ struct DiscoveredDeviceRowStatus: View {
 
     let discoveredDevice: BSDiscoveredDevice
 
-    @State private var batteryLevel: BSBatteryLevel = .zero
-    private var batteryLevelSystemImage: String {
-        switch batteryLevel {
-        case 85 ... 100:
-            "battery.100"
-        case 65 ... 85:
-            "battery.75"
-        case 35 ... 65:
-            "battery.50"
-        case 15 ... 35:
-            "battery.25"
-        default:
-            "battery.0"
-        }
-    }
-
-    private var batteryLevelColor: Color {
-        switch batteryLevel {
-        case 70 ... 100:
-            .green
-        case 25 ... 70:
-            .orange
-        case 0 ... 25:
-            .red
-        default:
-            .red
-        }
-    }
-
     @State private var rssi: Int? = nil
     @State private var timeSinceLastUpdate: TimeInterval?
 

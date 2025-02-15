@@ -11,7 +11,6 @@ import SwiftUI
 
 struct DiscoveredDeviceRowConnection: View {
     let discoveredDevice: BSDiscoveredDevice
-    var cancellables: Set<AnyCancellable> = []
 
     var body: some View {
         Button(action: {

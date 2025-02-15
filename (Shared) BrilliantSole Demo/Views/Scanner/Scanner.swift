@@ -33,6 +33,7 @@ struct Scanner: View {
                         }
                     }
                 }
+
                 if isScanning {
                     HStack {
                         Spacer()
