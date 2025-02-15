@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DeviceRowConnection: View {
     let device: BSDevice
-    var onSelectDevice: (() -> Void)?
+    let onSelectDevice: (() -> Void)?
 
     @State private var connectionStatus: BSConnectionStatus = .notConnected
     @State private var connectingAnimationAmount: CGFloat = 1
@@ -22,6 +22,12 @@ struct DeviceRowConnection: View {
         default:
             device.connectionType!.name
         }
+    }
+
+    init(device: BSDevice, onSelectDevice: (() -> Void)? = nil) {
+        self.device = device
+        self.onSelectDevice = onSelectDevice
+        _connectionStatus = .init(initialValue: connectionStatus)
     }
 
     var body: some View {

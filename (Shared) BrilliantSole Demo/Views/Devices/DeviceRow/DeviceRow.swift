@@ -10,9 +10,15 @@ import SwiftUI
 
 struct DeviceRow: View {
     let device: BSDevice
-    var onSelectDevice: (() -> Void)?
+    let onSelectDevice: (() -> Void)?
 
     @State private var isConnected: Bool = false
+
+    init(device: BSDevice, onSelectDevice: (() -> Void)? = nil) {
+        self.device = device
+        self.onSelectDevice = onSelectDevice
+        _isConnected = .init(initialValue: isConnected)
+    }
 
     var body: some View {
         VStack {
@@ -38,7 +44,6 @@ struct DeviceRow: View {
             #endif
             DeviceRowStatus(device: device)
         }
-        .id(device.id)
         .onReceive(device.isConnectedPublisher) { _, newIsConnected in
             isConnected = newIsConnected
         }

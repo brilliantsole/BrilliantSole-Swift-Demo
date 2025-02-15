@@ -30,7 +30,6 @@ struct DeviceRow: View {
             DeviceRowConnection(device: device)
             DeviceRowStatus(device: device)
         }
-        .id(device.id)
         .padding()
         .onReceive(device.isConnectedPublisher) { _, newIsConnected in
             isConnected = newIsConnected

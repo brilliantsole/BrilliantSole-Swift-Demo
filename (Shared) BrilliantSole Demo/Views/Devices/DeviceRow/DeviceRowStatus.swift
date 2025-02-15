@@ -43,6 +43,12 @@ struct DeviceRowStatus: View {
         }
     }
 
+    init(device: BSDevice) {
+        self.device = device
+        _isConnected = .init(initialValue: device.isConnected)
+        _batteryLevel = .init(initialValue: device.batteryLevel)
+    }
+
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 

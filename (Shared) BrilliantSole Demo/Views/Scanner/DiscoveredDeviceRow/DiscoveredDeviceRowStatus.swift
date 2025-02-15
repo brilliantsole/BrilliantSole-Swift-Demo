@@ -16,6 +16,13 @@ struct DiscoveredDeviceRowStatus: View {
     @State private var rssi: Int?
     @State private var timeSinceLastUpdate: TimeInterval?
 
+    init(discoveredDevice: BSDiscoveredDevice) {
+        self.discoveredDevice = discoveredDevice
+        _isScanning = .init(initialValue: discoveredDevice.scanner.isScanning)
+        _rssi = .init(initialValue: discoveredDevice.rssi)
+        _timeSinceLastUpdate = .init(initialValue: discoveredDevice.timeSinceLastUpdate)
+    }
+
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 

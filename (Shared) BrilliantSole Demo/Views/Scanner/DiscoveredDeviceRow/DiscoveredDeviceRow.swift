@@ -13,6 +13,11 @@ struct DiscoveredDeviceRow: View {
     let discoveredDevice: BSDiscoveredDevice
     @State private var deviceCreated = false
 
+    init(discoveredDevice: BSDiscoveredDevice) {
+        self.discoveredDevice = discoveredDevice
+        _deviceCreated = .init(initialValue: discoveredDevice.device != nil)
+    }
+
     var body: some View {
         Group {
             if deviceCreated, let device = discoveredDevice.device {
@@ -40,7 +45,6 @@ struct DiscoveredDeviceRow: View {
 #endif
             }
         }
-        .id(discoveredDevice.id)
         .onReceive(discoveredDevice.devicePublisher) { _, device in
             deviceCreated = device != nil
         }

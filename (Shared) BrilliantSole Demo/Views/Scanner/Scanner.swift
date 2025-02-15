@@ -23,6 +23,13 @@ struct Scanner: View {
 
     @State private var discoveredDevices: [BSDiscoveredDevice] = .init()
 
+    init(selectedScannerType: BSConnectionType = .ble) {
+        self.selectedScannerType = selectedScannerType
+        _isScanning = .init(initialValue: scanner.isScanning)
+        _isScanningAvailable = .init(initialValue: scanner.isScanningAvailable)
+        _discoveredDevices = .init(initialValue: scanner.discoveredDevices)
+    }
+
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             List {
@@ -53,6 +60,7 @@ struct Scanner: View {
                 else {
                     ForEach(discoveredDevices) { discoveredDevice in
                         DiscoveredDeviceRow(discoveredDevice: discoveredDevice)
+                            .id(discoveredDevice.id)
                     }
                 }
             }

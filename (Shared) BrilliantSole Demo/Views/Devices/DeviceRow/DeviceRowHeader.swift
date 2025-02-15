@@ -13,7 +13,13 @@ struct DeviceRowHeader: View {
     let device: BSDevice
 
     @State private var name: String = ""
-    @State private var deviceType: BSDeviceType? = nil
+    @State private var deviceType: BSDeviceType?
+
+    init(device: BSDevice) {
+        self.device = device
+        self.name = device.name
+        self.deviceType = device.deviceType
+    }
 
     var body: some View {
         GenericDeviceRowHeader(name: name, deviceType: deviceType)
