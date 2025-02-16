@@ -164,7 +164,6 @@
 				Views/Scanner/DiscoveredDeviceRow/DiscoveredDeviceRowHeader.swift,
 				Views/Scanner/DiscoveredDeviceRow/DiscoveredDeviceRowStatus.swift,
 				Views/Scanner/Scanner.swift,
-				Views/Scanner/UdpClient.swift,
 				Views/Utils/GenericDeviceRowHeader.swift,
 				Views/Utils/LabelSpacing.swift,
 				Views/Utils/NavigationManager.swift,

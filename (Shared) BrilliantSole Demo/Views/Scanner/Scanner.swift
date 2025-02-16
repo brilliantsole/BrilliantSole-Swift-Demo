@@ -33,7 +33,7 @@ struct Scanner: View {
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             List {
-                if !isWatch {
+                #if !os(watchOS)
                     VStack {
                         Picker("scanner type", selection: $selectedScannerType) {
                             ForEach(BSConnectionType.allCases) { connectionType in
@@ -44,7 +44,7 @@ struct Scanner: View {
                             UdpClient()
                         }
                     }
-                }
+                #endif
 
                 if isScanning {
                     HStack {

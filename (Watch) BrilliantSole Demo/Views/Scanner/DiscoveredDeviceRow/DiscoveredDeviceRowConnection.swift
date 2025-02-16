@@ -14,7 +14,7 @@ struct DiscoveredDeviceRowConnection: View {
 
     var body: some View {
         Button(action: {
-            _ = discoveredDevice.connect()
+            discoveredDevice.connect()
         }, label: {
             Text("connect")
         })

@@ -15,7 +15,7 @@ struct DiscoveredDeviceRowConnection: View {
     var body: some View {
         HStack {
             Button(action: {
-                _ = discoveredDevice.connect()
+                discoveredDevice.connect()
             }, label: {
                 Text("connect")
             })
