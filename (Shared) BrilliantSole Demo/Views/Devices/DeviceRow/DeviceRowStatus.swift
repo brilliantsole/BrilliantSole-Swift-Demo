@@ -13,10 +13,14 @@ struct DeviceRowStatus: View {
     let device: BSDevice
 
     @State private var isConnected: Bool = false
+    @State private var isCharging: Bool = false
 
     @State private var batteryLevel: BSBatteryLevel = .zero
     private var batteryLevelSystemImage: String {
-        switch batteryLevel {
+        if isCharging {
+            return "battery.100.bolt"
+        }
+        return switch batteryLevel {
         case 85 ... 100:
             "battery.100"
         case 65 ... 85:
@@ -31,7 +35,10 @@ struct DeviceRowStatus: View {
     }
 
     private var batteryLevelColor: Color {
-        switch batteryLevel {
+        if isCharging {
+            // return .green
+        }
+        return switch batteryLevel {
         case 70 ... 100:
             .green
         case 25 ... 70:
@@ -62,9 +69,11 @@ struct DeviceRowStatus: View {
                 }
             }
         }
+        .onReceive(device.isConnectedPublisher, perform: { newIsConnected in isConnected = newIsConnected
+        })
         .onReceive(device.batteryLevelPublisher, perform: { newBatteryLevel in batteryLevel = newBatteryLevel
         })
-        .onReceive(device.isConnectedPublisher, perform: { newIsConnected in isConnected = newIsConnected
+        .onReceive(device.isBatteryChargingPublisher, perform: { newIsCharging in isCharging = newIsCharging
         })
         .labelStyle(LabelSpacing(spacing: 4))
         .font(Font.system(isWatch ? .caption2 : .caption, design: .monospaced))
