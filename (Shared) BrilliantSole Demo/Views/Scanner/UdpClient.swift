@@ -29,8 +29,6 @@ struct UdpClient: View {
         _connectionStatus = .init(initialValue: client.connectionStatus)
     }
 
-    @State private var connectingAnimationAmount: CGFloat = 1
-
     var body: some View {
         Form {
             Section {
@@ -60,60 +58,18 @@ struct UdpClient: View {
                     }
                 }
                 .disabled(connectionStatus != .notConnected)
-
-                switch connectionStatus {
-                case .notConnected:
-                    Button("connect") {
-                        client.toggleConnection()
-                    }
-                    .buttonStyle(.borderedProminent)
-                case .connecting:
-                    Button(role: .cancel, action: {
-                        client.toggleConnection()
-                    }) {
-                        Text("connecting")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .scaleEffect(connectingAnimationAmount)
-                    .animation(
-                        .easeInOut(duration: 0.5)
-                            .repeatForever(autoreverses: true),
-                        value: connectingAnimationAmount)
-                    .onAppear {
-                        connectingAnimationAmount = 0.97
-                    }
-                    .onDisappear {
-                        connectingAnimationAmount = 1
-                    }
-                case .connected:
-                    Button(role: .destructive, action: {
-                        client.toggleConnection()
-                    }) {
-                        Text("disconnect")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    #if !os(visionOS)
-                        .tint(.red)
-                    #endif
-                case .disconnecting:
-                    Button(role: .cancel, action: {
-                        client.toggleConnection()
-                    }) {
-                        Text("disconnecting")
-                    }
-                    .buttonStyle(.borderedProminent)
+                .onReceive(client.connectionStatusPublisher) { newConnectionStatus in
+                    connectionStatus = newConnectionStatus
                 }
+
+                ConnectableButton(connectable: client)
             }
-        }
-        .onReceive(client.connectionStatusPublisher) { newConnectionStatus in
-            connectionStatus = newConnectionStatus
         }
     }
 }
 
 #Preview {
     UdpClient()
-        .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

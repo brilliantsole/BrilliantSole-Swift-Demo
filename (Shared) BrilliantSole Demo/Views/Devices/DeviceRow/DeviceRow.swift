@@ -38,7 +38,7 @@ struct DeviceRow: View {
             #if os(tvOS)
             .focusSection()
             #endif
-            DeviceRowConnection(connectable: device, includeConnectionType: true)
+            DeviceRowConnection(connectable: device)
             #if os(tvOS)
                 .focusSection()
             #endif
