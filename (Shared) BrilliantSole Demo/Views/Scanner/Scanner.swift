@@ -11,7 +11,7 @@ import SwiftUI
 struct Scanner: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
-    @State private var selectedScannerType: BSConnectionType = .ble
+    @State private var selectedScannerType: BSConnectionType = .udpClient
 
     private var scanner: BSScanner { selectedScannerType.scanner }
     @State private var isScanning: Bool = false
