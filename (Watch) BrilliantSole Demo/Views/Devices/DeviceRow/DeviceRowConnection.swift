@@ -9,27 +9,31 @@ import BrilliantSole
 import SwiftUI
 
 struct DeviceRowConnection: View {
-    let device: BSDevice
-    var onSelectDevice: (() -> Void)?
+    let connectable: BSConnectable
 
     @State private var connectionStatus: BSConnectionStatus = .notConnected
     @State private var connectingAnimationAmount: CGFloat = 1
     @Namespace private var animation
 
     private var connectionTypeName: String {
-        switch device.connectionType {
+        switch connectable.connectionType {
         case nil:
             "unknown"
         default:
-            device.connectionType!.name
+            connectable.connectionType!.name
         }
+    }
+
+    init(connectable: BSConnectable) {
+        self.connectable = connectable
+        _connectionStatus = .init(initialValue: connectable.connectionStatus)
     }
 
     var body: some View {
         VStack {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
                 Button(role: .destructive, action: {
-                    device.disconnect()
+                    connectable.disconnect()
                 }, label: {
                     Text("disconnect")
                 })
@@ -40,7 +44,7 @@ struct DeviceRowConnection: View {
             else {
                 if connectionStatus == .notConnected {
                     Button(action: {
-                        device.connect()
+                        connectable.connect()
                     }, label: {
                         Text("connect")
                     })
@@ -50,7 +54,7 @@ struct DeviceRowConnection: View {
                 }
                 else {
                     Button(role: .cancel, action: {
-                        device.disconnect()
+                        connectable.disconnect()
                     }, label: {
                         Text("connecting...")
                             .accessibilityLabel("cancel connection")
@@ -72,14 +76,14 @@ struct DeviceRowConnection: View {
                 }
             }
         }
-        .onReceive(device.connectionStatusPublisher, perform: { _, newConnectionStatus in
+        .onReceive(connectable.connectionStatusPublisher, perform: { newConnectionStatus in
             connectionStatus = newConnectionStatus
         })
     }
 }
 
 #Preview {
-    DeviceRowConnection(device: .none)
+    DeviceRowConnection(connectable: BSDevice.mock)
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

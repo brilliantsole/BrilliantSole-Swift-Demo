@@ -3,6 +3,7 @@ Connectable button
 UdpClient
     debug
 Devices
+    add badge
     List
     Examples
 DevicePair

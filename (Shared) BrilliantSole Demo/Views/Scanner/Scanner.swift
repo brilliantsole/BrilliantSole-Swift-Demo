@@ -11,7 +11,7 @@ import SwiftUI
 struct Scanner: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
-    @State private var selectedScannerType: BSConnectionType = .udpClient {
+    @State private var selectedScannerType: BSConnectionType = .ble {
         didSet {
             oldValue.scanner.stopScan()
         }
@@ -65,7 +65,6 @@ struct Scanner: View {
                 else {
                     ForEach(discoveredDevices) { discoveredDevice in
                         DiscoveredDeviceRow(discoveredDevice: discoveredDevice)
-                            .id(discoveredDevice.id)
                     }
                 }
             }

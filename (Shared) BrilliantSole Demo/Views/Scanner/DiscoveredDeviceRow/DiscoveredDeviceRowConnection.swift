@@ -13,15 +13,7 @@ struct DiscoveredDeviceRowConnection: View {
     let discoveredDevice: BSDiscoveredDevice
 
     var body: some View {
-        HStack {
-            Button(action: {
-                discoveredDevice.connect()
-            }, label: {
-                Text("connect")
-            })
-            .buttonStyle(.borderedProminent)
-            Spacer()
-        }
+        DeviceRowConnection(connectable: discoveredDevice)
     }
 }
 

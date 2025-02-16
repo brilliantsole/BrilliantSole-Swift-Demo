@@ -23,7 +23,7 @@ struct DeviceRow: View {
     var body: some View {
         VStack {
             HStack {
-                DeviceRowHeader(device: device)
+                DeviceRowHeader(metaDevice: device)
                 Spacer()
                 if isConnected {
                     Button(action: {
@@ -38,7 +38,7 @@ struct DeviceRow: View {
             #if os(tvOS)
             .focusSection()
             #endif
-            DeviceRowConnection(device: device)
+            DeviceRowConnection(connectable: device, includeConnectionType: true)
             #if os(tvOS)
                 .focusSection()
             #endif
@@ -55,7 +55,7 @@ struct DeviceRow: View {
 }
 
 #Preview {
-    DeviceRow(device: .none)
+    DeviceRow(device: .mock)
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

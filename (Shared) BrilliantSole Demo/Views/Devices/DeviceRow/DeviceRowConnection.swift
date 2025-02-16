@@ -9,24 +9,24 @@ import BrilliantSole
 import SwiftUI
 
 struct DeviceRowConnection: View {
-    let device: BSDevice
-    let onSelectDevice: (() -> Void)?
+    let connectable: BSConnectable
+    let includeConnectionType: Bool
 
     @State private var connectionStatus: BSConnectionStatus = .notConnected
     @State private var connectingAnimationAmount: CGFloat = 1
 
     private var connectionTypeName: String {
-        switch device.connectionType {
+        switch connectable.connectionType {
         case nil:
             "unknown"
         default:
-            device.connectionType!.name
+            connectable.connectionType!.name
         }
     }
 
-    init(device: BSDevice, onSelectDevice: (() -> Void)? = nil) {
-        self.device = device
-        self.onSelectDevice = onSelectDevice
+    init(connectable: BSConnectable, includeConnectionType: Bool = false) {
+        self.connectable = connectable
+        self.includeConnectionType = includeConnectionType
         _connectionStatus = .init(initialValue: connectionStatus)
     }
 
@@ -35,7 +35,7 @@ struct DeviceRowConnection: View {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
                 Text("connected via \(connectionTypeName)")
                 Button(role: .destructive, action: {
-                    device.disconnect()
+                    connectable.disconnect()
                 }, label: {
                     Text("disconnect")
                 })
@@ -49,21 +49,29 @@ struct DeviceRowConnection: View {
             }
             else {
                 if connectionStatus == .notConnected {
-                    Text("connect via:")
-                    Button(action: {
-                        device.connect()
-                    }, label: {
-                        Text(connectionTypeName)
-                            .accessibilityLabel("connect via \(connectionTypeName)")
-                    })
-                    .buttonStyle(.borderedProminent)
+                    if includeConnectionType {
+                        Text("connect via:")
+                        Button(action: {
+                            connectable.connect()
+                        }, label: {
+                            Text(connectionTypeName)
+                                .accessibilityLabel("connect via \(connectionTypeName)")
+                        })
+                        .buttonStyle(.borderedProminent)
+                    }
+                    else {
+                        Button("connect") {
+                            connectable.connect()
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
                 }
                 else {
                     if is_iOS {
                         Spacer()
                     }
                     Button(role: .cancel, action: {
-                        device.disconnect()
+                        connectable.disconnect()
                     }, label: {
                         Text("connecting...")
                             .accessibilityLabel("cancel connection")
@@ -85,14 +93,14 @@ struct DeviceRowConnection: View {
                 Spacer()
             }
         }
-        .onReceive(device.connectionStatusPublisher, perform: { newConnectionStatus in
+        .onReceive(connectable.connectionStatusPublisher, perform: { newConnectionStatus in
             connectionStatus = newConnectionStatus
         })
     }
 }
 
 #Preview {
-    DeviceRowConnection(device: .none)
+    DeviceRowConnection(connectable: BSDevice.mock)
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

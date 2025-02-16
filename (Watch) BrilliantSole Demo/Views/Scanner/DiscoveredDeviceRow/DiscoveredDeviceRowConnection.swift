@@ -13,13 +13,7 @@ struct DiscoveredDeviceRowConnection: View {
     let discoveredDevice: BSDiscoveredDevice
 
     var body: some View {
-        Button(action: {
-            discoveredDevice.connect()
-        }, label: {
-            Text("connect")
-        })
-        .buttonStyle(.borderedProminent)
-        .tint(.blue)
+        DeviceRowConnection(connectable: discoveredDevice)
     }
 }
 

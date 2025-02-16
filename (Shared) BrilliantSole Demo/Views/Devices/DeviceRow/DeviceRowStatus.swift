@@ -73,7 +73,7 @@ struct DeviceRowStatus: View {
 }
 
 #Preview {
-    DeviceRowStatus(device: .none)
+    DeviceRowStatus(device: .mock)
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

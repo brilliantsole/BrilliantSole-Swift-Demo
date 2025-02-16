@@ -27,7 +27,8 @@ struct DiscoveredDeviceRow: View {
                 .padding()
             }
         }
-        .onReceive(discoveredDevice.devicePublisher) { _, device in
+        .id(discoveredDevice.id)
+        .onReceive(discoveredDevice.devicePublisher) { device in
             deviceCreated = device != nil
         }
     }

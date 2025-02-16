@@ -20,25 +20,25 @@ struct DeviceRow: View {
                 Button(action: {
                     onSelectDevice?()
                 }) {
-                    DeviceRowHeader(device: device)
+                    DeviceRowHeader(metaDevice: device)
                 }
                 .buttonStyle(.borderedProminent)
 
             } else {
-                DeviceRowHeader(device: device)
+                DeviceRowHeader(metaDevice: device)
             }
-            DeviceRowConnection(device: device)
+            DeviceRowConnection(connectable: device)
             DeviceRowStatus(device: device)
         }
         .padding()
-        .onReceive(device.isConnectedPublisher) { _, newIsConnected in
+        .onReceive(device.isConnectedPublisher) { newIsConnected in
             isConnected = newIsConnected
         }
     }
 }
 
 #Preview {
-    DeviceRow(device: .none)
+    DeviceRow(device: .mock)
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif
