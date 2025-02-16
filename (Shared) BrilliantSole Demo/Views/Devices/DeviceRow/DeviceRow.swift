@@ -14,8 +14,11 @@ struct DeviceRow: View {
 
     @State private var isConnected: Bool = false
 
-    init(device: BSDevice, onSelectDevice: (() -> Void)? = nil) {
+    let includeConnectionType: Bool
+
+    init(device: BSDevice, includeConnectionType: Bool = false, onSelectDevice: (() -> Void)? = nil) {
         self.device = device
+        self.includeConnectionType = includeConnectionType
         self.onSelectDevice = onSelectDevice
         _isConnected = .init(initialValue: isConnected)
     }
@@ -38,7 +41,7 @@ struct DeviceRow: View {
             #if os(tvOS)
             .focusSection()
             #endif
-            DeviceRowConnection(connectable: device)
+            DeviceRowConnection(connectable: device, includeConnectionType: includeConnectionType)
             #if os(tvOS)
                 .focusSection()
             #endif

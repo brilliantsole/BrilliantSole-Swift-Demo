@@ -1,5 +1,5 @@
 UdpClient
-    a million pings, a million clients
+    fix pong (occurs when scanned devices come in)
 Devices
     add badge
     List

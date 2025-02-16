@@ -10,10 +10,16 @@ import SwiftUI
 
 struct DeviceRowConnection: View {
     let connectable: BSConnectable
+    let includeConnectionType: Bool
+
+    init(connectable: BSConnectable, includeConnectionType: Bool = false) {
+        self.connectable = connectable
+        self.includeConnectionType = includeConnectionType
+    }
 
     var body: some View {
         HStack {
-            ConnectableButton(connectable: connectable, includeConnectionType: true)
+            ConnectableButton(connectable: connectable, includeConnectionType: includeConnectionType)
             Spacer()
         }
     }
