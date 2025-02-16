@@ -85,7 +85,7 @@ struct DeviceRowConnection: View {
                 Spacer()
             }
         }
-        .onReceive(device.connectionStatusPublisher, perform: { _, newConnectionStatus in
+        .onReceive(device.connectionStatusPublisher, perform: { newConnectionStatus in
             connectionStatus = newConnectionStatus
         })
     }

@@ -105,7 +105,7 @@ struct UdpClient: View {
                 }
             }
         }
-        .onReceive(client.connectionStatusPublisher) { _, newConnectionStatus in
+        .onReceive(client.connectionStatusPublisher) { newConnectionStatus in
             connectionStatus = newConnectionStatus
         }
     }

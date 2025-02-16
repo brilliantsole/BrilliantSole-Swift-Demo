@@ -23,10 +23,10 @@ struct DeviceRowHeader: View {
 
     var body: some View {
         GenericDeviceRowHeader(name: name, deviceType: deviceType)
-            .onReceive(device.deviceTypePublisher) { _, newDeviceType in
+            .onReceive(device.deviceTypePublisher) { newDeviceType in
                 deviceType = newDeviceType
             }
-            .onReceive(device.namePublisher) { _, newName in
+            .onReceive(device.namePublisher) { newName in
                 name = newName
             }
     }

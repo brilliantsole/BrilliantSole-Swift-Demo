@@ -62,9 +62,9 @@ struct DeviceRowStatus: View {
                 }
             }
         }
-        .onReceive(device.batteryLevelPublisher, perform: { _, newBatteryLevel in batteryLevel = newBatteryLevel
+        .onReceive(device.batteryLevelPublisher, perform: { newBatteryLevel in batteryLevel = newBatteryLevel
         })
-        .onReceive(device.isConnectedPublisher, perform: { _, newIsConnected in isConnected = newIsConnected
+        .onReceive(device.isConnectedPublisher, perform: { newIsConnected in isConnected = newIsConnected
         })
         .labelStyle(LabelSpacing(spacing: 4))
         .font(Font.system(isWatch ? .caption2 : .caption, design: .monospaced))

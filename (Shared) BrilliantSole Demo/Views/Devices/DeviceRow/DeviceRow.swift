@@ -44,7 +44,7 @@ struct DeviceRow: View {
             #endif
             DeviceRowStatus(device: device)
         }
-        .onReceive(device.isConnectedPublisher) { _, newIsConnected in
+        .onReceive(device.isConnectedPublisher) { newIsConnected in
             isConnected = newIsConnected
         }
         .padding()

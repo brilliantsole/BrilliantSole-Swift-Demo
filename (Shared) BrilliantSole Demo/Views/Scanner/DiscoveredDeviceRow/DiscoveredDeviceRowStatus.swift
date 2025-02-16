@@ -37,10 +37,10 @@ struct DiscoveredDeviceRowStatus: View {
                         Label(timeSinceLastUpdateString, systemImage: "stopwatch")
                     }
                 }
-                .onReceive(discoveredDevice.rssiPublisher, perform: { _, newRssi in
+                .onReceive(discoveredDevice.rssiPublisher, perform: { newRssi in
                     rssi = newRssi
                 })
-                .onReceive(discoveredDevice.timeSinceLastUpdatePublisher, perform: { _, newTimeSinceLastUpdate in
+                .onReceive(discoveredDevice.timeSinceLastUpdatePublisher, perform: { newTimeSinceLastUpdate in
                     timeSinceLastUpdate = newTimeSinceLastUpdate
                 })
             }
