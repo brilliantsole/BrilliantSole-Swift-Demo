@@ -11,7 +11,7 @@ import SwiftUI
 struct Scanner: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
-    @State private var selectedScannerType: BSConnectionType = .ble {
+    @State private var selectedScannerType: BSConnectionType = .udpClient {
         didSet {
             oldValue.scanner.stopScan()
         }
@@ -34,9 +34,14 @@ struct Scanner: View {
         NavigationStack(path: $navigationManager.path) {
             List {
                 if !isWatch {
-                    Picker("scanner type", selection: $selectedScannerType) {
-                        ForEach(BSConnectionType.allCases) { connectionType in
-                            Text(connectionType.name).tag(connectionType)
+                    VStack {
+                        Picker("scanner type", selection: $selectedScannerType) {
+                            ForEach(BSConnectionType.allCases) { connectionType in
+                                Text(connectionType.name).tag(connectionType)
+                            }
+                        }
+                        if selectedScannerType == .udpClient {
+                            UdpClient()
                         }
                     }
                 }
