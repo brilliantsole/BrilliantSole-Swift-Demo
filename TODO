@@ -1,7 +1,7 @@
-UdpClient
-    fix pong (occurs when scanned devices come in)
+Scanner
+    Badge
 Devices
     add badge
     List
-    Examples
+Device
 DevicePair

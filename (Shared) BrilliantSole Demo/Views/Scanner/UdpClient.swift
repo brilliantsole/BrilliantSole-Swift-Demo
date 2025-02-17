@@ -29,48 +29,63 @@ struct UdpClient: View {
         _connectionStatus = .init(initialValue: client.connectionStatus)
     }
 
+    private let labelWidth: CGFloat = 100
+
     var body: some View {
-        Form {
-            Section {
-                Group {
-                    HStack {
-                        TextField("Ip Address", text: $ipAddress)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .modify {
-                                #if os(iOS) || os(tvOS) || os(visionOS)
-                                    $0.keyboardType(.decimalPad)
-                                #endif
-                            }
-                            .onChange(of: ipAddress) { _, newValue in
-                                isIpAddressValid = client.isValidIpAddress(newValue)
-                            }
-                            .foregroundColor(isIpAddressValid ? .primary : .red)
+        VStack {
+            HStack {
+                Text("Ip Address")
+                    .frame(width: labelWidth, alignment: .leading)
+                TextField("Ip Address", text: $ipAddress)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .modify {
+                        #if os(iOS) || os(tvOS) || os(visionOS)
+                            $0.keyboardType(.decimalPad)
+                        #endif
                     }
-
-                    HStack {
-                        TextField("Send Port", value: $sendPort, format: .number.grouping(.never))
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: ipAddress) { _, newValue in
+                        isIpAddressValid = client.isValidIpAddress(newValue)
+                        if isIpAddressValid {
+                            client.ipAddress = newValue
+                        }
                     }
+                    .foregroundColor(isIpAddressValid ? .primary : .red)
+            }
 
-                    HStack {
-                        TextField("Receive Port", value: $receivePort, format: .number.grouping(.never))
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+            HStack {
+                Text("Send Port")
+                    .frame(width: labelWidth, alignment: .leading)
+                TextField("Send Port", value: $sendPort, format: .number.grouping(.never))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: sendPort) { _, newValue in
+                        client.sendPort = newValue
                     }
-                }
-                .disabled(connectionStatus != .notConnected)
-                .onReceive(client.connectionStatusPublisher) { newConnectionStatus in
-                    connectionStatus = newConnectionStatus
-                }
+            }
 
-                ConnectableButton(connectable: client)
+            HStack {
+                Text("Receive Port")
+                    .frame(width: labelWidth, alignment: .leading)
+                TextField("Receive Port", value: $receivePort, format: .number.grouping(.never))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: receivePort) { _, newValue in
+                        client.receivePort = newValue
+                    }
             }
         }
+        .disabled(connectionStatus != .notConnected)
+        .onReceive(client.connectionStatusPublisher) { newConnectionStatus in
+            connectionStatus = newConnectionStatus
+        }
+
+        ConnectableButton(connectable: client)
     }
 }
 
 #Preview {
-    UdpClient()
+    List {
+        UdpClient()
+    }
     #if os(macOS)
-        .frame(maxWidth: 350, minHeight: 300)
+    .frame(maxWidth: 350, minHeight: 300)
     #endif
 }

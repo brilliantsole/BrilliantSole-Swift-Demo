@@ -70,9 +70,9 @@ struct ConnectableButton: View {
                     }
                 }
                 else {
-                    if is_iOS {
-                        Spacer()
-                    }
+//                    if is_iOS {
+//                        Spacer()
+//                    }
                     Button(role: .cancel, action: {
                         connectable.disconnect()
                     }, label: {
