@@ -11,7 +11,7 @@ import SwiftUI
 struct Scanner: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
-    @State private var selectedScannerType: BSConnectionType = .ble
+    @Binding private var selectedScannerType: BSConnectionType
 
     private var scanner: BSScanner { selectedScannerType.scanner }
     @State private var isScanning: Bool = false
@@ -19,8 +19,8 @@ struct Scanner: View {
 
     @State private var discoveredDevices: [BSDiscoveredDevice] = .init()
 
-    init(selectedScannerType: BSConnectionType = .ble) {
-        self.selectedScannerType = selectedScannerType
+    init(selectedScannerType: Binding<BSConnectionType>) {
+        self._selectedScannerType = selectedScannerType
         _isScanning = .init(initialValue: scanner.isScanning)
         _isScanningAvailable = .init(initialValue: scanner.isScanningAvailable)
         _discoveredDevices = .init(initialValue: scanner.discoveredDevices)
@@ -119,7 +119,7 @@ struct Scanner: View {
 }
 
 #Preview {
-    Scanner()
+    Scanner(selectedScannerType: .constant(.ble))
         .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)

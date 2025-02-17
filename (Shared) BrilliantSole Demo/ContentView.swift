@@ -55,11 +55,21 @@ struct ContentView: View {
 
     @StateObject private var navigationManager = NavigationManager()
 
+    // MARK: - deviceCount
+
+    @State private var discoveredDeviceCount: Int = 0
+    @State private var deviceCount: Int = 0
+
+    // MARK: - scannerType
+
+    @State private var selectedScannerType: BSConnectionType = .ble
+    private var scanner: BSScanner { selectedScannerType.scanner }
+
     // MARK: - body
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Scanner()
+            Scanner(selectedScannerType: $selectedScannerType)
                 .modify {
                     if !isWatch {
                         $0.tabItem {
@@ -68,6 +78,12 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.scanner)
+            #if !os(watchOS)
+                .badge(discoveredDeviceCount)
+                .onReceive(scanner.discoveredDevicesPublisher) { discoveredDevices in
+                    discoveredDeviceCount = discoveredDevices.count
+                }
+            #endif
 
             Devices()
                 .modify {
@@ -78,6 +94,12 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.devices)
+            #if !os(watchOS)
+                .badge(deviceCount)
+                .onReceive(BSDeviceManager.availableDevicesPublisher) { devices in
+                    deviceCount = devices.count
+                }
+            #endif
 
             DevicePair()
                 .modify {
