@@ -28,7 +28,9 @@ struct DiscoveredDeviceRow: View {
             }
         }
         .onReceive(discoveredDevice.devicePublisher) { device in
-            deviceCreated = device != nil
+            withAnimation {
+                deviceCreated = device != nil
+            }
         }
     }
 }

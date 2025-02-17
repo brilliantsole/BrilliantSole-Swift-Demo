@@ -29,7 +29,17 @@ struct UdpClient: View {
         _connectionStatus = .init(initialValue: client.connectionStatus)
     }
 
-    private let labelWidth: CGFloat = 100
+    private var labelWidth: CGFloat {
+        if isTv {
+            return 170
+        }
+        else if isMacOs {
+            return 100
+        }
+        else {
+            return 100
+        }
+    }
 
     var body: some View {
         VStack {
@@ -37,7 +47,9 @@ struct UdpClient: View {
                 Text("Ip Address")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Ip Address", text: $ipAddress)
+                #if !os(tvOS)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                #endif
                     .modify {
                         #if os(iOS) || os(tvOS) || os(visionOS)
                             $0.keyboardType(.decimalPad)
@@ -56,7 +68,9 @@ struct UdpClient: View {
                 Text("Send Port")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Send Port", value: $sendPort, format: .number.grouping(.never))
+                #if !os(tvOS)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                #endif
                     .onChange(of: sendPort) { _, newValue in
                         client.sendPort = newValue
                     }
@@ -66,7 +80,9 @@ struct UdpClient: View {
                 Text("Receive Port")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Receive Port", value: $receivePort, format: .number.grouping(.never))
+                #if !os(tvOS)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                #endif
                     .onChange(of: receivePort) { _, newValue in
                         client.receivePort = newValue
                     }

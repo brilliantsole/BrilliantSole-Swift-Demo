@@ -720,6 +720,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -751,6 +752,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -780,9 +782,11 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-VisionOS--BrilliantSole-Demo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -810,9 +814,11 @@
 				DEVELOPMENT_TEAM = KT7J75V2U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-VisionOS--BrilliantSole-Demo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
