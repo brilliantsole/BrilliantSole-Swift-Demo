@@ -67,6 +67,9 @@ struct DeviceRowStatus: View {
                     Image(systemName: batteryLevelSystemImage)
                         .foregroundColor(batteryLevelColor)
                 }
+                if !isWatch || !is_iOS {
+                    Spacer()
+                }
             }
         }
         .onReceive(device.isConnectedPublisher, perform: { newIsConnected in isConnected = newIsConnected

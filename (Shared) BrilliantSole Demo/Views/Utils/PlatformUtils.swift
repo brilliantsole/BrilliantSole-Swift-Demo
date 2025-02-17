@@ -36,3 +36,11 @@ var is_iOS: Bool {
     false
     #endif
 }
+
+var isVisionOS: Bool {
+    #if os(visionOS)
+    true
+    #else
+    false
+    #endif
+}

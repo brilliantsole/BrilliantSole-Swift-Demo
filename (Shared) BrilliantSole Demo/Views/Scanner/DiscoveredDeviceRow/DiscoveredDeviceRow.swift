@@ -11,6 +11,7 @@ import SwiftUI
 
 struct DiscoveredDeviceRow: View {
     let discoveredDevice: BSDiscoveredDevice
+
     @State private var deviceCreated = false
 
     init(discoveredDevice: BSDiscoveredDevice) {
@@ -22,9 +23,8 @@ struct DiscoveredDeviceRow: View {
         Group {
             if deviceCreated, let device = discoveredDevice.device {
                 DeviceRow(device: device)
-                    .transition(.opacity)
-            }
-            else {
+                    .transition(.opacity.combined(with: .scale))
+            } else {
                 VStack {
                     HStack {
                         DiscoveredDeviceRowHeader(discoveredDevice: discoveredDevice)
@@ -39,17 +39,15 @@ struct DiscoveredDeviceRow: View {
 #endif
                     DiscoveredDeviceRowStatus(discoveredDevice: discoveredDevice)
                 }
-
                 .padding()
 #if os(tvOS)
                     .focusSection()
 #endif
             }
         }
+        .animation(.default, value: deviceCreated)
         .onReceive(discoveredDevice.devicePublisher) { device in
-            withAnimation {
-                deviceCreated = device != nil
-            }
+            deviceCreated = device != nil
         }
     }
 }

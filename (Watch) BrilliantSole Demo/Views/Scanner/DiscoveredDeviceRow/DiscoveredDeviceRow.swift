@@ -17,6 +17,7 @@ struct DiscoveredDeviceRow: View {
         Group {
             if deviceCreated, let device = discoveredDevice.device {
                 DeviceRow(device: device)
+                    .transition(.opacity.combined(with: .scale))
             }
             else {
                 VStack {
@@ -27,10 +28,9 @@ struct DiscoveredDeviceRow: View {
                 .padding()
             }
         }
+        .animation(.default, value: deviceCreated)
         .onReceive(discoveredDevice.devicePublisher) { device in
-            withAnimation {
-                deviceCreated = device != nil
-            }
+            deviceCreated = device != nil
         }
     }
 }

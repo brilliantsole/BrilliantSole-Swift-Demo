@@ -43,6 +43,9 @@ struct DiscoveredDeviceRowStatus: View {
                 .onReceive(discoveredDevice.timeSinceLastUpdatePublisher, perform: { newTimeSinceLastUpdate in
                     timeSinceLastUpdate = newTimeSinceLastUpdate
                 })
+                if !isWatch || !is_iOS {
+                    Spacer()
+                }
             }
         }
         .onReceive(discoveredDevice.scanner.isScanningPublisher, perform: {
