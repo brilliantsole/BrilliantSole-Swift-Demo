@@ -22,6 +22,7 @@ struct DiscoveredDeviceRow: View {
         Group {
             if deviceCreated, let device = discoveredDevice.device {
                 DeviceRow(device: device)
+                    .transition(.opacity)
             }
             else {
                 VStack {
@@ -45,9 +46,10 @@ struct DiscoveredDeviceRow: View {
 #endif
             }
         }
-        .id(discoveredDevice.id)
         .onReceive(discoveredDevice.devicePublisher) { device in
-            deviceCreated = device != nil
+            withAnimation {
+                deviceCreated = device != nil
+            }
         }
     }
 }

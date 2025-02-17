@@ -64,6 +64,7 @@ struct Scanner: View {
                 else {
                     ForEach(discoveredDevices) { discoveredDevice in
                         DiscoveredDeviceRow(discoveredDevice: discoveredDevice)
+                            .id(discoveredDevice.id)
                     }
                 }
             }
