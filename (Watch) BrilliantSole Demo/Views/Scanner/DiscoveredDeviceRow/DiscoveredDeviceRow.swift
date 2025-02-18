@@ -13,10 +13,12 @@ struct DiscoveredDeviceRow: View {
     let discoveredDevice: BSDiscoveredDevice
     @State private var deviceCreated = false
 
+    var onSelectDevice: (() -> Void)?
+
     var body: some View {
         Group {
             if deviceCreated, let device = discoveredDevice.device {
-                DeviceRow(device: device)
+                DeviceRow(device: device, onSelectDevice: onSelectDevice)
                     .transition(.opacity.combined(with: .scale))
             }
             else {

@@ -33,6 +33,9 @@ struct Devices: View {
                 }
             }
             .navigationTitle("Devices")
+            .navigationDestination(for: BSDevice.self) { device in
+                Device(device: device)
+            }
         }
         .onReceive(BSDeviceManager.availableDevicesPublisher) { devices in
             self.devices = devices

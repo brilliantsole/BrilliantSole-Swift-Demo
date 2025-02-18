@@ -56,6 +56,7 @@
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
+				Views/Devices/Device/Device.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -82,6 +83,7 @@
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
+				Views/Devices/Device/Device.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -107,6 +109,7 @@
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
+				Views/Devices/Device/Device.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -132,6 +135,7 @@
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
+				Views/Devices/Device/Device.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -158,6 +162,7 @@
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
+				Views/Devices/Device/Device.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
 				Views/Devices/DeviceRow/DeviceRowStatus.swift,
 				Views/Devices/Devices.swift,
@@ -171,13 +176,6 @@
 			);
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
 		};
-		5FD2DCCD2D63D136007D3ED0 /* Exceptions for "(Mac) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"-Mac--BrilliantSole-Demo-Info.plist",
-			);
-			target = 5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -188,9 +186,6 @@
 		};
 		5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5FD2DCCD2D63D136007D3ED0 /* Exceptions for "(Mac) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */,
-			);
 			path = "(Mac) BrilliantSole Demo";
 			sourceTree = "<group>";
 		};

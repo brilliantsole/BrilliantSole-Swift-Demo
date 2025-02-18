@@ -63,12 +63,21 @@ struct Scanner: View {
                 }
                 else {
                     ForEach(discoveredDevices) { discoveredDevice in
-                        DiscoveredDeviceRow(discoveredDevice: discoveredDevice)
-                            .id(discoveredDevice.id)
+                        DiscoveredDeviceRow(discoveredDevice: discoveredDevice) {
+                            #if os(watchOS) || os(iOS)
+                                if isScanning {
+                                    scanner.stopScan()
+                                }
+                            #endif
+                        }
+                        .id(discoveredDevice.id)
                     }
                 }
             }
             .navigationTitle("Scanner")
+            .navigationDestination(for: BSDevice.self) { device in
+                Device(device: device)
+            }
             .toolbar {
                 let button = Button {
                     scanner.toggleScan()

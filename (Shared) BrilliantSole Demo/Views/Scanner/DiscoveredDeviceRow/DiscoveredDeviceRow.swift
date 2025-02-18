@@ -12,17 +12,20 @@ import SwiftUI
 struct DiscoveredDeviceRow: View {
     let discoveredDevice: BSDiscoveredDevice
 
+    var onSelectDevice: (() -> Void)?
+
     @State private var deviceCreated = false
 
-    init(discoveredDevice: BSDiscoveredDevice) {
+    init(discoveredDevice: BSDiscoveredDevice, onSelectDevice: (() -> Void)? = nil) {
         self.discoveredDevice = discoveredDevice
         _deviceCreated = .init(initialValue: discoveredDevice.device != nil)
+        self.onSelectDevice = onSelectDevice
     }
 
     var body: some View {
         Group {
             if deviceCreated, let device = discoveredDevice.device {
-                DeviceRow(device: device)
+                DeviceRow(device: device, onSelectDevice: onSelectDevice)
                     .transition(.opacity.combined(with: .scale))
             } else {
                 VStack {

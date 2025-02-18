@@ -10,17 +10,19 @@ import SwiftUI
 
 struct DeviceRow: View {
     let device: BSDevice
-    let onSelectDevice: (() -> Void)?
 
     @State private var isConnected: Bool = false
 
     let includeConnectionType: Bool
 
+    @EnvironmentObject var navigationManager: NavigationManager
+    var onSelectDevice: (() -> Void)?
+
     init(device: BSDevice, includeConnectionType: Bool = false, onSelectDevice: (() -> Void)? = nil) {
         self.device = device
         self.includeConnectionType = includeConnectionType
-        self.onSelectDevice = onSelectDevice
         _isConnected = .init(initialValue: isConnected)
+        self.onSelectDevice = onSelectDevice
     }
 
     var body: some View {
@@ -31,6 +33,7 @@ struct DeviceRow: View {
                 if isConnected {
                     Button(action: {
                         onSelectDevice?()
+                        navigationManager.path.append(device)
                     }) {
                         Label("select", systemImage: "chevron.right.circle")
                             .labelStyle(LabelSpacing(spacing: 4))
@@ -59,6 +62,7 @@ struct DeviceRow: View {
 
 #Preview {
     DeviceRow(device: .mock)
+        .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

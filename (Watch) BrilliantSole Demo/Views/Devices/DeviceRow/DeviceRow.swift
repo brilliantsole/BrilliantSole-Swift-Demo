@@ -10,15 +10,27 @@ import SwiftUI
 
 struct DeviceRow: View {
     let device: BSDevice
-    var onSelectDevice: (() -> Void)?
 
     @State private var isConnected: Bool = false
+
+    let includeConnectionType: Bool
+
+    @EnvironmentObject var navigationManager: NavigationManager
+    var onSelectDevice: (() -> Void)?
+
+    init(device: BSDevice, includeConnectionType: Bool = false, onSelectDevice: (() -> Void)? = nil) {
+        self.device = device
+        self.includeConnectionType = includeConnectionType
+        _isConnected = .init(initialValue: isConnected)
+        self.onSelectDevice = onSelectDevice
+    }
 
     var body: some View {
         VStack {
             if isConnected {
                 Button(action: {
                     onSelectDevice?()
+                    navigationManager.path.append(device)
                 }) {
                     DeviceRowHeader(metaDevice: device)
                 }
@@ -39,6 +51,7 @@ struct DeviceRow: View {
 
 #Preview {
     DeviceRow(device: .mock)
+        .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif
