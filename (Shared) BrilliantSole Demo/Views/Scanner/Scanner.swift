@@ -119,7 +119,9 @@ struct Scanner: View {
 }
 
 #Preview {
-    Scanner(selectedScannerType: .constant(.ble))
+    @Previewable @State var selectedScannerType: BSConnectionType = .ble
+
+    Scanner(selectedScannerType: $selectedScannerType)
         .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)

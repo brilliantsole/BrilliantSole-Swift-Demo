@@ -46,9 +46,6 @@ struct ConnectableButton: View {
                 #if !os(visionOS)
                     .tint(.red)
                 #endif
-                if !is_iOS {
-                    Spacer()
-                }
             }
             else {
                 if connectionStatus == .notConnected {
@@ -70,9 +67,6 @@ struct ConnectableButton: View {
                     }
                 }
                 else {
-//                    if is_iOS {
-//                        Spacer()
-//                    }
                     Button(role: .cancel, action: {
                         connectable.disconnect()
                     }, label: {

@@ -93,7 +93,10 @@ struct UdpClient: View {
             connectionStatus = newConnectionStatus
         }
 
-        ConnectableButton(connectable: client)
+        HStack {
+            ConnectableButton(connectable: client)
+            Spacer()
+        }
     }
 }
 
