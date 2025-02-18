@@ -1,4 +1,3 @@
-UdpScanner - disconnect and then scan for first time
 DevicePair
     isFullyConnected depends on device connection
 Device
