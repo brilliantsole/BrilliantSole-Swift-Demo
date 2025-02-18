@@ -171,6 +171,13 @@
 			);
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
 		};
+		5FD2DCCD2D63D136007D3ED0 /* Exceptions for "(Mac) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"-Mac--BrilliantSole-Demo-Info.plist",
+			);
+			target = 5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -181,6 +188,9 @@
 		};
 		5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5FD2DCCD2D63D136007D3ED0 /* Exceptions for "(Mac) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */,
+			);
 			path = "(Mac) BrilliantSole Demo";
 			sourceTree = "<group>";
 		};
@@ -578,6 +588,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -617,6 +628,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -656,10 +668,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-Mac--BrilliantSole-Demo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -688,10 +702,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-Mac--BrilliantSole-Demo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

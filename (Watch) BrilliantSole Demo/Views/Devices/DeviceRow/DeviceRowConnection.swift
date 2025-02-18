@@ -9,11 +9,20 @@ import BrilliantSole
 import SwiftUI
 
 struct DeviceRowConnection: View {
-    let connectable: BSConnectable
+    @State private var connectedDeviceCount: Int = 0
+    @State private var connectionStatus: BSConnectionStatus = .notConnected
 
+    let connectable: BSConnectable
     var body: some View {
         Group {
             ConnectableButton(connectable: connectable)
+                .disabled(connectedDeviceCount >= 2 && connectionStatus == .notConnected)
+        }
+        .onReceive(BSDeviceManager.connectedDevicesPublisher) { connectedDevices in
+            connectedDeviceCount = connectedDevices.count
+        }
+        .onReceive(connectable.connectionStatusPublisher) { newConnectionStatus in
+            connectionStatus = newConnectionStatus
         }
     }
 }
