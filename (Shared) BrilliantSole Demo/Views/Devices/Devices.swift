@@ -27,7 +27,7 @@ struct Devices: View {
                 }
                 else {
                     ForEach(devices) { device in
-                        DeviceRow(device: device)
+                        DeviceRow(device: device, includeConnectionType: true)
                             .id(device.id)
                     }
                 }

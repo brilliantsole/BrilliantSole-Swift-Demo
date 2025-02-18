@@ -1,4 +1,2 @@
-DevicePair
-    isFullyConnected depends on device connection
 Device
 DevicePair
