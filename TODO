@@ -1,5 +1,9 @@
 Device
-    DeviceInformationSection
-    InformationSection
+    SensorsSection
     ExamplesSection
+        Motion
+        Pressure
+        Vibration
+        Tflite
+        Firmware
 DevicePair

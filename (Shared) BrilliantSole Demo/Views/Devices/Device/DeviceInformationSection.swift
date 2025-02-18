@@ -20,9 +20,11 @@ struct DeviceInformationSection: View {
     }
 
     var body: some View {
+        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
+
         Section {
             ForEach(Array(deviceInformation.keys).sorted(), id: \.self) { key in
-                HStack {
+                layout {
                     Text("__\(key.name):__")
                     Text(deviceInformation[key]!)
                     #if os(iOS)
@@ -34,8 +36,8 @@ struct DeviceInformationSection: View {
             Text("Device Information")
                 .font(.headline)
         }
-        .onReceive(device.deviceInformationPublisher) { deviceInformation in
-            self.deviceInformation = deviceInformation
+        .onReceive(device.deviceInformationPublisher) {
+            self.deviceInformation = $0
         }
     }
 }

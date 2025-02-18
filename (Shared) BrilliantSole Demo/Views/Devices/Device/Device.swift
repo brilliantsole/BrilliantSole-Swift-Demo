@@ -11,10 +11,20 @@ import SwiftUI
 
 struct Device: View {
     let device: BSDevice
+
+    @EnvironmentObject var navigationManager: NavigationManager
+
     var body: some View {
         List {
             DeviceInformationSection(device: device)
+            InformationSection(device: device)
+            BatterySection(device: device)
         }.navigationTitle(device.name)
+            .onReceive(device.isConnectedPublisher) { isConnected in
+                if !isConnected {
+                    navigationManager.goBack()
+                }
+            }
     }
 }
 

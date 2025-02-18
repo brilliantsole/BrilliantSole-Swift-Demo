@@ -30,7 +30,7 @@ struct DeviceRow: View {
             if isConnected {
                 Button(action: {
                     onSelectDevice?()
-                    navigationManager.path.append(device)
+                    navigationManager.navigateTo(device)
                 }) {
                     DeviceRowHeader(metaDevice: device)
                 }

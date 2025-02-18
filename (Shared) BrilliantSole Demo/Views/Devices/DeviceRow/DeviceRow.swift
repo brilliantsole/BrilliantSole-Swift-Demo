@@ -33,7 +33,7 @@ struct DeviceRow: View {
                 if isConnected {
                     Button(action: {
                         onSelectDevice?()
-                        navigationManager.path.append(device)
+                        navigationManager.navigateTo(device)
                     }) {
                         Label("select", systemImage: "chevron.right.circle")
                             .labelStyle(LabelSpacing(spacing: 4))
