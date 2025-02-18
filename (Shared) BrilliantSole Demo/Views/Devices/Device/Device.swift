@@ -13,14 +13,16 @@ struct Device: View {
     let device: BSDevice
     var body: some View {
         List {
-            Text("hello \(device.name)")
+            DeviceInformationSection(device: device)
         }.navigationTitle(device.name)
     }
 }
 
 #Preview {
-    Device(device: .mock)
-        .environmentObject(NavigationManager())
+    NavigationStack {
+        Device(device: .mock)
+    }
+    .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

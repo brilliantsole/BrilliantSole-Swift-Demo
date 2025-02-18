@@ -44,7 +44,7 @@ struct UdpClient: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Ip Address")
+                Text("__Ip Address__")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Ip Address", text: $ipAddress)
                 #if !os(tvOS)
@@ -65,7 +65,7 @@ struct UdpClient: View {
             }
 
             HStack {
-                Text("Send Port")
+                Text("__Send Port__")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Send Port", value: $sendPort, format: .number.grouping(.never))
                 #if !os(tvOS)
@@ -77,7 +77,7 @@ struct UdpClient: View {
             }
 
             HStack {
-                Text("Receive Port")
+                Text("__Receive Port__")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Receive Port", value: $receivePort, format: .number.grouping(.never))
                 #if !os(tvOS)
