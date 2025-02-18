@@ -49,7 +49,12 @@ struct BatterySection: View {
                 Button(action: {
                     device.getBatteryCurrent()
                 }) {
-                    Label("refresh", systemImage: "arrow.clockwise")
+                    if is_iOS {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                    else {
+                        Label("refresh", systemImage: "arrow.clockwise")
+                    }
                 }
             }
             .onReceive(device.batteryCurrentPublisher) { batteryCurrent = $0
