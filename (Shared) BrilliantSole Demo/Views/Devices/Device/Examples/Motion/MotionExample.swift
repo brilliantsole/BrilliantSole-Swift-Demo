@@ -18,6 +18,7 @@ struct MotionExample: View {
         VStack {
             ModelView(device: device, recalibrateSubject: recalibrateSubject)
             RotationModePicker(sensorDataConfigurable: device)
+            TranslationModePicker(sensorConfigurable: device)
         }
         .navigationTitle("Motion")
         .onDisappear {

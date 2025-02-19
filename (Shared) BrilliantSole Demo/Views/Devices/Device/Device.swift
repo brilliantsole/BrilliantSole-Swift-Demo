@@ -27,6 +27,9 @@ struct Device: View {
                 navigationManager.goBack()
             }
         }
+        .navigationDestination(for: Example.self) { example in
+            example.view(device: device)
+        }
     }
 }
 
@@ -37,9 +40,6 @@ struct Device: View {
 
     NavigationStack(path: $navigationManager.path) {
         Device(device: device)
-            .navigationDestination(for: Example.self) { example in
-                example.view(device: device)
-            }
     }
     .environmentObject(navigationManager)
     #if os(macOS)

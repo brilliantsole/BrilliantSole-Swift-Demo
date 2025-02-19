@@ -1,6 +1,6 @@
 Device
     MotionExample
-        
+        fix rendering
         RotationPicker
     PressureExample
     VibrationExample
