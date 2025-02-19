@@ -38,7 +38,6 @@ struct ModelView: View {
     }
 
     func onRotation(_ rotation: Rotation3D) {
-        guard let model else { return }
         onQuaternion(rotation.quaternion)
     }
 
@@ -65,6 +64,11 @@ struct ModelView: View {
     // MARK: - Setup
 
     func setupScene() {
+        guard model == nil else {
+            print("already loaded model")
+            return
+        }
+
         guard device.isInsole else {
             print("device is not an insole")
             return
@@ -78,6 +82,7 @@ struct ModelView: View {
             print("failed to load model")
             return
         }
+
         scene.rootNode.addChildNode(model.rootNode)
         model.rootNode.scale = .init(25, 25, 25)
         model.rootNode.eulerAngles.x = .pi / 2

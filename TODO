@@ -1,5 +1,7 @@
 Device
     MotionExample
+        
+        RotationPicker
     PressureExample
     VibrationExample
     Tflite

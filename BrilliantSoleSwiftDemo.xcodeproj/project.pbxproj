@@ -217,6 +217,7 @@
 				Views/Devices/Device/DeviceInformationSection.swift,
 				Views/Devices/Device/Examples/Example.swift,
 				Views/Devices/Device/Examples/ExamplesSection.swift,
+				Views/Devices/Device/Examples/Motion/ModelView.swift,
 				Views/Devices/Device/Examples/Motion/MotionExample.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,

@@ -23,7 +23,7 @@ struct Device: View {
         }
         .navigationTitle(device.name)
         .onReceive(device.isConnectedPublisher) { isConnected in
-            if !isConnected {
+            if !isConnected && !device.isMock {
                 navigationManager.goBack()
             }
         }
@@ -31,11 +31,18 @@ struct Device: View {
 }
 
 #Preview {
-    NavigationStack {
-        Device(device: .mock)
+    @Previewable @StateObject var navigationManager = NavigationManager()
+
+    let device: BSDevice = .mock
+
+    NavigationStack(path: $navigationManager.path) {
+        Device(device: device)
+            .navigationDestination(for: Example.self) { example in
+                example.view(device: device)
+            }
     }
-    .environmentObject(NavigationManager())
+    .environmentObject(navigationManager)
     #if os(macOS)
-        .frame(maxWidth: 350, minHeight: 300)
+        .frame(maxWidth: 350, maxHeight: 300)
     #endif
 }

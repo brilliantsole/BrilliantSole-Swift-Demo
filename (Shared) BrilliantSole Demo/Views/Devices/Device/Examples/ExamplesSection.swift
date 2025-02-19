@@ -11,21 +11,26 @@ import SwiftUI
 struct ExamplesSection: View {
     let device: BSDevice
 
-    @State private var selectedExample: Example?
+    @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
         Section {
             ForEach(Example.allCases) { example in
                 if example.worksWith(device: device) {
-                    NavigationLink(destination: example.view(device: device),
-                                   tag: example,
-                                   selection: $selectedExample)
-                    {
-                        Text(example.name)
+                    Button(action: {
+                        navigationManager.navigateTo(example)
+                    }) {
+                        HStack {
+                            Text(example.name)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
                     }
+                    #if os(macOS)
+                    .buttonStyle(.link)
+                    #endif
                 }
             }
-
         } header: {
             Text("Examples")
                 .font(.headline)
@@ -34,15 +39,20 @@ struct ExamplesSection: View {
 }
 
 #Preview {
-    NavigationStack {
+    @Previewable @StateObject var navigationManager = NavigationManager()
+
+    let device: BSDevice = .mock
+
+    NavigationStack(path: $navigationManager.path) {
         List {
-            ExamplesSection(device: .mock)
+            ExamplesSection(device: device)
         }
-        .navigationDestination(for: Example.self) { deviceDemo in
-            deviceDemo.view(device: .mock)
+        .navigationDestination(for: Example.self) { example in
+            example.view(device: device)
         }
     }
+    .environmentObject(navigationManager)
     #if os(macOS)
-    .frame(maxWidth: 350, maxHeight: 300)
+        .frame(maxWidth: 350, maxHeight: 300)
     #endif
 }

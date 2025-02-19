@@ -58,7 +58,7 @@ struct RotationModePicker: View {
                 }
             }
         }
-        .pickerStyle(.segmented)
+        // .pickerStyle(.segmented)
         .onChange(of: rotationMode) { _, newRotationMode in
             var sensorConfiguration: BSSensorConfiguration = .init()
             for rotationMode in RotationMode.allCases {

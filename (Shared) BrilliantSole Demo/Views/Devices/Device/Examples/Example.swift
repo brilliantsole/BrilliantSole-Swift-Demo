@@ -36,15 +36,15 @@ enum Example: CaseIterable, Identifiable {
     @ViewBuilder func view(device: BSDevice) -> some View {
         switch self {
         case .sensorData:
-            MotionExample(device: device)
+            Text(name)
         case .motion:
             MotionExample(device: device)
         case .pressure:
-            MotionExample(device: device)
+            Text(name)
         case .centerOfPressure:
-            MotionExample(device: device)
+            Text(name)
         case .vibration:
-            MotionExample(device: device)
+            Text(name)
         }
     }
 }
