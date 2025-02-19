@@ -37,10 +37,18 @@ struct ModelView: View {
         model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
     }
 
-    func onRotationRate(_ rotationRate: Rotation3D) {
+    func onRotation(_ rotation: Rotation3D) {
         guard let model else { return }
-        var eulerAngles = rotationRate.eulerAngles(order: .xyz)
-        eulerAngles.angles *= 2.0
+        onQuaternion(rotation.quaternion)
+    }
+
+    func onGyroscope(_ gyroscope: Vector3D) {
+        guard let model else { return }
+        let pitch: Angle2D = .init(degrees: gyroscope.x)
+        let yaw: Angle2D = .init(degrees: gyroscope.y)
+        let roll: Angle2D = .init(degrees: gyroscope.z)
+        var eulerAngles: EulerAngles = .init(x: pitch, y: yaw, z: roll, order: .xyz)
+        eulerAngles.angles *= 0.5
         model.rootNode.eulerAngles = .init(eulerAngles.angles)
     }
 
@@ -57,14 +65,22 @@ struct ModelView: View {
     // MARK: - Setup
 
     func setupScene() {
-        guard device.isInsole else { return }
+        guard device.isInsole else {
+            print("device is not an insole")
+            return
+        }
 
         // MARK: - Model
 
         let modelName = device.deviceType.name
         model = .init(named: "\(modelName).usdz")!
-        scene.rootNode.addChildNode(model!.rootNode)
-        model!.rootNode.scale = .init(25, 25, 25)
+        guard let model else {
+            print("failed to load model")
+            return
+        }
+        scene.rootNode.addChildNode(model.rootNode)
+        model.rootNode.scale = .init(25, 25, 25)
+        model.rootNode.eulerAngles.x = .pi / 2
 
         // MARK: - Lights,
 
@@ -78,7 +94,7 @@ struct ModelView: View {
         cameraNode.position = .init(x: 0, y: 0, z: 15)
         cameraNode.eulerAngles = .init(x: 0, y: 0, z: 0)
         cameraNode.camera?.fieldOfView = 30
-            }
+    }
 
     init(device: BSDevice, recalibrateSubject: PassthroughSubject<Void, Never>? = nil) {
         self.device = device
@@ -88,12 +104,12 @@ struct ModelView: View {
     var body: some View {
         SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .onReceive(device.gameRotationPublisher, perform: { onQuaternion($0.0) })
-            .onReceive(device.rotationPublisher, perform: { onQuaternion($0.0) })
-            .onReceive(device.orientationPublisher, perform: { onRotationRate($0.0) })
-            // .onReceive(device.gyroscopePublisher, perform: { onRotationRate($0.0) })
-            .onReceive(device.accelerationPublisher, perform: { onAcceleration($0.0) })
-            .onReceive(device.linearAccelerationPublisher, perform: { onLinearAcceleration($0.0) })
+            .onReceive(device.gameRotationPublisher, perform: { onQuaternion($0.quaternion) })
+            .onReceive(device.rotationPublisher, perform: { onQuaternion($0.quaternion) })
+            .onReceive(device.orientationPublisher, perform: { onRotation($0.rotation) })
+            .onReceive(device.gyroscopePublisher, perform: { onGyroscope($0.vector) })
+            .onReceive(device.accelerationPublisher, perform: { onAcceleration($0.vector) })
+            .onReceive(device.linearAccelerationPublisher, perform: { onLinearAcceleration($0.vector) })
             .onAppear {
                 if model == nil {
                     setupScene()

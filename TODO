@@ -1,9 +1,9 @@
 Device
-    ExamplesSection
-        Motion
-        Pressure
-        Vibration
-        Tflite
-        Firmware
+    MotionExample
+    PressureExample
+    VibrationExample
+    Tflite
+    Firmware
     Rename publishers to add metadata
 DevicePair
+    add labels to publishers
