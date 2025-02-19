@@ -42,12 +42,14 @@ struct UdpClient: View {
     }
 
     var body: some View {
+        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
+
         VStack {
-            HStack {
+            layout {
                 Text("__Ip Address__")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Ip Address", text: $ipAddress)
-                #if !os(tvOS)
+                #if !os(tvOS) && !os(watchOS)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 #endif
                     .modify {
@@ -64,11 +66,11 @@ struct UdpClient: View {
                     .foregroundColor(isIpAddressValid ? .primary : .red)
             }
 
-            HStack {
+            layout {
                 Text("__Send Port__")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Send Port", value: $sendPort, format: .number.grouping(.never))
-                #if !os(tvOS)
+                #if !os(tvOS) && !os(watchOS)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 #endif
                     .onChange(of: sendPort) { _, newValue in
@@ -76,11 +78,11 @@ struct UdpClient: View {
                     }
             }
 
-            HStack {
+            layout {
                 Text("__Receive Port__")
                     .frame(width: labelWidth, alignment: .leading)
                 TextField("Receive Port", value: $receivePort, format: .number.grouping(.never))
-                #if !os(tvOS)
+                #if !os(tvOS) && !os(watchOS)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 #endif
                     .onChange(of: receivePort) { _, newValue in

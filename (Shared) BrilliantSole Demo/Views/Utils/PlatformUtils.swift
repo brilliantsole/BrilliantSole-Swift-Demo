@@ -5,6 +5,8 @@
 //  Created by Zack Qattan on 2/10/25.
 //
 
+import SwiftUI
+
 var isWatch: Bool {
     #if os(watchOS)
     true
@@ -43,4 +45,8 @@ var isVisionOS: Bool {
     #else
     false
     #endif
+}
+
+var isPreview: Bool {
+    return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
 }

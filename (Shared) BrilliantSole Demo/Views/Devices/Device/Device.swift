@@ -19,12 +19,14 @@ struct Device: View {
             DeviceInformationSection(device: device)
             InformationSection(device: device)
             BatterySection(device: device)
-        }.navigationTitle(device.name)
-            .onReceive(device.isConnectedPublisher) { isConnected in
-                if !isConnected {
-                    navigationManager.goBack()
-                }
+            ExamplesSection(device: device)
+        }
+        .navigationTitle(device.name)
+        .onReceive(device.isConnectedPublisher) { isConnected in
+            if !isConnected {
+                navigationManager.goBack()
             }
+        }
     }
 }
 

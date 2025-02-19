@@ -16,6 +16,6 @@ struct DevicePair: View {
 #Preview {
     DevicePair()
 #if os(macOS)
-        .frame(maxWidth: 300, maxHeight: 300)
+        .frame(maxWidth: 350, maxHeight: 300)
 #endif
 }

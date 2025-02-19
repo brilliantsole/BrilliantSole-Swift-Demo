@@ -1,9 +1,9 @@
 Device
-    SensorsSection
     ExamplesSection
         Motion
         Pressure
         Vibration
         Tflite
         Firmware
+    Rename publishers to add metadata
 DevicePair

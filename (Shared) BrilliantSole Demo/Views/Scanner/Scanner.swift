@@ -29,21 +29,22 @@ struct Scanner: View {
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             List {
-                #if !os(watchOS)
+                if !isWatch || isPreview {
                     VStack {
                         Picker("scanner type", selection: $selectedScannerType) {
                             ForEach(BSConnectionType.allCases) { connectionType in
                                 Text(connectionType.name).tag(connectionType)
                             }
                         }
-                        if selectedScannerType == .udpClient {
-                            UdpClient()
-                        }
                     }
                     .onChange(of: selectedScannerType) { oldValue, _ in
                         oldValue.scanner.stopScan()
                     }
-                #endif
+
+                    if selectedScannerType == .udpClient {
+                        UdpClient()
+                    }
+                }
 
                 if isScanning {
                     HStack {

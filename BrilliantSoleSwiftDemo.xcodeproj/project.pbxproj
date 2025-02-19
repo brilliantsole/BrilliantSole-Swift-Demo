@@ -52,6 +52,8 @@
 		5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(iOS) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"3DModels/left insole.usdz",
+				"3DModels/right insole.usdz",
 				Assets.xcassets,
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
@@ -59,6 +61,12 @@
 				Views/Devices/Device/BatterySection.swift,
 				Views/Devices/Device/Device.swift,
 				Views/Devices/Device/DeviceInformationSection.swift,
+				Views/Devices/Device/Examples/Example.swift,
+				Views/Devices/Device/Examples/ExamplesSection.swift,
+				Views/Devices/Device/Examples/Motion/ModelView.swift,
+				Views/Devices/Device/Examples/Motion/MotionExample.swift,
+				Views/Devices/Device/Examples/Motion/RotationModePicker.swift,
+				Views/Devices/Device/Examples/Motion/TranslationModePicker.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
@@ -83,6 +91,8 @@
 		5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"3DModels/left insole.usdz",
+				"3DModels/right insole.usdz",
 				Assets.xcassets,
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
@@ -90,6 +100,12 @@
 				Views/Devices/Device/BatterySection.swift,
 				Views/Devices/Device/Device.swift,
 				Views/Devices/Device/DeviceInformationSection.swift,
+				Views/Devices/Device/Examples/Example.swift,
+				Views/Devices/Device/Examples/ExamplesSection.swift,
+				Views/Devices/Device/Examples/Motion/ModelView.swift,
+				Views/Devices/Device/Examples/Motion/MotionExample.swift,
+				Views/Devices/Device/Examples/Motion/RotationModePicker.swift,
+				Views/Devices/Device/Examples/Motion/TranslationModePicker.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
@@ -114,12 +130,20 @@
 		5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(TV) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"3DModels/left insole.usdz",
+				"3DModels/right insole.usdz",
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
 				Views/Devices/Device/BatterySection.swift,
 				Views/Devices/Device/Device.swift,
 				Views/Devices/Device/DeviceInformationSection.swift,
+				Views/Devices/Device/Examples/Example.swift,
+				Views/Devices/Device/Examples/ExamplesSection.swift,
+				Views/Devices/Device/Examples/Motion/ModelView.swift,
+				Views/Devices/Device/Examples/Motion/MotionExample.swift,
+				Views/Devices/Device/Examples/Motion/RotationModePicker.swift,
+				Views/Devices/Device/Examples/Motion/TranslationModePicker.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
@@ -144,12 +168,20 @@
 		5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"3DModels/left insole.usdz",
+				"3DModels/right insole.usdz",
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
 				Views/DevicePair/DevicePair.swift,
 				Views/Devices/Device/BatterySection.swift,
 				Views/Devices/Device/Device.swift,
 				Views/Devices/Device/DeviceInformationSection.swift,
+				Views/Devices/Device/Examples/Example.swift,
+				Views/Devices/Device/Examples/ExamplesSection.swift,
+				Views/Devices/Device/Examples/Motion/ModelView.swift,
+				Views/Devices/Device/Examples/Motion/MotionExample.swift,
+				Views/Devices/Device/Examples/Motion/RotationModePicker.swift,
+				Views/Devices/Device/Examples/Motion/TranslationModePicker.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
@@ -174,6 +206,8 @@
 		5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Watch) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"3DModels/left insole.usdz",
+				"3DModels/right insole.usdz",
 				Assets.xcassets,
 				BrilliantSoleSwiftDemoApp.swift,
 				ContentView.swift,
@@ -181,6 +215,9 @@
 				Views/Devices/Device/BatterySection.swift,
 				Views/Devices/Device/Device.swift,
 				Views/Devices/Device/DeviceInformationSection.swift,
+				Views/Devices/Device/Examples/Example.swift,
+				Views/Devices/Device/Examples/ExamplesSection.swift,
+				Views/Devices/Device/Examples/Motion/MotionExample.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -189,6 +226,7 @@
 				Views/Scanner/DiscoveredDeviceRow/DiscoveredDeviceRowHeader.swift,
 				Views/Scanner/DiscoveredDeviceRow/DiscoveredDeviceRowStatus.swift,
 				Views/Scanner/Scanner.swift,
+				Views/Scanner/UdpClient.swift,
 				Views/Utils/LabelSpacing.swift,
 				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
@@ -601,6 +639,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
@@ -609,7 +648,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,6 +680,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
@@ -649,7 +689,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,6 +725,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "-Mac--BrilliantSole-Demo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
@@ -719,6 +760,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "-Mac--BrilliantSole-Demo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Brilliant Sole";
@@ -749,6 +791,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
@@ -781,6 +824,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
@@ -881,6 +925,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.BrilliantSole.BrilliantSole-Demo-iOS";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -914,6 +959,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.BrilliantSole.BrilliantSole-Demo-iOS";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
