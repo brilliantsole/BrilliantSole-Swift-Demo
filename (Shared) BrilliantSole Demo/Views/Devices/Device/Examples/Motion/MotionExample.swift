@@ -17,7 +17,7 @@ struct MotionExample: View {
     var body: some View {
         VStack {
             ModelView(device: device, recalibrateSubject: recalibrateSubject)
-            RotationModePicker(sensorDataConfigurable: device)
+            RotationModePicker(sensorConfigurable: device)
             TranslationModePicker(sensorConfigurable: device)
         }
         .navigationTitle("Motion")

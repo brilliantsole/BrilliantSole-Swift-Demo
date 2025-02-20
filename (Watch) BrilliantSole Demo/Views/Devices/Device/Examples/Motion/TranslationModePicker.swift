@@ -6,17 +6,35 @@
 //
 
 import BrilliantSole
-import Combine
 import SwiftUI
+import UkatonMacros
 
 struct TranslationModePicker: View {
     let sensorConfigurable: BSSensorConfigurable
 
+    @State private var isEnabled: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {}
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        var sensorConfiguration: BSSensorConfiguration = .init()
+                        isEnabled.toggle()
+                        sensorConfiguration[.linearAcceleration] = isEnabled ? ._20ms : ._0ms
+                        sensorConfigurable.setSensorConfiguration(sensorConfiguration)
+                    } label: {
+                        Image(systemName: "move.3d")
+                    }
+                    .foregroundColor(isEnabled ? .green : .primary)
+                    .accessibilityLabel(isEnabled ? "disable translation" : "enable translation")
+                }
+            }
     }
 }
 
 #Preview {
-    TranslationModePicker(sensorConfigurable: BSDevice.mock)
+    NavigationStack {
+        TranslationModePicker(sensorConfigurable: BSDevice.mock)
+    }
 }

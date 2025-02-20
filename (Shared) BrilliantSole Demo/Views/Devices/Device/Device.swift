@@ -24,7 +24,7 @@ struct Device: View {
         .navigationTitle(device.name)
         .onReceive(device.isConnectedPublisher) { isConnected in
             if !isConnected && !device.isMock {
-                navigationManager.goBack()
+                navigationManager.resetNavigation()
             }
         }
         .navigationDestination(for: Example.self) { example in

@@ -6,17 +6,69 @@
 //
 
 import BrilliantSole
-import Combine
 import SwiftUI
+import UkatonMacros
 
 struct TranslationModePicker: View {
     let sensorConfigurable: BSSensorConfigurable
 
+    @EnumName
+    enum TranslationMode: CaseIterable, Identifiable, Hashable {
+        var id: String { name }
+
+        case none
+        case linearAcceleration
+        case acceleration
+
+        var sensorType: BSSensorType? {
+            return switch self {
+            case .none:
+                nil
+            case .acceleration:
+                .acceleration
+            case .linearAcceleration:
+                .linearAcceleration
+            }
+        }
+
+        var showSensorType: Bool {
+            true
+        }
+    }
+
+    @State private var translationMode: TranslationMode = .none
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Picker(selection: $translationMode, label: EmptyView()) {
+                ForEach(TranslationMode.allCases) { translationMode in
+                    if translationMode.showSensorType {
+                        Text(translationMode.name)
+                            .tag(translationMode)
+                    }
+                }
+            }
+            .pickerStyle(.segmented)
+            .onChange(of: translationMode) { _, newTranslationMode in
+                var sensorConfiguration: BSSensorConfiguration = .init()
+                for translationMode in TranslationMode.allCases {
+                    guard let sensorType = translationMode.sensorType else { continue }
+
+                    sensorConfiguration[sensorType] = ._0ms
+                }
+                if let sensorType = newTranslationMode.sensorType {
+                    sensorConfiguration[sensorType] = ._20ms
+                }
+                self.translationMode = newTranslationMode
+                sensorConfigurable.setSensorConfiguration(sensorConfiguration)
+            }
+        }
     }
 }
 
 #Preview {
     TranslationModePicker(sensorConfigurable: BSDevice.mock)
+    #if os(macOS)
+        .frame(maxWidth: 300)
+    #endif
 }

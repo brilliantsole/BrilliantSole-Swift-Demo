@@ -51,14 +51,18 @@ struct ModelView: View {
         model.rootNode.eulerAngles = .init(eulerAngles.angles)
     }
 
-    func onLinearAcceleration(_ linearAcceleration: Vector3D) {
+    func onVector(_ vector: Vector3D) {
         guard let model else { return }
-        model.rootNode.simdPosition.interpolate(to: .init(linearAcceleration * 0.05), with: 0.4)
+        let _vector = model.rootNode.simdOrientation.act(.init(vector))
+        model.rootNode.simdPosition.interpolate(to: _vector * 0.5, with: 0.4)
+    }
+
+    func onLinearAcceleration(_ linearAcceleration: Vector3D) {
+        onVector(linearAcceleration)
     }
 
     func onAcceleration(_ acceleration: Vector3D) {
-        guard let model else { return }
-        model.rootNode.simdPosition.interpolate(to: .init(acceleration * 0.05), with: 0.4)
+        onVector(acceleration)
     }
 
     // MARK: - Setup

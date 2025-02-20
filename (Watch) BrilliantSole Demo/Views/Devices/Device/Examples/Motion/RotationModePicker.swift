@@ -10,19 +10,19 @@ import SwiftUI
 import UkatonMacros
 
 struct RotationModePicker: View {
-    let sensorDataConfigurable: BSSensorConfigurable
+    let sensorConfigurable: BSSensorConfigurable
 
     @State private var isEnabled: Bool = false
 
     var body: some View {
-        Group {}
+        VStack {}
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         var sensorConfiguration: BSSensorConfiguration = .init()
                         isEnabled.toggle()
                         sensorConfiguration[.rotation] = isEnabled ? ._20ms : ._0ms
-                        sensorDataConfigurable.setSensorConfiguration(sensorConfiguration, clearRest: true)
+                        sensorConfigurable.setSensorConfiguration(sensorConfiguration)
                     } label: {
                         Image(systemName: isEnabled ? "rotate.3d.fill" : "rotate.3d")
                     }
@@ -35,9 +35,6 @@ struct RotationModePicker: View {
 
 #Preview {
     NavigationStack {
-        RotationModePicker(sensorDataConfigurable: BSDevice.mock)
+        RotationModePicker(sensorConfigurable: BSDevice.mock)
     }
-    #if os(macOS)
-    .frame(maxWidth: 300)
-    #endif
 }

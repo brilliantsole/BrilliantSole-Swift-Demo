@@ -10,7 +10,7 @@ import SwiftUI
 import UkatonMacros
 
 struct RotationModePicker: View {
-    let sensorDataConfigurable: BSSensorConfigurable
+    let sensorConfigurable: BSSensorConfigurable
 
     @EnumName
     enum RotationMode: CaseIterable, Identifiable {
@@ -39,7 +39,7 @@ struct RotationModePicker: View {
 
         var showSensorType: Bool {
             return switch self {
-            case .none, .gyroscope, .rotation, .orientation, .gameRotation:
+            case .none, .gyroscope, .rotation, .gameRotation:
                 true
             default:
                 false
@@ -50,34 +50,36 @@ struct RotationModePicker: View {
     @State private var rotationMode: RotationMode = .none
 
     var body: some View {
-        Picker(selection: $rotationMode, label: EmptyView()) {
-            ForEach(RotationMode.allCases) { rotationMode in
-                if rotationMode.showSensorType {
-                    Text(rotationMode.name)
-                        .tag(rotationMode)
+        HStack {
+            Picker(selection: $rotationMode, label: EmptyView()) {
+                ForEach(RotationMode.allCases) { rotationMode in
+                    if rotationMode.showSensorType {
+                        Text(rotationMode.name)
+                            .tag(rotationMode)
+                    }
                 }
             }
-        }
-        // .pickerStyle(.segmented)
-        .onChange(of: rotationMode) { _, newRotationMode in
-            var sensorConfiguration: BSSensorConfiguration = .init()
-            for rotationMode in RotationMode.allCases {
-                guard let sensorType = rotationMode.sensorType else { continue }
+            .pickerStyle(.segmented)
+            .onChange(of: rotationMode) { _, newRotationMode in
+                var sensorConfiguration: BSSensorConfiguration = .init()
+                for rotationMode in RotationMode.allCases {
+                    guard let sensorType = rotationMode.sensorType else { continue }
 
-                sensorConfiguration[sensorType] = ._0ms
+                    sensorConfiguration[sensorType] = ._0ms
+                }
+                if let sensorType = newRotationMode.sensorType {
+                    sensorConfiguration[sensorType] = ._20ms
+                }
+                self.rotationMode = newRotationMode
+                sensorConfigurable.setSensorConfiguration(sensorConfiguration)
             }
-            if let sensorType = newRotationMode.sensorType {
-                sensorConfiguration[sensorType] = ._20ms
-            }
-            self.rotationMode = newRotationMode
-            sensorDataConfigurable.setSensorConfiguration(sensorConfiguration)
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        RotationModePicker(sensorDataConfigurable: BSDevice.mock)
+        RotationModePicker(sensorConfigurable: BSDevice.mock)
     }
     #if os(macOS)
     .frame(maxWidth: 300)
