@@ -9,7 +9,7 @@ import BrilliantSole
 import Combine
 import SwiftUI
 
-struct Device: View {
+struct DeviceView: View {
     let device: BSDevice
 
     @EnvironmentObject var navigationManager: NavigationManager
@@ -39,7 +39,7 @@ struct Device: View {
     let device: BSDevice = .mock
 
     NavigationStack(path: $navigationManager.path) {
-        Device(device: device)
+        DeviceView(device: device)
     }
     .environmentObject(navigationManager)
     #if os(macOS)

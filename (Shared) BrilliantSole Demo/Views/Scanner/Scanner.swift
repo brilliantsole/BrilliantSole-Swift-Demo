@@ -77,7 +77,7 @@ struct Scanner: View {
             }
             .navigationTitle("Scanner")
             .navigationDestination(for: BSDevice.self) { device in
-                Device(device: device)
+                DeviceView(device: device)
             }
             .toolbar {
                 let button = Button {

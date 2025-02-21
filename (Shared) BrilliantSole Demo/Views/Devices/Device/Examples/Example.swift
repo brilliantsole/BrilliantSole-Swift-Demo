@@ -17,6 +17,8 @@ enum Example: CaseIterable, Identifiable {
     case pressure
     case centerOfPressure
     case vibration
+    case tflite
+    case firmware
 
     var requiresPressure: Bool {
         switch self {
@@ -39,8 +41,12 @@ enum Example: CaseIterable, Identifiable {
         case .pressure:
             PressureExample(device: device)
         case .centerOfPressure:
-            Text(name)
+            CenterOfPressureExample(device: device)
         case .vibration:
+            Text(name)
+        case .tflite:
+            Text(name)
+        case .firmware:
             Text(name)
         }
     }
