@@ -1,7 +1,6 @@
 Device
-    MotionExample
-        RotationPicker
     PressureExample
+    CenterOfPressureDemo
     VibrationExample
     Tflite
     Firmware

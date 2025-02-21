@@ -33,8 +33,6 @@ struct InformationSection: View {
     }
 
     var body: some View {
-        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
-
         Section {
             HStack {
                 Text("__name:__")
