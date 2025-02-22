@@ -12,9 +12,37 @@ struct VibrationWaveformEffectConfigurationView: View {
     @Binding var configuration: BSVibrationConfiguration
 
     var body: some View {
-        Picker("loop count", selection: $configuration.loopCount) {
-            ForEach(0 ... BSVibrationWaveformEffectSegments.maxWaveformEffectSegmentsLoopCount, id: \.self) { number in
+        Picker("__Loop Count__", selection: $configuration.loopCount) {
+            ForEach(0 ... configuration.waveformEffectSegments.maxLoopCount, id: \.self) { number in
                 Text("\(number)").tag(number)
+            }
+        }
+
+        Button(action: {
+            configuration.waveformEffectSegments.append(.init(effect: .none))
+        }) {
+            Label("Add Segment (max \(configuration.waveformEffectSegments.maxLength))", systemImage: "plus")
+        }
+        .disabled(configuration.waveformEffectSegments.count >= configuration.waveformEffectSegments.maxLength)
+
+        ForEach(0 ..< configuration.waveformEffectSegments.count, id: \.self) { index in
+            Section {
+                VibrationWaveformEffectSegmentView(segment: $configuration.waveformEffectSegments[index])
+            } header: {
+                HStack {
+                    Text("Segment #\(index + 1) \(index == configuration.waveformEffectSegments.maxLength - 1 ? "(max)" : "")")
+                        .bold()
+                    Spacer()
+                    Button(role: .destructive, action: {
+                        configuration.waveformEffectSegments.remove(at: index)
+                    }) {
+                        Text("Remove Segment")
+                    }
+                    #if os(macOS) || os(watchOS)
+                    .tint(.red)
+                    .buttonStyle(.borderedProminent)
+                    #endif
+                }
             }
         }
     }

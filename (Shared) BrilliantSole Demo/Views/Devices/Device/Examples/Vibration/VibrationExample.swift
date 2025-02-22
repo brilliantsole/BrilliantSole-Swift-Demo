@@ -45,8 +45,12 @@ struct VibrationExample: View {
                         Button(role: .destructive, action: {
                             configurations.remove(at: index)
                         }) {
-                            Text("Remove")
+                            Text("Remove Configuration")
                         }
+                        #if os(macOS) || os(watchOS)
+                        .tint(.red)
+                        .buttonStyle(.borderedProminent)
+                        #endif
                     }
                 }
             }

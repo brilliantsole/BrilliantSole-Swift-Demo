@@ -1,6 +1,8 @@
 Device
     VibrationExample
-        waveformEffect
+        trigger segment
+        trigger configuration
+        trigger configuration
         waveform
     Tflite
     Firmware
