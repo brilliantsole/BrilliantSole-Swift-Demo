@@ -1,5 +1,7 @@
 Device
     VibrationExample
+        waveformEffect
+        waveform
     Tflite
     Firmware
 DevicePair

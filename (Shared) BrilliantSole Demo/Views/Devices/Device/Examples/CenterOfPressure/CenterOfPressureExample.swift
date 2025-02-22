@@ -25,8 +25,10 @@ struct CenterOfPressureExample: View {
 }
 
 #Preview {
-    CenterOfPressureExample(device: .mock)
+    NavigationStack {
+        CenterOfPressureExample(device: .mock)
+    }
     #if os(macOS)
-        .frame(maxWidth: 350, minHeight: 300)
+    .frame(maxWidth: 350, minHeight: 300)
     #endif
 }
