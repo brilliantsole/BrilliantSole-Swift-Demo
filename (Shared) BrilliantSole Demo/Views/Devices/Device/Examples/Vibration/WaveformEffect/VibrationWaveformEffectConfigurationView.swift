@@ -12,7 +12,11 @@ struct VibrationWaveformEffectConfigurationView: View {
     @Binding var configuration: BSVibrationConfiguration
 
     var body: some View {
-        Text("hey")
+        Picker("loop count", selection: $configuration.loopCount) {
+            ForEach(0 ... BSVibrationWaveformEffectSegments.maxWaveformEffectSegmentsLoopCount, id: \.self) { number in
+                Text("\(number)").tag(number)
+            }
+        }
     }
 }
 
@@ -20,7 +24,9 @@ struct VibrationWaveformEffectConfigurationView: View {
     @Previewable @State var configuration: BSVibrationConfiguration = .init(locations: .all, waveformEffectSegments: .init())
 
     NavigationStack {
-        VibrationWaveformEffectConfigurationView(configuration: $configuration)
+        List {
+            VibrationWaveformEffectConfigurationView(configuration: $configuration)
+        }
     }
     #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)

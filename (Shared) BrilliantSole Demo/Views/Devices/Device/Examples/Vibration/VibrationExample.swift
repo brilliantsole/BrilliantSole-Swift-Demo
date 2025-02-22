@@ -11,13 +11,18 @@ import SwiftUI
 
 struct VibrationExample: View {
     let vibratable: BSVibratable
-
     @State private var configurations: BSVibrationConfigurations = .init()
 
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
 
         List {
+            Section {
+                NavigationLink("Explore Waveform Effects...") {
+                    AllVibrationWaveformEffectsView(vibratable: vibratable)
+                }
+            }
+
             Button(action: {
                 configurations.append(.init(locations: .all, waveformEffectSegments: .init()))
             }) {

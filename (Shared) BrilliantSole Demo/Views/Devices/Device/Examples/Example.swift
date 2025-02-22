@@ -43,7 +43,7 @@ enum Example: CaseIterable, Identifiable {
         case .centerOfPressure:
             CenterOfPressureExample(device: device)
         case .vibration:
-            Text(name)
+            VibrationExample(vibratable: device)
         case .tflite:
             Text(name)
         case .firmware:
