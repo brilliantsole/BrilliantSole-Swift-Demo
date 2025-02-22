@@ -5,18 +5,12 @@
 //  Created by Zack Qattan on 2/22/25.
 //
 
-/*
- TODO:
-    type
-    loopCount
-    waveformEffect
- */
-
 import BrilliantSole
 import SwiftUI
 
 struct VibrationWaveformEffectSegmentView: View {
     @Binding var segment: BSVibrationWaveformEffectSegment
+    let vibratable: BSVibratable
 
     private var minDelayTextWidth: CGFloat {
         if isMacOs {
@@ -31,7 +25,13 @@ struct VibrationWaveformEffectSegmentView: View {
     }
 
     var body: some View {
-        Picker("__Segment Type__", selection: $segment.segmentType) {
+        Button(action: {
+            vibratable.triggerVibration(.init(locations: .all, waveformEffectSegments: [segment]))
+        }) {
+            Label("Trigger Segment", systemImage: "waveform.path")
+        }
+
+        Picker("__Type__", selection: $segment.segmentType) {
             ForEach(BSVibrationWaveformEffectSegmentType.allCases) { segmentType in
                 Text(segmentType.name)
             }
@@ -84,7 +84,7 @@ struct VibrationWaveformEffectSegmentView: View {
     NavigationStack {
         List {
             Section {
-                VibrationWaveformEffectSegmentView(segment: $configuration.waveformEffectSegments[0])
+                VibrationWaveformEffectSegmentView(segment: $configuration.waveformEffectSegments[0], vibratable: BSDevice.mock)
             } header: {
                 Text("Segment #1")
             }

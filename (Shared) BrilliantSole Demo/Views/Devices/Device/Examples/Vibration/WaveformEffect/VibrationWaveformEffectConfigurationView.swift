@@ -10,6 +10,7 @@ import SwiftUI
 
 struct VibrationWaveformEffectConfigurationView: View {
     @Binding var configuration: BSVibrationConfiguration
+    let vibratable: BSVibratable
 
     var body: some View {
         Picker("__Loop Count__", selection: $configuration.loopCount) {
@@ -27,7 +28,7 @@ struct VibrationWaveformEffectConfigurationView: View {
 
         ForEach(0 ..< configuration.waveformEffectSegments.count, id: \.self) { index in
             Section {
-                VibrationWaveformEffectSegmentView(segment: $configuration.waveformEffectSegments[index])
+                VibrationWaveformEffectSegmentView(segment: $configuration.waveformEffectSegments[index], vibratable: vibratable)
             } header: {
                 HStack {
                     Text("Segment #\(index + 1) \(index == configuration.waveformEffectSegments.maxLength - 1 ? "(max)" : "")")
@@ -36,7 +37,7 @@ struct VibrationWaveformEffectConfigurationView: View {
                     Button(role: .destructive, action: {
                         configuration.waveformEffectSegments.remove(at: index)
                     }) {
-                        Text("Remove Segment")
+                        Text("Remove")
                     }
                     #if os(macOS) || os(watchOS)
                     .tint(.red)
@@ -53,7 +54,7 @@ struct VibrationWaveformEffectConfigurationView: View {
 
     NavigationStack {
         List {
-            VibrationWaveformEffectConfigurationView(configuration: $configuration)
+            VibrationWaveformEffectConfigurationView(configuration: $configuration, vibratable: BSDevice.mock)
         }
     }
     #if os(macOS)

@@ -34,9 +34,20 @@ struct VibrationExample: View {
                 Label("Waveform", systemImage: "plus")
             }
 
+            Section {
+                if !configurations.isEmpty {
+                    Button(action: {
+                        vibratable.triggerVibration(configurations)
+                    }) {
+                        Label("Trigger Configurations", systemImage: "waveform.path")
+                    }
+                    .disabled(configurations.allSatisfy(\.segments.isEmpty))
+                }
+            }
+
             ForEach(0 ..< configurations.count, id: \.self) { index in
                 Section {
-                    VibrationConfigurationView(configuration: $configurations[index])
+                    VibrationConfigurationView(configuration: $configurations[index], vibratable: vibratable)
                 } header: {
                     layout {
                         Text("#\(index + 1) \(configurations[index].type.name)")
@@ -45,7 +56,7 @@ struct VibrationExample: View {
                         Button(role: .destructive, action: {
                             configurations.remove(at: index)
                         }) {
-                            Text("Remove Configuration")
+                            Text("Remove")
                         }
                         #if os(macOS) || os(watchOS)
                         .tint(.red)
