@@ -57,14 +57,14 @@ struct VibrationWaveformEffectSegmentView: View {
             HStack {
                 Text(String(format: "Delay %.2fs", Double(segment.delay) / 1000))
                     .bold()
-                    .frame(minWidth: minDelayTextWidth)
+                    .frame(minWidth: minDelayTextWidth, alignment: .leading)
                 Slider(
                     value: Binding(
                         get: { Double(segment.delay) },
                         set: { segment.delay = .init($0) }
                     ),
                     in: 0 ... .init(segment.maxDelay),
-                    step: .init(segment.delayStep)
+                    step: .init(segment.delayStep * 10)
                 )
             }
             #endif

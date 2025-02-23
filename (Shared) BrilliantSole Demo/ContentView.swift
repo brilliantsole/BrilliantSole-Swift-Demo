@@ -60,6 +60,10 @@ struct ContentView: View {
     @State private var discoveredDeviceCount: Int = 0
     @State private var deviceCount: Int = 0
 
+    // MARK: - vibrationConfiguration
+
+    @StateObject private var vibrationConfigurationState = VibrationConfigurationsState()
+
     // MARK: - scannerType
 
     @State private var selectedScannerType: BSConnectionType = .ble
@@ -114,6 +118,7 @@ struct ContentView: View {
             devicePairConnectionStatus = $0
         })
         .environmentObject(navigationManager)
+        .environmentObject(vibrationConfigurationState)
     }
 }
 

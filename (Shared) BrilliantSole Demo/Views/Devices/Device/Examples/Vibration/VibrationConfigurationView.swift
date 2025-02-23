@@ -50,7 +50,7 @@ struct VibrationConfigurationView: View {
         case .waveformEffect:
             VibrationWaveformEffectConfigurationView(configuration: $configuration, vibratable: vibratable)
         case .waveform:
-            VibrationWaveformConfigurationView(configuration: $configuration)
+            VibrationWaveformConfigurationView(configuration: $configuration, vibratable: vibratable)
         }
     }
 }

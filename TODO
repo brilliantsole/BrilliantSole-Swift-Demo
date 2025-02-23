@@ -1,6 +1,4 @@
 Device
-    VibrationExample
-        waveform
     Tflite
     Firmware
 DevicePair

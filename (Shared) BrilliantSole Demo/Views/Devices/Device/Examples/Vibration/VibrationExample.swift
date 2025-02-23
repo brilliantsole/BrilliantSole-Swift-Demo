@@ -11,7 +11,9 @@ import SwiftUI
 
 struct VibrationExample: View {
     let vibratable: BSVibratable
-    @State private var configurations: BSVibrationConfigurations = .init()
+
+    @EnvironmentObject var configurationsState: VibrationConfigurationsState
+    private var configurations: BSVibrationConfigurations { configurationsState.configurations }
 
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
@@ -24,12 +26,12 @@ struct VibrationExample: View {
             }
 
             Button(action: {
-                configurations.append(.init(locations: .all, waveformEffectSegments: .init()))
+                configurationsState.configurations.append(.init(locations: .all, waveformEffectSegments: .init()))
             }) {
                 Label("Waveform Effect", systemImage: "plus")
             }
             Button(action: {
-                configurations.append(.init(locations: .all, waveformSegments: .init()))
+                configurationsState.configurations.append(.init(locations: .all, waveformSegments: .init()))
             }) {
                 Label("Waveform", systemImage: "plus")
             }
@@ -47,14 +49,14 @@ struct VibrationExample: View {
 
             ForEach(0 ..< configurations.count, id: \.self) { index in
                 Section {
-                    VibrationConfigurationView(configuration: $configurations[index], vibratable: vibratable)
+                    VibrationConfigurationView(configuration: $configurationsState.configurations[index], vibratable: vibratable)
                 } header: {
                     layout {
                         Text("#\(index + 1) \(configurations[index].type.name)")
                             .bold()
                         Spacer()
                         Button(role: .destructive, action: {
-                            configurations.remove(at: index)
+                            configurationsState.configurations.remove(at: index)
                         }) {
                             Text("Remove")
                         }
@@ -71,10 +73,13 @@ struct VibrationExample: View {
 }
 
 #Preview {
+    @Previewable @StateObject var vibrationConfigurationState = VibrationConfigurationsState()
+
     NavigationStack {
         VibrationExample(vibratable: BSDevice.mock)
     }
+    .environmentObject(vibrationConfigurationState)
     #if os(macOS)
-    .frame(maxWidth: 350, minHeight: 300)
+        .frame(maxWidth: 350, minHeight: 300)
     #endif
 }
