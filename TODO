@@ -1,5 +1,6 @@
 Device
     Tflite
+    Graph
     Firmware
 DevicePair
     add labels to publishers
