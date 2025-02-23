@@ -35,6 +35,8 @@ struct DeviceView: View {
 
 #Preview {
     @Previewable @StateObject var navigationManager = NavigationManager()
+    @Previewable @StateObject var vibrationConfigurationsState = VibrationConfigurationsState()
+    @Previewable @StateObject var tfliteFileState = TfliteFileState()
 
     let device: BSDevice = .mock
 
@@ -42,6 +44,8 @@ struct DeviceView: View {
         DeviceView(device: device)
     }
     .environmentObject(navigationManager)
+    .environmentObject(vibrationConfigurationsState)
+    .environmentObject(tfliteFileState)
     #if os(macOS)
         .frame(maxWidth: 350, maxHeight: 300)
     #endif

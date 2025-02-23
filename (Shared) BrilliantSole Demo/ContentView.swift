@@ -64,6 +64,10 @@ struct ContentView: View {
 
     @StateObject private var vibrationConfigurationState = VibrationConfigurationsState()
 
+    // MARK: - tfliteFile
+
+    @StateObject private var tfliteFileState = TfliteFileState()
+
     // MARK: - scannerType
 
     @State private var selectedScannerType: BSConnectionType = .ble
@@ -119,6 +123,7 @@ struct ContentView: View {
         })
         .environmentObject(navigationManager)
         .environmentObject(vibrationConfigurationState)
+        .environmentObject(tfliteFileState)
     }
 }
 

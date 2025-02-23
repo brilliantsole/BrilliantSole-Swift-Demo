@@ -1,5 +1,9 @@
 Device
     Tflite
+        tfliteWrapper
+        upload model
+        tflite params
+        
     Graph
     Firmware
 DevicePair
