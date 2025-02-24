@@ -1,9 +1,7 @@
 Device
     Tflite
-        tfliteWrapper
-        upload model
-        tflite params
-        
+        threshold/capturedelay
+        drag and drop model
     Graph
     Firmware
 DevicePair
