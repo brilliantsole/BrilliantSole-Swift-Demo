@@ -1,7 +1,6 @@
 Device
     Tflite
-        threshold/capturedelay
-        drag and drop model
+        refactor
     Graph
     Firmware
 DevicePair

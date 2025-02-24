@@ -9,13 +9,7 @@ import BrilliantSole
 import Combine
 import SwiftUI
 import UkatonMacros
-
-/**
- configure model
- enable model
- display results
- drag file to upload (macOS
- */
+import UniformTypeIdentifiers
 
 var tapStompKickTfliteModel: BSTfliteFile = .init(
     fileName: "tapStompKick",
@@ -44,6 +38,11 @@ struct TfliteExample: View {
 
     @State private var isSelectingFile: Bool = false
     @State private var selectedFileURL: URL? = nil
+
+    func setSelectedFileURL(_ newFileURL: URL?) {
+        tfliteFileState.tfliteFile.fileURL = newFileURL
+        selectedFileURL = newFileURL
+    }
 
     @State private var uploadProgress: Float = 0.0
     @State private var fileTransferStatus: BSFileTransferStatus = .idle
@@ -78,6 +77,29 @@ struct TfliteExample: View {
     @State private var isReady = false
     @State private var isEnabled = false
 
+    @State private var captureDelay: BSTfliteCaptureDelay = .zero
+    @State private var threshold: BSTfliteThreshold = .zero
+
+    private var minThresholdTextWidth: CGFloat {
+        if isMacOs {
+            90
+        } else if is_iOS {
+            100
+        } else {
+            100
+        }
+    }
+
+    private var maxCaptureDelayTextWidth: CGFloat {
+        if isMacOs {
+            80
+        } else if is_iOS {
+            100
+        } else {
+            100
+        }
+    }
+
     var body: some View {
         List {
             Section {
@@ -93,6 +115,7 @@ struct TfliteExample: View {
                 #endif
 
                 if var tfliteFile {
+                    Text("\(tfliteFile.fileURL?.absoluteString ?? "(not selected)")")
                     Button(action: {
                         device.sendTfliteModel(&tfliteFile)
                     }) {
@@ -115,14 +138,11 @@ struct TfliteExample: View {
                                 let urls = try result.get()
                                 if let firstURL = urls.first, firstURL.pathExtension == "tflite" {
                                     print("url: \(firstURL.absoluteString)")
-                                    selectedFileURL = firstURL
+                                    setSelectedFileURL(firstURL)
                                 }
                             } catch {
                                 print("File selection error: \(error.localizedDescription)")
                             }
-                        }
-                        .onChange(of: selectedFileURL) { _, newFileURL in
-                            tfliteFileState.tfliteFile.fileURL = newFileURL
                         }
 
                         if let selectedFileURL {
@@ -205,10 +225,48 @@ struct TfliteExample: View {
             }
 
             Section {
-                Text("Threshold")
-                Text("Capture Delay")
+                #if os(tvOS) || os(watchOS)
+                    Picker("__Threshold__", selection: $threshold) {
+                        ForEach(Array(stride(from: 0.0, through: BSTfliteFile.MaxThreshold, by: 0.1)), id: \.self) { threshold in
+                            Text(String(format: "%.1f", threshold))
+                                .tag(BSTfliteThreshold(threshold))
+                        }
+                    }
+                #else
+                    HStack {
+                        Text("Threshold \(String(format: "%.1f", threshold))")
+                            .bold()
+                            .frame(minWidth: minThresholdTextWidth, alignment: .leading)
+                        Slider(
+                            value: $threshold
+                        )
+                    }
+                #endif
+
+                #if os(tvOS) || os(watchOS)
+                    Picker("__Capture Delay__", selection: $captureDelay) {
+                        ForEach(Array(stride(from: 0, through: BSTfliteFile.MaxCaptureDelay, by: 200)), id: \.self) { captureDelay in
+                            Text("\(captureDelay)ms")
+                                .tag(BSTfliteCaptureDelay(captureDelay))
+                        }
+                    }
+                #else
+                    HStack {
+                        Text(String(format: "Capture Delay %.2fs", Double(captureDelay) / 1000))
+                            .bold()
+                            .frame(maxWidth: maxCaptureDelayTextWidth, alignment: .leading)
+                        Slider(
+                            value: Binding(
+                                get: { Double(captureDelay) },
+                                set: { captureDelay = .init($0) }
+                            ),
+                            in: 0 ... .init(BSTfliteFile.MaxCaptureDelay),
+                            step: 100
+                        )
+                    }
+                #endif
             } header: {
-                Text("Inferencing Settings")
+                Text("Inference Settings")
             }
 
             Section {
@@ -266,6 +324,23 @@ struct TfliteExample: View {
                 device.cancelFileTransfer(sendImmediately: false)
             }
             device.flushMessages()
+        }
+        .onDrop(of: [.init(filenameExtension: "tflite", conformingTo: .data) ?? .data], isTargeted: nil) { providers in
+            for provider in providers {
+                provider.loadInPlaceFileRepresentation(forTypeIdentifier: UTType.data.identifier) { url, _, _ in
+                    DispatchQueue.main.async {
+                        if let url, url.pathExtension == "tflite" {
+                            print("Dropped file URL: \(url.absoluteString)")
+                            setSelectedFileURL(url)
+                            selectedModel = .custom
+                        }
+                    }
+                }
+            }
+            return true
+        }
+        .onChange(of: selectedFileURL) { _, newFileURL in
+            tfliteFileState.tfliteFile.fileURL = newFileURL
         }
     }
 }
