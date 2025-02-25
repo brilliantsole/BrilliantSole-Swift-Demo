@@ -74,7 +74,7 @@ struct TfliteInferenceSettingsSection: View {
 
             #if os(tvOS) || os(watchOS)
                 Picker("__Capture Delay__", selection: $captureDelay) {
-                    ForEach(Array(stride(from: 0, through: BSTfliteFile.MaxCaptureDelay, by: 200)), id: \.self) { captureDelay in
+                    ForEach(Array(stride(from: 0, through: BSTfliteFile.MaxCaptureDelay, by: 100)), id: \.self) { captureDelay in
                         Text("\(captureDelay)ms")
                             .tag(BSTfliteCaptureDelay(captureDelay))
                     }

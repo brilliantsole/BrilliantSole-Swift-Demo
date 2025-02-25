@@ -11,9 +11,13 @@ import SwiftUI
 struct GraphExample: View {
     let device: BSDevice
 
+    @State private var maxDataPoints: Int = 100
+
     var body: some View {
-        VStack {
-            Text("Graph")
+        List {
+            ForEach(BSSensorType.allCases.filter { $0.isContinuous }, id: \.rawValue) { sensorType in
+                Graph(device: device, sensorType: sensorType, maxDataPoints: $maxDataPoints)
+            }
         }
         .navigationTitle("Graph")
         .onDisappear {

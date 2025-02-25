@@ -45,6 +45,7 @@ struct TfliteModelSettings: View {
                 Picker("__Sensor Rate__", selection: $tfliteFileState.tfliteFile.sensorRate) {
                     ForEach(BSSensorRate.allCases.filter { $0.rawValue > 0 }) { sensorRate in
                         Text(sensorRate.name)
+                            .tag(sensorRate)
                     }
                 }
                 .disabled(isTfliteInferencingEnabled)
@@ -67,7 +68,7 @@ struct TfliteModelSettings: View {
                 }
                 .disabled(isTfliteInferencingEnabled)
             } else {
-                Text("__Sensor Types:__ \(tapStompKickTfliteModel.sensorTypes.map(\.name).joined(separator: ", "))")
+                Text("__Sensor Types:__ \(tapStompKickTfliteModel.sensorTypes.sorted(by: <).map(\.name).joined(separator: ", "))")
             }
         } header: {
             Text("Model Settings")

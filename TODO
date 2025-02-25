@@ -1,7 +1,8 @@
 Device
-    Tflite
-        classes
     Graph
+        Set Ranges
+        Barometer Graph
+        Pressure Graph (sensor/meta modes)
     Firmware
 DevicePair
     add labels to publishers
