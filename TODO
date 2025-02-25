@@ -1,6 +1,7 @@
 Device
     Tflite
-        refactor
+        threshold/capture delay
+        classes
     Graph
     Firmware
 DevicePair

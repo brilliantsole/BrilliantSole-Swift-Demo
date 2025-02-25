@@ -9,7 +9,7 @@ import BrilliantSole
 import SwiftUI
 
 class TfliteFileState: ObservableObject {
-    @Published var tfliteFile: BSTfliteFile
+    var tfliteFile: BSTfliteFile
 
     init(_ tfliteFile: BSTfliteFile = .init()) {
         self.tfliteFile = tfliteFile
