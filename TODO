@@ -1,6 +1,6 @@
 Device
     Tflite
-        threshold/capture delay
+        timestamps
         classes
     Graph
     Firmware

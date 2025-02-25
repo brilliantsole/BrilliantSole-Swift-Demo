@@ -15,6 +15,15 @@ struct TfliteInferenceSettingsSection: View {
     @State private var captureDelay: BSTfliteCaptureDelay = .zero
     @State private var threshold: BSTfliteThreshold = .zero
 
+    @State private var isEditingCaptureDelay: Bool = false
+    @State private var isEditingThreshold: Bool = false
+
+    init(device: BSDevice) {
+        self.device = device
+        self._captureDelay = .init(initialValue: device.tfliteCaptureDelay)
+        self._threshold = .init(initialValue: device.tfliteThreshold)
+    }
+
     private var minThresholdTextWidth: CGFloat {
         if isMacOs {
             90
@@ -44,6 +53,9 @@ struct TfliteInferenceSettingsSection: View {
                             .tag(BSTfliteThreshold(threshold))
                     }
                 }
+                .onChange(of: $threshold) { _, threshold in
+                    device.setTfliteThreshold(threshold)
+                }
             #else
                 HStack {
                     Text("Threshold \(String(format: "%.1f", threshold))")
@@ -51,7 +63,12 @@ struct TfliteInferenceSettingsSection: View {
                         .frame(minWidth: minThresholdTextWidth, alignment: .leading)
                     Slider(
                         value: $threshold
-                    )
+                    ) { isEditingThreshold = $0 }
+                }
+                .onChange(of: isEditingThreshold) { _, isEditingThreshold in
+                    if !isEditingThreshold {
+                        device.setTfliteThreshold(threshold)
+                    }
                 }
             #endif
 
@@ -61,6 +78,8 @@ struct TfliteInferenceSettingsSection: View {
                         Text("\(captureDelay)ms")
                             .tag(BSTfliteCaptureDelay(captureDelay))
                     }
+                }.onChange(of: captureDelay) { _, captureDelay in
+                    device.setTfliteCaptureDelay(captureDelay)
                 }
             #else
                 HStack {
@@ -74,11 +93,26 @@ struct TfliteInferenceSettingsSection: View {
                         ),
                         in: 0 ... .init(BSTfliteFile.MaxCaptureDelay),
                         step: 100
-                    )
+                    ) { isEditingCaptureDelay = $0 }
+                }
+                .onChange(of: isEditingCaptureDelay) { _, isEditingCaptureDelay in
+                    if !isEditingCaptureDelay {
+                        device.setTfliteCaptureDelay(captureDelay)
+                    }
                 }
             #endif
         } header: {
             Text("Inference Settings")
+        }
+        .onReceive(device.tfliteThresholdPublisher.dropFirst()) {
+            if !isEditingThreshold {
+                threshold = $0
+            }
+        }
+        .onReceive(device.tfliteCaptureDelayPublisher.dropFirst()) {
+            if !isEditingCaptureDelay {
+                captureDelay = $0
+            }
         }
     }
 }

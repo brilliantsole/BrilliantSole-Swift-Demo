@@ -31,7 +31,7 @@ struct TfliteUploadSection: View {
                         if $0.fileType == .tflite { uploadProgress = $0.progress }
                     }
                 } header: {
-                    Text("Uploading File (\(Int(uploadProgress * 100))%)")
+                    Text("Uploading Model (\(Int(uploadProgress * 100))%)")
                 }
             }
         }
