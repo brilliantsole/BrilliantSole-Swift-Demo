@@ -12,7 +12,6 @@ import SwiftUI
 struct TfliteModelSelectionSection: View {
     let device: BSDevice
     @Binding var selectedModelMode: TfliteModelMode
-
     @EnvironmentObject var tfliteFileState: TfliteFileState
 
     @State private var isSelectingFile: Bool = false
@@ -92,7 +91,8 @@ struct TfliteModelSelectionSection: View {
     List {
         TfliteModelSelectionSection(device: .mock, selectedModelMode: $selectedModelMode)
     }
+    .environmentObject(tfliteFileState)
     #if os(macOS)
-    .frame(maxWidth: 350, minHeight: 300)
+        .frame(maxWidth: 350, minHeight: 300)
     #endif
 }

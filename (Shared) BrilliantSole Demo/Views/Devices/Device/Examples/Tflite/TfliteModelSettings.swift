@@ -12,7 +12,6 @@ import SwiftUI
 struct TfliteModelSettings: View {
     let device: BSDevice
     @Binding var selectedModelMode: TfliteModelMode
-
     @EnvironmentObject var tfliteFileState: TfliteFileState
 
     @State private var isTfliteInferencingEnabled = false

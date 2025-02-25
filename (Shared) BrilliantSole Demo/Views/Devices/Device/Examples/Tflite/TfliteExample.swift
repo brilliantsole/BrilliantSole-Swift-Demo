@@ -46,6 +46,7 @@ struct TfliteExample: View {
             TfliteModelSelectionSection(device: device, selectedModelMode: $selectedModelMode)
             TfliteUploadSection(device: device)
             TfliteModelSettings(device: device, selectedModelMode: $selectedModelMode)
+            TfliteClassesSection(device: device, selectedModelMode: $selectedModelMode)
             TfliteInferenceSettingsSection(device: device)
             TfliteInferencingSection(device: device)
             TfliteInferenceSection(device: device)
@@ -67,6 +68,7 @@ struct TfliteExample: View {
             }
             device.flushMessages()
         }
+        #if os(macOS)
         .onDrop(of: [.init(filenameExtension: "tflite", conformingTo: .data) ?? .data], isTargeted: nil) { providers in
             for provider in providers {
                 provider.loadInPlaceFileRepresentation(forTypeIdentifier: UTType.data.identifier) { url, _, _ in
@@ -81,6 +83,7 @@ struct TfliteExample: View {
             }
             return true
         }
+        #endif
     }
 }
 

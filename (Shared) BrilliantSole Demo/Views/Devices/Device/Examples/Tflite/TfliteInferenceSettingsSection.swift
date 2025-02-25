@@ -53,7 +53,7 @@ struct TfliteInferenceSettingsSection: View {
                             .tag(BSTfliteThreshold(threshold))
                     }
                 }
-                .onChange(of: $threshold) { _, threshold in
+                .onChange(of: threshold) { _, threshold in
                     device.setTfliteThreshold(threshold)
                 }
             #else
