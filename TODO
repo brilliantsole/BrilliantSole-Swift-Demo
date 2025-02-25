@@ -1,6 +1,5 @@
 Device
     Tflite
-        timestamps
         classes
     Graph
     Firmware

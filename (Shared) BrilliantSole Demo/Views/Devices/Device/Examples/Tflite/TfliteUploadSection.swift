@@ -17,6 +17,13 @@ struct TfliteUploadSection: View {
     @State private var fileTransferStatus: BSFileTransferStatus = .idle
     private var isUploading: Bool { fileTransferStatus == .sending }
 
+    private var modelName: String {
+        guard let tfliteFile = device.tfliteFile else {
+            return "Model"
+        }
+        return "Model \"\(tfliteFile.modelName)\""
+    }
+
     var body: some View {
         Group {
             if isUploading {
@@ -31,7 +38,7 @@ struct TfliteUploadSection: View {
                         if $0.fileType == .tflite { uploadProgress = $0.progress }
                     }
                 } header: {
-                    Text("Uploading Model (\(Int(uploadProgress * 100))%)")
+                    Text("Uploading \(modelName) (\(Int(uploadProgress * 100))%)")
                 }
             }
         }
