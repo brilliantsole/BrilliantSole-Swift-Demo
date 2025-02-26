@@ -1,8 +1,7 @@
 Device
     Graph
-        Set Ranges
-        Barometer Graph
         Pressure Graph (sensor/meta modes)
+        Orientation
     Firmware
 DevicePair
     add labels to publishers

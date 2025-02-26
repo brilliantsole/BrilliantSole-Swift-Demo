@@ -1,5 +1,5 @@
 //
-//  Vector3DChart.swift
+//  BarometerChart.swift
 //  BrilliantSoleSwiftDemo
 //
 //  Created by Zack Qattan on 2/25/25.
@@ -10,26 +10,15 @@ import Charts
 import Combine
 import SwiftUI
 
-struct Vector3DChart: View {
+struct BarometerChart: View {
     let device: BSDevice
-    let sensorType: BSSensorType
+    let sensorType: BSSensorType = .barometer
     @Binding var maxDataPoints: Int
-    @State private var dataArray: [BSVector3DData] = []
-    private var chartYScaleDomain: ClosedRange<Float> {
-        return switch self.sensorType {
-        case .acceleration:
-            -2...2
-        case .gyroscope:
-            -360...360
-        case .magnetometer:
-            -200...200
-        default:
-            -1...1
-        }
-    }
+    @State private var dataArray: [BSBarometerData] = []
+    private let chartYScaleDomain: ClosedRange<Float> = 0 ... 2000
 
-    private var publisher: BSVector3DPublisher? {
-        device.getVectorPublisher(for: sensorType)
+    private var publisher: BSBarometerPublisher? {
+        device.barometerPublisher
     }
 
     func trimDataPoints() {
@@ -38,9 +27,8 @@ struct Vector3DChart: View {
         }
     }
 
-    init(device: BSDevice, sensorType: BSSensorType, maxDataPoints: Binding<Int>) {
+    init(device: BSDevice, maxDataPoints: Binding<Int>) {
         self.device = device
-        self.sensorType = sensorType
         self._maxDataPoints = maxDataPoints
         if device.isMock {
             self._dataArray = .init(initialValue: generateDataArray(count: maxDataPoints.wrappedValue))
@@ -49,14 +37,14 @@ struct Vector3DChart: View {
 
     var chartXScaleDomain: ClosedRange<BSTimestamp> {
         guard dataArray.count >= 2 else {
-            return 0...1
+            return 0 ... 1
         }
         let from = dataArray.first!.timestamp
         let to = dataArray.last!.timestamp
         guard to > from else {
-            return 0...1
+            return 0 ... 1
         }
-        return from...to
+        return from ... to
     }
 
     var body: some View {
@@ -65,21 +53,9 @@ struct Vector3DChart: View {
                 let data = dataArray[index]
                 LineMark(
                     x: .value("Time", data.timestamp),
-                    y: .value("X", data.vector.x)
+                    y: .value("Pressure", data.barometer)
                 )
-                .foregroundStyle(by: .value(sensorType.name, "X"))
-
-                LineMark(
-                    x: .value("Time", data.timestamp),
-                    y: .value("Y", data.vector.y)
-                )
-                .foregroundStyle(by: .value(sensorType.name, "Y"))
-
-                LineMark(
-                    x: .value("Time", data.timestamp),
-                    y: .value("Z", data.vector.z)
-                )
-                .foregroundStyle(by: .value(sensorType.name, "Z"))
+                .foregroundStyle(by: .value(sensorType.name, "Pressure"))
             }
         }
         .chartXAxis(.hidden)
@@ -102,7 +78,7 @@ struct Vector3DChart: View {
                 var timestamp: BSTimestamp = 0
                 Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
                     timestamp += 1
-                    dataArray.append((vector: randomVector3D(), timestamp: timestamp))
+                    dataArray.append((barometer: .random(in: 0 ... 1000), timestamp: timestamp))
                     trimDataPoints()
                 }
             }
@@ -110,23 +86,15 @@ struct Vector3DChart: View {
     }
 }
 
-private func randomVector3D(radius: Double = 1) -> BSVector3D {
-    return .init(
-        x: .random(in: -radius...radius),
-        y: .random(in: -radius...radius),
-        z: .random(in: -radius...radius)
-    )
-}
-
-private func generateDataArray(count: Int, startTimestamp: BSTimestamp = 0, sensorRate: BSSensorRate = ._20ms) -> [BSVector3DData] {
+private func generateDataArray(count: Int, startTimestamp: BSTimestamp = 0, sensorRate: BSSensorRate = ._20ms) -> [BSBarometerData] {
     return (0 ..< count).map { i in
-        (vector: randomVector3D(), timestamp: startTimestamp + BSTimestamp(i) * BSTimestamp(sensorRate.rawValue))
+        (barometer: .random(in: 0 ... 1000), timestamp: startTimestamp + BSTimestamp(i) * BSTimestamp(sensorRate.rawValue))
     }
 }
 
 #Preview {
     List {
-        Vector3DChart(device: .mock, sensorType: .linearAcceleration, maxDataPoints: .constant(50))
+        BarometerChart(device: .mock, maxDataPoints: .constant(20))
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

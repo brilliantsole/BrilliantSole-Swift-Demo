@@ -23,6 +23,12 @@ struct Graph: View {
         else if sensorType.dataType == BSQuaternion.self {
             QuaternionChart(device: device, sensorType: sensorType, maxDataPoints: $maxDataPoints)
         }
+        else if sensorType.dataType == BSRotation3D.self {
+            // FILL
+        }
+        else if sensorType.dataType == BSBarometer.self {
+            BarometerChart(device: device, maxDataPoints: $maxDataPoints)
+        }
     }
 
     var body: some View {
@@ -47,7 +53,7 @@ struct Graph: View {
 
 #Preview {
     List {
-        Graph(device: .mock, sensorType: .linearAcceleration, maxDataPoints: .constant(100))
+        Graph(device: .mock, sensorType: .linearAcceleration, maxDataPoints: .constant(50))
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

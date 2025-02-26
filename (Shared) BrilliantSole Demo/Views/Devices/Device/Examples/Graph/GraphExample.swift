@@ -15,7 +15,7 @@ struct GraphExample: View {
 
     var body: some View {
         List {
-            ForEach(BSSensorType.allCases.filter { $0.isContinuous }, id: \.rawValue) { sensorType in
+            ForEach(BSSensorType.allCases.filter { device.containsSensorType($0) && $0.isContinuous }, id: \.rawValue) { sensorType in
                 Graph(device: device, sensorType: sensorType, maxDataPoints: $maxDataPoints)
             }
         }
