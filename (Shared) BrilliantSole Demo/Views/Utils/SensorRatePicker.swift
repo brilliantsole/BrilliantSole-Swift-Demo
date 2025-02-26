@@ -36,7 +36,10 @@ struct SensorRatePicker: View {
             }
         }
         .onReceive(device.sensorConfigurationPublisher.dropFirst()) { configuration in
-            currentSensorRate = configuration[sensorType] ?? ._0ms
+            let newRate = configuration[sensorType] ?? ._0ms
+            if newRate != currentSensorRate {
+                currentSensorRate = newRate
+            }
         }
     }
 }

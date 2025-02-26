@@ -33,16 +33,19 @@ struct PressureChart: View {
         if device.isMock {}
     }
 
-    var chartXScaleDomain: ClosedRange<BSTimestamp> {
-        guard dataArray.count >= 2 else {
+    var chartXScaleDomain: ClosedRange<Int> {
+        guard !dataArray.isEmpty else {
             return 0 ... 1
         }
-        let from = dataArray.first!.timestamp
-        let to = dataArray.last!.timestamp
-        guard to > from else {
-            return 0 ... 1
-        }
-        return from ... to
+        return 0 ... (dataArray.count - 1)
+
+//        guard let from = dataArray.first?.timestamp,
+//              let to = dataArray.last?.timestamp,
+//              from < to
+//        else {
+//            return 0...1
+//        }
+//        return from...to
     }
 
     enum DisplayMode: String, CaseIterable, Identifiable {
@@ -70,7 +73,7 @@ struct PressureChart: View {
                             let sensorData = data.pressure.sensors[sensorIndex]
 
                             LineMark(
-                                x: .value("Time", data.timestamp),
+                                x: .value("Time", index),
                                 y: .value("Pressure", sensorData.normalizedValue)
                             )
                             .foregroundStyle(by: .value(sensorType.name, "\(sensorIndex + 1)"))
@@ -84,19 +87,19 @@ struct PressureChart: View {
                         let data = dataArray[index]
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Sum", data.pressure.normalizedSum)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Sum"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("X", data.pressure.normalizedCenterOfPressure?.x ?? 0)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "X"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Y", data.pressure.normalizedCenterOfPressure?.y ?? 0)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Y"))
@@ -111,8 +114,10 @@ struct PressureChart: View {
         .modify {
             if let publisher {
                 $0.onReceive(publisher) { data in
-                    dataArray.append(data)
-                    trimDataPoints()
+                    DispatchQueue.main.async {
+                        dataArray.append(data)
+                        trimDataPoints()
+                    }
                 }
             }
         }

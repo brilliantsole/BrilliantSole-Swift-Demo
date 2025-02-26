@@ -33,13 +33,15 @@ struct SensorRateToggle: View {
             selectedSensorRate = isEnabled ? ._0ms : sensorRate
         }
         .onChange(of: selectedSensorRate) { _, selectedSensorRate in
-            print("changing sensor rate \(sensorType.name) to \(selectedSensorRate.name)")
             if selectedSensorRate != currentSensorRate {
                 device.setSensorRate(sensorType: sensorType, sensorRate: selectedSensorRate)
             }
         }
         .onReceive(device.sensorConfigurationPublisher.dropFirst()) { configuration in
-            currentSensorRate = configuration[sensorType] ?? ._0ms
+            let newRate = configuration[sensorType] ?? ._0ms
+            if newRate != currentSensorRate {
+                currentSensorRate = newRate
+            }
         }
     }
 }

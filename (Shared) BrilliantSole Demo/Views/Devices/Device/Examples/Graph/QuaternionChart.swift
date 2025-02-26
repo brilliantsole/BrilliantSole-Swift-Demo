@@ -56,16 +56,19 @@ struct QuaternionChart: View {
         }
     }
 
-    var chartXScaleDomain: ClosedRange<BSTimestamp> {
-        guard dataArray.count >= 2 else {
+    var chartXScaleDomain: ClosedRange<Int> {
+        guard !dataArray.isEmpty else {
             return 0...1
         }
-        let from = dataArray.first!.timestamp
-        let to = dataArray.last!.timestamp
-        guard to > from else {
-            return 0...1
-        }
-        return from...to
+        return 0...(dataArray.count - 1)
+
+//        guard let from = dataArray.first?.timestamp,
+//              let to = dataArray.last?.timestamp,
+//              from < to
+//        else {
+//            return 0...1
+//        }
+//        return from...to
     }
 
     var body: some View {
@@ -80,25 +83,25 @@ struct QuaternionChart: View {
                     ForEach(0 ..< dataArray.count, id: \.self) { index in
                         let data = dataArray[index]
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("X", data.quaternion.vector.x)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "X"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Y", data.quaternion.vector.y)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Y"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Z", data.quaternion.vector.z)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Z"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("W", data.quaternion.vector.w)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "W"))
@@ -113,19 +116,19 @@ struct QuaternionChart: View {
                         let eulerAngles = Rotation3D(quaternion: data.quaternion).eulerAngles(order: eulerAngleOrder)
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Pitch", eulerAngles.angles.x)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Pitch"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Yaw", eulerAngles.angles.y)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Yaw"))
 
                         LineMark(
-                            x: .value("Time", data.timestamp),
+                            x: .value("Time", index),
                             y: .value("Roll", eulerAngles.angles.z)
                         )
                         .foregroundStyle(by: .value(sensorType.name, "Roll"))
@@ -140,8 +143,10 @@ struct QuaternionChart: View {
         .modify {
             if let publisher {
                 $0.onReceive(publisher) { data in
-                    dataArray.append(data)
-                    trimDataPoints()
+                    DispatchQueue.main.async {
+                        dataArray.append(data)
+                        trimDataPoints()
+                    }
                 }
             }
         }

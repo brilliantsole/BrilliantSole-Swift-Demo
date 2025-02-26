@@ -35,16 +35,19 @@ struct BarometerChart: View {
         }
     }
 
-    var chartXScaleDomain: ClosedRange<BSTimestamp> {
-        guard dataArray.count >= 2 else {
+    var chartXScaleDomain: ClosedRange<Int> {
+        guard !dataArray.isEmpty else {
             return 0 ... 1
         }
-        let from = dataArray.first!.timestamp
-        let to = dataArray.last!.timestamp
-        guard to > from else {
-            return 0 ... 1
-        }
-        return from ... to
+        return 0 ... (dataArray.count - 1)
+
+//        guard let from = dataArray.first?.timestamp,
+//              let to = dataArray.last?.timestamp,
+//              from < to
+//        else {
+//            return 0...1
+//        }
+//        return from...to
     }
 
     var body: some View {
@@ -52,7 +55,7 @@ struct BarometerChart: View {
             ForEach(0 ..< dataArray.count, id: \.self) { index in
                 let data = dataArray[index]
                 LineMark(
-                    x: .value("Time", data.timestamp),
+                    x: .value("Time", index),
                     y: .value("Pressure", data.barometer)
                 )
                 .foregroundStyle(by: .value(sensorType.name, "Pressure"))
@@ -65,8 +68,10 @@ struct BarometerChart: View {
         .modify {
             if let publisher {
                 $0.onReceive(publisher) { data in
-                    dataArray.append(data)
-                    trimDataPoints()
+                    DispatchQueue.main.async {
+                        dataArray.append(data)
+                        trimDataPoints()
+                    }
                 }
             }
         }
