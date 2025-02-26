@@ -1,7 +1,6 @@
 Device
     Graph
-        Pressure Graph (sensor/meta modes)
-        Orientation
+        format maxDataPoints for different sizes
     Firmware
 DevicePair
     add labels to publishers

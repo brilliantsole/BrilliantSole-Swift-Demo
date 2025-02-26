@@ -11,7 +11,7 @@ import SwiftUI
 struct GraphExample: View {
     let device: BSDevice
 
-    @State private var maxDataPoints: Int = 100
+    @State private var maxDataPoints: Int = isWatch ? 40 : 100
 
     var body: some View {
         List {

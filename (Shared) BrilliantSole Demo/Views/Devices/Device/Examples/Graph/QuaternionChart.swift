@@ -18,16 +18,6 @@ struct QuaternionChart: View {
     @Binding var maxDataPoints: Int
     @State private var dataArray: [BSQuaternionData] = []
 
-    enum DisplayMode: String, CaseIterable, Identifiable {
-        var id: Self { self }
-
-        case quaternion
-        case eulerAngles
-    }
-
-    @State private var displayMode: DisplayMode = .eulerAngles
-    @State private var eulerAngleOrder: EulerAngles.Order = .xyz
-
     private var publisher: BSQuaternionPublisher? {
         device.getQuaternionPublisher(for: sensorType)
     }
@@ -37,6 +27,16 @@ struct QuaternionChart: View {
             dataArray.removeFirst(dataArray.count - maxDataPoints)
         }
     }
+
+    enum DisplayMode: String, CaseIterable, Identifiable {
+        var id: Self { self }
+
+        case quaternion
+        case eulerAngles
+    }
+
+    @State private var displayMode: DisplayMode = .eulerAngles
+    @State private var eulerAngleOrder: EulerAngles.Order = .zxy
 
     private var chartYScaleDomain: ClosedRange<Float> {
         return switch displayMode {

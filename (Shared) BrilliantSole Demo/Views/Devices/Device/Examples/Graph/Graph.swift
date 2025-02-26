@@ -17,14 +17,17 @@ struct Graph: View {
     @State private var sensorRate: BSSensorRate = ._0ms
 
     @ViewBuilder func chartView(sensorType: BSSensorType) -> some View {
-        if sensorType.dataType == BSVector3D.self {
+        if sensorType.dataType == BSPressureDataTuple.self {
+            PressureChart(device: device, maxDataPoints: $maxDataPoints)
+        }
+        else if sensorType.dataType == BSVector3D.self {
             Vector3DChart(device: device, sensorType: sensorType, maxDataPoints: $maxDataPoints)
         }
         else if sensorType.dataType == BSQuaternion.self {
             QuaternionChart(device: device, sensorType: sensorType, maxDataPoints: $maxDataPoints)
         }
         else if sensorType.dataType == BSRotation3D.self {
-            // FILL
+            Rotation3DChart(device: device, maxDataPoints: $maxDataPoints)
         }
         else if sensorType.dataType == BSBarometer.self {
             BarometerChart(device: device, maxDataPoints: $maxDataPoints)
@@ -41,7 +44,9 @@ struct Graph: View {
             .onChange(of: sensorRate) { _, sensorRate in
                 device.setSensorRate(sensorType: sensorType, sensorRate: sensorRate)
             }
-            chartView(sensorType: sensorType)
+            if sensorRate != ._0ms {
+                chartView(sensorType: sensorType)
+            }
         } header: {
             Text(sensorType.name.capitalized)
         }

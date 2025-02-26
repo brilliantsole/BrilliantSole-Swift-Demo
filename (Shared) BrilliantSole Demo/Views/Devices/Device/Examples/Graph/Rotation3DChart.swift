@@ -1,5 +1,5 @@
 //
-//  Vector3DChart.swift
+//  Rotation3DChart.swift
 //  BrilliantSoleSwiftDemo
 //
 //  Created by Zack Qattan on 2/25/25.
@@ -8,30 +8,18 @@
 import BrilliantSole
 import Charts
 import Combine
+import Spatial
 import SwiftUI
 
-struct Vector3DChart: View {
+struct Rotation3DChart: View {
     let device: BSDevice
-    let sensorType: BSSensorType
+    let sensorType: BSSensorType = .orientation
     @Binding var maxDataPoints: Int
-    @State private var dataArray: [BSVector3DData] = []
-    private var chartYScaleDomain: ClosedRange<Float> {
-        return switch self.sensorType {
-        case .acceleration:
-            -3...3
-        case .linearAcceleration:
-            -2...2
-        case .gyroscope:
-            -360...360
-        case .magnetometer:
-            -200...200
-        default:
-            -1...1
-        }
-    }
+    @State private var dataArray: [BSRotation3DData] = []
+    private var chartYScaleDomain: ClosedRange<Float> = -Float.pi...Float.pi
 
-    private var publisher: BSVector3DPublisher? {
-        device.getVectorPublisher(for: sensorType)
+    private var publisher: BSRotation3DPublisher? {
+        device.orientationPublisher
     }
 
     func trimDataPoints() {
@@ -40,14 +28,7 @@ struct Vector3DChart: View {
         }
     }
 
-    init(device: BSDevice, sensorType: BSSensorType, maxDataPoints: Binding<Int>) {
-        self.device = device
-        self.sensorType = sensorType
-        self._maxDataPoints = maxDataPoints
-        if device.isMock {
-            self._dataArray = .init(initialValue: generateDataArray(count: maxDataPoints.wrappedValue))
-        }
-    }
+    @State private var eulerAngleOrder: EulerAngles.Order = .zxy
 
     var chartXScaleDomain: ClosedRange<BSTimestamp> {
         guard dataArray.count >= 2 else {
@@ -61,27 +42,37 @@ struct Vector3DChart: View {
         return from...to
     }
 
+    init(device: BSDevice, maxDataPoints: Binding<Int>) {
+        self.device = device
+        self._maxDataPoints = maxDataPoints
+        if device.isMock {
+            self._dataArray = .init(initialValue: generateDataArray(count: maxDataPoints.wrappedValue))
+        }
+    }
+
     var body: some View {
         Chart {
             ForEach(0 ..< dataArray.count, id: \.self) { index in
                 let data = dataArray[index]
-                LineMark(
-                    x: .value("Time", data.timestamp),
-                    y: .value("X", data.vector.x)
-                )
-                .foregroundStyle(by: .value(sensorType.name, "X"))
+                let eulerAngles = data.rotation.eulerAngles(order: eulerAngleOrder)
 
                 LineMark(
                     x: .value("Time", data.timestamp),
-                    y: .value("Y", data.vector.y)
+                    y: .value("Pitch", eulerAngles.angles.x)
                 )
-                .foregroundStyle(by: .value(sensorType.name, "Y"))
+                .foregroundStyle(by: .value(sensorType.name, "Pitch"))
 
                 LineMark(
                     x: .value("Time", data.timestamp),
-                    y: .value("Z", data.vector.z)
+                    y: .value("Yaw", eulerAngles.angles.y)
                 )
-                .foregroundStyle(by: .value(sensorType.name, "Z"))
+                .foregroundStyle(by: .value(sensorType.name, "Yaw"))
+
+                LineMark(
+                    x: .value("Time", data.timestamp),
+                    y: .value("Roll", eulerAngles.angles.z)
+                )
+                .foregroundStyle(by: .value(sensorType.name, "Roll"))
             }
         }
         .chartXAxis(.hidden)
@@ -104,7 +95,7 @@ struct Vector3DChart: View {
                 var timestamp: BSTimestamp = 0
                 Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
                     timestamp += 1
-                    dataArray.append((vector: randomVector3D(), timestamp: timestamp))
+                    dataArray.append((rotation: randomRotation3D(), timestamp: timestamp))
                     trimDataPoints()
                 }
             }
@@ -112,23 +103,23 @@ struct Vector3DChart: View {
     }
 }
 
-private func randomVector3D(radius: Double = 1) -> BSVector3D {
-    return .init(
-        x: .random(in: -radius...radius),
-        y: .random(in: -radius...radius),
-        z: .random(in: -radius...radius)
-    )
+private func randomAngle() -> Angle2D {
+    .radians(.random(in: -Double.pi...Double.pi))
 }
 
-private func generateDataArray(count: Int, startTimestamp: BSTimestamp = 0, sensorRate: BSSensorRate = ._20ms) -> [BSVector3DData] {
+private func randomRotation3D(radius: Double = 1) -> BSRotation3D {
+    return .init(eulerAngles: .init(x: randomAngle(), y: randomAngle(), z: randomAngle(), order: .xyz))
+}
+
+private func generateDataArray(count: Int, startTimestamp: BSTimestamp = 0, sensorRate: BSSensorRate = ._20ms) -> [BSRotation3DData] {
     return (0 ..< count).map { i in
-        (vector: randomVector3D(), timestamp: startTimestamp + BSTimestamp(i) * BSTimestamp(sensorRate.rawValue))
+        (rotation: randomRotation3D(), timestamp: startTimestamp + BSTimestamp(i) * BSTimestamp(sensorRate.rawValue))
     }
 }
 
 #Preview {
     List {
-        Vector3DChart(device: .mock, sensorType: .linearAcceleration, maxDataPoints: .constant(50))
+        Rotation3DChart(device: .mock, maxDataPoints: .constant(50))
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)
