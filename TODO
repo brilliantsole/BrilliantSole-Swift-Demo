@@ -1,6 +1,4 @@
 Device
-    Graph
-        format maxDataPoints for different sizes
     Firmware
 DevicePair
     add labels to publishers
