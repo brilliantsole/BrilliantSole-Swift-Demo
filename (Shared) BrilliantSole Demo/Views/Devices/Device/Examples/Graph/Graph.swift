@@ -36,22 +36,16 @@ struct Graph: View {
 
     var body: some View {
         Section {
-            Picker("__Sensor Rate__", selection: $sensorRate) {
-                ForEach(BSSensorRate.allCases) { sensorRate in
-                    Text(sensorRate.name)
-                }
-            }
-            .onChange(of: sensorRate) { _, sensorRate in
-                device.setSensorRate(sensorType: sensorType, sensorRate: sensorRate)
-            }
+            SensorRatePicker(device: device, sensorType: sensorType)
             if sensorRate != ._0ms {
                 chartView(sensorType: sensorType)
             }
         } header: {
             Text(sensorType.name.capitalized)
         }
-        .onReceive(device.sensorConfigurationPublisher) { configuration in
+        .onReceive(device.sensorConfigurationPublisher.dropFirst()) { configuration in
             sensorRate = configuration[sensorType] ?? ._0ms
+            print("\(sensorType.name) sensorRate changed to \(sensorRate.name)")
         }
     }
 }
