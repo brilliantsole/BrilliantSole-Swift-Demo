@@ -50,10 +50,12 @@ struct Vector3DChart: View {
     }
 
     var chartXScaleDomain: ClosedRange<Int> {
-        guard !dataArray.isEmpty else {
-            return 0...1
-        }
-        return 0...(dataArray.count - 1)
+        return 0...maxDataPoints
+
+//        guard !dataArray.isEmpty else {
+//            return 0...1
+//        }
+//        return 0...(dataArray.count - 1)
 
 //        guard let from = dataArray.first?.timestamp,
 //              let to = dataArray.last?.timestamp,

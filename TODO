@@ -1,4 +1,7 @@
 Device
     Firmware
+        select firmware
+        progress
+        upload
 DevicePair
     add labels to publishers

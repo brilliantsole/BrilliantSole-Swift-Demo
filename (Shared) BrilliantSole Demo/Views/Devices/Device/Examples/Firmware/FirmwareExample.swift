@@ -12,12 +12,12 @@ struct FirmwareExample: View {
     let device: BSDevice
 
     var body: some View {
-        VStack {
+        List {
             Text("Hey")
         }
         .navigationTitle("Firmware")
         .onDisappear {
-            // FILL
+            // FILL - stop uploading firmware
         }
     }
 }
