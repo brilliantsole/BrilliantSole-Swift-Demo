@@ -37,9 +37,7 @@ struct Graph: View {
     var body: some View {
         Section {
             SensorRatePicker(device: device, sensorType: sensorType)
-            if sensorRate != ._0ms {
-                chartView(sensorType: sensorType)
-            }
+            chartView(sensorType: sensorType)
         } header: {
             Text(sensorType.name.capitalized)
         }
