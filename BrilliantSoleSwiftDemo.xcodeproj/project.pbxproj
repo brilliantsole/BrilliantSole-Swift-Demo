@@ -119,6 +119,7 @@
 				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/SensorRatePicker.swift,
+				Views/Utils/SensorRateToggle.swift,
 				Views/Utils/ViewModifier.swift,
 			);
 			target = 5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */;
@@ -193,6 +194,7 @@
 				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/SensorRatePicker.swift,
+				Views/Utils/SensorRateToggle.swift,
 				Views/Utils/ViewModifier.swift,
 			);
 			target = 5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */;
@@ -266,6 +268,7 @@
 				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/SensorRatePicker.swift,
+				Views/Utils/SensorRateToggle.swift,
 				Views/Utils/ViewModifier.swift,
 			);
 			target = 5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */;
@@ -339,6 +342,7 @@
 				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/SensorRatePicker.swift,
+				Views/Utils/SensorRateToggle.swift,
 				Views/Utils/ViewModifier.swift,
 			);
 			target = 5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */;
@@ -405,6 +409,7 @@
 				Views/Utils/NavigationManager.swift,
 				Views/Utils/PlatformUtils.swift,
 				Views/Utils/SensorRatePicker.swift,
+				Views/Utils/SensorRateToggle.swift,
 				Views/Utils/ViewModifier.swift,
 			);
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;

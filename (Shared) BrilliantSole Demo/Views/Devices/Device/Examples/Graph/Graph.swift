@@ -14,8 +14,6 @@ struct Graph: View {
     let sensorType: BSSensorType
     @Binding var maxDataPoints: Int
 
-    @State private var sensorRate: BSSensorRate = ._0ms
-
     @ViewBuilder func chartView(sensorType: BSSensorType) -> some View {
         if sensorType.dataType == BSPressureDataTuple.self {
             PressureChart(device: device, maxDataPoints: $maxDataPoints)
@@ -36,14 +34,15 @@ struct Graph: View {
 
     var body: some View {
         Section {
-            SensorRatePicker(device: device, sensorType: sensorType)
+            if isWatch {
+                SensorRateToggle(device: device, sensorType: sensorType, sensorRate: ._20ms)
+            }
+            else {
+                SensorRatePicker(device: device, sensorType: sensorType)
+            }
             chartView(sensorType: sensorType)
         } header: {
             Text(sensorType.name.capitalized)
-        }
-        .onReceive(device.sensorConfigurationPublisher.dropFirst()) { configuration in
-            sensorRate = configuration[sensorType] ?? ._0ms
-            print("\(sensorType.name) sensorRate changed to \(sensorRate.name)")
         }
     }
 }
