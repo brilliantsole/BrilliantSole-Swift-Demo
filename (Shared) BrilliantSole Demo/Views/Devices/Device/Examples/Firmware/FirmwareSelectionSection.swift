@@ -16,6 +16,7 @@ struct FirmwareSelectionSection: View {
     @State private var upgradeState: BSFirmwareUpgradeState = .none
 
     @State private var isSelectingFile = false
+    @State private var isFirmwareResetting = false
 
     let defaultFirmwareUrl = Bundle.main.url(forResource: "firmware", withExtension: "bin")
 
@@ -31,7 +32,9 @@ struct FirmwareSelectionSection: View {
 
     var body: some View {
         Section {
-            Text("__state__ \(String(describing: upgradeState))")
+            Text("__Status:__ \(String(describing: upgradeState))")
+            Text("__Is Resetting:__ \(isFirmwareResetting ? "Yes" : "No")")
+
             #if !os(watchOS) && !os(tvOS)
             Picker("__Selected Firmware__", selection: $selectedFirmwareFileMode) {
                 ForEach(FirmwareFileMode.allCases) { mode in
@@ -82,7 +85,7 @@ struct FirmwareSelectionSection: View {
                 }
 
                 if let selectedFirmwareFileUrl {
-                    Text("selected \(selectedFirmwareFileUrl.lastPathComponent)")
+                    Text("selected _\(selectedFirmwareFileUrl.lastPathComponent)_")
                 } else {
                     Text("No File Selected")
                 }
@@ -91,8 +94,11 @@ struct FirmwareSelectionSection: View {
         } header: {
             Text("Firmware File")
         }
-        .onReceive(device.firmwareUpgradeStateDidChangePublisher) {
-            upgradeState = $0.newState
+        .onReceive(device.firmwareUpgradeStatePublisher) {
+            upgradeState = $0
+        }
+        .onReceive(device.isFirmwareResettingPublisher) {
+            isFirmwareResetting = $0
         }
     }
 }

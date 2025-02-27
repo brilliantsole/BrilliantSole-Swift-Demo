@@ -30,7 +30,17 @@ enum Example: CaseIterable, Identifiable {
         }
     }
 
+    var requiresFirmware: Bool {
+        switch self {
+        case .firmware:
+            true
+        default:
+            false
+        }
+    }
+
     func worksWith(device: BSDevice) -> Bool {
+        guard !self.requiresFirmware || device.canUpgradeFirmware else { return false }
         guard !self.requiresPressure || device.deviceType.isInsole else { return false }
         return true
     }
