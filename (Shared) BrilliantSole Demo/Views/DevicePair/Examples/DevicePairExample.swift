@@ -28,17 +28,16 @@ enum DevicePairExample: CaseIterable, Identifiable {
     }
 
     func worksWith(devicePair: BSDevicePair) -> Bool {
-        true
+        guard self != .motion || !isWatch else { return false }
+        return true
     }
 
     @ViewBuilder func view(devicePair: BSDevicePair) -> some View {
         switch self {
         case .motion:
-            // DevicePairMotionExample(device: device)
-            Text(self.name)
+            DevicePairMotionExample(devicePair: devicePair)
         case .pressure:
-            // DevicePairPressureExample(device: device)
-            Text(self.name)
+            DevicePairPressureExample(devicePair: devicePair)
         case .centerOfPressure:
             CenterOfPressureExample(centerOfPressureProvider: devicePair)
         case .vibration:

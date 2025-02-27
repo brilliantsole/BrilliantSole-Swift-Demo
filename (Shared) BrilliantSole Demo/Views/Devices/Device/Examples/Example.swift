@@ -13,6 +13,7 @@ import UkatonMacros
 enum Example: CaseIterable, Identifiable {
     public var id: Self { self }
 
+    case sensorData
     case motion
     case pressure
     case centerOfPressure
@@ -47,6 +48,8 @@ enum Example: CaseIterable, Identifiable {
 
     @ViewBuilder func view(device: BSDevice) -> some View {
         switch self {
+        case .sensorData:
+            SensorDataExample(device: device)
         case .motion:
             MotionExample(device: device)
         case .pressure:
