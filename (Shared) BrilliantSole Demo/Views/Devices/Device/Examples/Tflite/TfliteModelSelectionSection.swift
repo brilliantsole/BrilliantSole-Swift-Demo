@@ -40,6 +40,7 @@ struct TfliteModelSelectionSection: View {
 
             if var tfliteFile {
                 Button(action: {
+                    print("sending tfliteModel")
                     device.sendTfliteModel(&tfliteFile)
                 }) {
                     Label("Upload Model", systemImage: "arrow.up.document")
@@ -60,11 +61,21 @@ struct TfliteModelSelectionSection: View {
                         do {
                             let urls = try result.get()
                             if let firstURL = urls.first, firstURL.pathExtension == "tflite" {
-                                print("url: \(firstURL.absoluteString)")
-                                tfliteFileState.tfliteFile.fileURL = firstURL
+                                print("Selected URL: \(firstURL)")
+
+                                if firstURL.startAccessingSecurityScopedResource() {
+                                    tfliteFileState.tfliteFile.fileURL = firstURL
+                                } else {
+                                    print("Failed to access file security-scoped resource")
+                                }
                             }
                         } catch {
                             print("File selection error: \(error.localizedDescription)")
+                        }
+                    }
+                    .onDisappear {
+                        if let fileUrl = tfliteFileState.tfliteFile.fileURL {
+                            fileUrl.stopAccessingSecurityScopedResource()
                         }
                     }
 

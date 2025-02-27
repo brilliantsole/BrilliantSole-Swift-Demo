@@ -65,11 +65,9 @@ struct Scanner: View {
                 else {
                     ForEach(discoveredDevices) { discoveredDevice in
                         DiscoveredDeviceRow(discoveredDevice: discoveredDevice) {
-                            #if os(watchOS) || os(iOS)
-                                if isScanning {
-                                    scanner.stopScan()
-                                }
-                            #endif
+                            if isScanning {
+                                scanner.stopScan()
+                            }
                         }
                         .id(discoveredDevice.id)
                     }

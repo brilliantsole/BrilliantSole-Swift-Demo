@@ -1,7 +1,5 @@
 Device
     Firmware
-        select firmware
-        progress
-        upload
+        resetting (waiting for peripheral)
 DevicePair
     add labels to publishers
