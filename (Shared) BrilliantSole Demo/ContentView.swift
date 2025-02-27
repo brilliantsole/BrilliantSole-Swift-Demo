@@ -53,7 +53,8 @@ struct ContentView: View {
 
     // MARK: - navigation
 
-    @StateObject private var navigationManager = NavigationManager()
+    @StateObject private var deviceNavigationManager = NavigationManager()
+    @StateObject private var devicePairNavigationManager = NavigationManager()
 
     // MARK: - deviceCount
 
@@ -86,6 +87,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.scanner)
+                .environmentObject(deviceNavigationManager)
             #if !os(watchOS)
                 .badge(discoveredDeviceCount)
                 .onReceive(scanner.discoveredDevicesPublisher) { discoveredDevices in
@@ -93,7 +95,7 @@ struct ContentView: View {
                 }
             #endif
 
-            Devices()
+            DevicesView()
                 .modify {
                     if !isWatch {
                         $0.tabItem {
@@ -102,6 +104,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.devices)
+                .environmentObject(deviceNavigationManager)
             #if !os(watchOS)
                 .badge(deviceCount)
                 .onReceive(BSDeviceManager.availableDevicesPublisher) { devices in
@@ -109,7 +112,7 @@ struct ContentView: View {
                 }
             #endif
 
-            DevicePair()
+            DevicePairView()
                 .modify {
                     if !isWatch {
                         $0.tabItem {
@@ -118,10 +121,10 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.devicePair)
+                .environmentObject(devicePairNavigationManager)
         }.onReceive(devicePair.connectionStatusPublisher, perform: {
             devicePairConnectionStatus = $0
         })
-        .environmentObject(navigationManager)
         .environmentObject(vibrationConfigurationState)
         .environmentObject(tfliteFileState)
     }

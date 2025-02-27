@@ -10,23 +10,23 @@ import Combine
 import SwiftUI
 
 struct CenterOfPressureExample: View {
-    let device: BSDevice
+    let centerOfPressureProvider: BSCenterOfPressureProvider
 
     var body: some View {
         VStack(spacing: 0) {
-            CenterOfPressureView(centerOfPressureProvider: device)
-            PressureModePicker(sensorConfigurable: device)
+            CenterOfPressureView(centerOfPressureProvider: centerOfPressureProvider)
+            PressureModePicker(sensorConfigurable: centerOfPressureProvider)
         }
         .navigationTitle("Center of Pressure")
         .onDisappear {
-            device.clearSensorConfiguration()
+            centerOfPressureProvider.clearSensorConfiguration()
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        CenterOfPressureExample(device: .mock)
+        CenterOfPressureExample(centerOfPressureProvider: BSDevice.mock)
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

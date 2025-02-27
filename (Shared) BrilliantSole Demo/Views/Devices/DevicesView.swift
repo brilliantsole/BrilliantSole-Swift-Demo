@@ -1,5 +1,5 @@
 //
-//  Devices.swift
+//  DevicesView.swift
 //  BrilliantSoleSwiftDemo
 //
 //  Created by Zack Qattan on 2/13/25.
@@ -8,7 +8,7 @@
 import BrilliantSole
 import SwiftUI
 
-struct Devices: View {
+struct DevicesView: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
     @State private var devices: [BSDevice] = .init()
@@ -44,7 +44,7 @@ struct Devices: View {
 }
 
 #Preview {
-    Devices()
+    DevicesView()
         .environmentObject(NavigationManager())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
