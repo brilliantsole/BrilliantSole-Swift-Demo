@@ -20,6 +20,12 @@ struct FirmwareSelectionSection: View {
 
     let defaultFirmwareUrl = Bundle.main.url(forResource: "firmware", withExtension: "bin")
 
+    private func stopAccessingCurrentFileURL() {
+        if let fileUrl = selectedFirmwareFileUrl {
+            fileUrl.stopAccessingSecurityScopedResource()
+        }
+    }
+
     @Binding var selectedFirmwareFileUrl: URL?
     private var firmwareFileUrl: URL? {
         return switch selectedFirmwareFileMode {
@@ -67,7 +73,7 @@ struct FirmwareSelectionSection: View {
                         let urls = try result.get()
                         if let firstURL = urls.first, firstURL.pathExtension == "bin" {
                             print("Selected URL: \(firstURL)")
-
+                            stopAccessingCurrentFileURL()
                             if firstURL.startAccessingSecurityScopedResource() {
                                 selectedFirmwareFileUrl = firstURL
                             } else {
@@ -79,9 +85,7 @@ struct FirmwareSelectionSection: View {
                     }
                 }
                 .onDisappear {
-                    if let fileUrl = selectedFirmwareFileUrl {
-                        fileUrl.stopAccessingSecurityScopedResource()
-                    }
+                    stopAccessingCurrentFileURL()
                 }
 
                 if let selectedFirmwareFileUrl {

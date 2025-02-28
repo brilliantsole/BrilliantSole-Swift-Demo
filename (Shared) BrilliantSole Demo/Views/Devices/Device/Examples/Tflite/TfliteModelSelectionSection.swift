@@ -18,6 +18,12 @@ struct TfliteModelSelectionSection: View {
 
     @State private var fileTransferStatus: BSFileTransferStatus = .idle
 
+    private func stopAccessingCurrentFileURL() {
+        if let fileUrl = tfliteFileState.tfliteFile.fileURL {
+            fileUrl.stopAccessingSecurityScopedResource()
+        }
+    }
+
     private var tfliteFile: BSTfliteFile? {
         return switch selectedModelMode {
         case .tapStompKick:
@@ -62,7 +68,7 @@ struct TfliteModelSelectionSection: View {
                             let urls = try result.get()
                             if let firstURL = urls.first, firstURL.pathExtension == "tflite" {
                                 print("Selected URL: \(firstURL)")
-
+                                stopAccessingCurrentFileURL()
                                 if firstURL.startAccessingSecurityScopedResource() {
                                     tfliteFileState.tfliteFile.fileURL = firstURL
                                 } else {
@@ -74,9 +80,7 @@ struct TfliteModelSelectionSection: View {
                         }
                     }
                     .onDisappear {
-                        if let fileUrl = tfliteFileState.tfliteFile.fileURL {
-                            fileUrl.stopAccessingSecurityScopedResource()
-                        }
+                        stopAccessingCurrentFileURL()
                     }
 
                     if let fileURL = tfliteFileState.tfliteFile.fileURL {

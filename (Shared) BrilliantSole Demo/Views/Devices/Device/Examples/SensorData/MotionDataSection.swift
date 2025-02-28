@@ -178,7 +178,7 @@ struct MotionDataSection: View {
     }
 
     var body: some View {
-        ForEach(BSSensorType.allCases.filter { $0.isMotion }) { sensorType in
+        ForEach(BSSensorType.allCases.filter { $0.isMotion && device.containsSensorType($0) }) { sensorType in
             Section {
                 SensorRatePicker(device: device, sensorType: sensorType)
                 dataView(sensorType: sensorType)
