@@ -7,11 +7,9 @@
 
 import BrilliantSole
 import Combine
-import OSLog
 import SwiftUI
 import UkatonMacros
 
-@StaticLogger
 struct ContentView: View {
     // MARK: - tabEum
 
