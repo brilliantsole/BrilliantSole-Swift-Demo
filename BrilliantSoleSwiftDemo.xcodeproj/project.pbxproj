@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F060EA22D7238410032D885 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2B2D72342F0075300D /* WidgetKit.framework */; };
+		5F060EA32D7238410032D885 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2D2D72342F0075300D /* SwiftUI.framework */; };
+		5F060EAF2D7238420032D885 /* (Mac) BrilliantSole Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F060EA12D7238400032D885 /* (Mac) BrilliantSole Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F060EB62D7238840032D885 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F060EB52D7238840032D885 /* BrilliantSole */; };
+		5F060EC02D7239220032D885 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2B2D72342F0075300D /* WidgetKit.framework */; };
+		5F060EC12D7239220032D885 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2D2D72342F0075300D /* SwiftUI.framework */; };
+		5F060ECA2D7239230032D885 /* (Watch) BrilliantSole Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F060EBF2D7239220032D885 /* (Watch) BrilliantSole Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F060ED22D72397D0032D885 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F060ED12D72397D0032D885 /* BrilliantSole */; };
+		5F6ADB2C2D72342F0075300D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2B2D72342F0075300D /* WidgetKit.framework */; };
+		5F6ADB2E2D72342F0075300D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2D2D72342F0075300D /* SwiftUI.framework */; };
+		5F6ADB392D7234300075300D /* (iOS) BrilliantSole Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F6ADB2A2D72342F0075300D /* (iOS) BrilliantSole Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F6ADB402D7234620075300D /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F6ADB3F2D7234620075300D /* BrilliantSole */; };
 		5F8EA9112D59696300B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9102D59696300B81545 /* BrilliantSole */; };
 		5F8EA9132D59696600B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9122D59696600B81545 /* BrilliantSole */; };
 		5F8EA9152D59696F00B81545 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8EA9142D59696F00B81545 /* BrilliantSole */; };
@@ -16,6 +28,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F060EAD2D7238420032D885 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F060EA02D7238400032D885;
+			remoteInfo = WidgetExtension;
+		};
+		5F060EC82D7239230032D885 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F060EBE2D7239220032D885;
+			remoteInfo = WidgetExtension;
+		};
+		5F6ADB372D7234300075300D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F6ADB292D72342F0075300D;
+			remoteInfo = WidgetExtension;
+		};
 		5F8EA9DE2D59AF9C00B81545 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FBC34612D38722100B0DB20 /* Project object */;
@@ -26,6 +59,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5F060EB42D7238420032D885 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5F060EAF2D7238420032D885 /* (Mac) BrilliantSole Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F060ECF2D7239230032D885 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5F060ECA2D7239230032D885 /* (Watch) BrilliantSole Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F6ADB3A2D7234300075300D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5F6ADB392D7234300075300D /* (iOS) BrilliantSole Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8EA9E12D59AF9C00B81545 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,6 +106,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F060EA12D7238400032D885 /* (Mac) BrilliantSole Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(Mac) BrilliantSole Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F060EBF2D7239220032D885 /* (Watch) BrilliantSole Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(Watch) BrilliantSole Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F6ADB2A2D72342F0075300D /* (iOS) BrilliantSole Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(iOS) BrilliantSole Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F6ADB2B2D72342F0075300D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5F6ADB2D2D72342F0075300D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		5F8EA8222D5963CF00B81545 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		5F8EA8282D59651400B81545 /* (iOS) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(iOS) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8EA8562D59653700B81545 /* (Mac) BrilliantSole Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Mac) BrilliantSole Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +120,51 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(iOS) BrilliantSole Demo" target */ = {
+		5F060E992D7236BF0032D885 /* Exceptions for "(Shared) Widget" folder in "(iOS) BrilliantSole Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Utils/WidgetViewModifier.swift,
+				WidgetBundle.swift,
+			);
+			target = 5F6ADB292D72342F0075300D /* (iOS) BrilliantSole Widget */;
+		};
+		5F060E9B2D7237280032D885 /* Exceptions for "(Shared) App" folder in "(iOS) BrilliantSole Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = 5F6ADB292D72342F0075300D /* (iOS) BrilliantSole Widget */;
+		};
+		5F060EB32D7238420032D885 /* Exceptions for "(Mac) Widget" folder in "(Mac) BrilliantSole Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5F060EA02D7238400032D885 /* (Mac) BrilliantSole Widget */;
+		};
+		5F060EB82D7238AF0032D885 /* Exceptions for "(Shared) Widget" folder in "(Mac) BrilliantSole Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Utils/WidgetViewModifier.swift,
+				WidgetBundle.swift,
+			);
+			target = 5F060EA02D7238400032D885 /* (Mac) BrilliantSole Widget */;
+		};
+		5F060ECE2D7239230032D885 /* Exceptions for "(Watch) Widget" folder in "(Watch) BrilliantSole Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */;
+		};
+		5F6ADB3E2D7234300075300D /* Exceptions for "(iOS) Widget" folder in "(iOS) BrilliantSole Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5F6ADB292D72342F0075300D /* (iOS) BrilliantSole Widget */;
+		};
+		5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(iOS) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"3DModels/left insole.usdz",
@@ -137,7 +252,7 @@
 			);
 			target = 5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */;
 		};
-		5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */ = {
+		5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(Mac) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"3DModels/left insole.usdz",
@@ -225,7 +340,7 @@
 			);
 			target = 5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */;
 		};
-		5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(TV) BrilliantSole Demo" target */ = {
+		5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(TV) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"3DModels/left insole.usdz",
@@ -312,7 +427,7 @@
 			);
 			target = 5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */;
 		};
-		5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */ = {
+		5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(VisionOS) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"3DModels/left insole.usdz",
@@ -399,7 +514,7 @@
 			);
 			target = 5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */;
 		};
-		5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Watch) BrilliantSole Demo" target */ = {
+		5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) App" folder in "(Watch) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"3DModels/left insole.usdz",
@@ -482,51 +597,110 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "(iOS) BrilliantSole Demo";
-			sourceTree = "<group>";
-		};
-		5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "(Mac) BrilliantSole Demo";
-			sourceTree = "<group>";
-		};
-		5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "(TV) BrilliantSole Demo";
-			sourceTree = "<group>";
-		};
-		5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "(VisionOS) BrilliantSole Demo";
-			sourceTree = "<group>";
-		};
-		5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "(Watch) BrilliantSole Demo";
-			sourceTree = "<group>";
-		};
-		5FA4ACF82D5B0BCD000EA421 /* (Shared) BrilliantSole Widget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "(Shared) BrilliantSole Widget";
-			sourceTree = "<group>";
-		};
-		5FBC346B2D38722100B0DB20 /* (Shared) BrilliantSole Demo */ = {
+		5F060EA42D7238410032D885 /* (Mac) Widget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(iOS) BrilliantSole Demo" target */,
-				5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Mac) BrilliantSole Demo" target */,
-				5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(TV) BrilliantSole Demo" target */,
-				5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(VisionOS) BrilliantSole Demo" target */,
-				5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) BrilliantSole Demo" folder in "(Watch) BrilliantSole Demo" target */,
+				5F060EB32D7238420032D885 /* Exceptions for "(Mac) Widget" folder in "(Mac) BrilliantSole Widget" target */,
 			);
-			path = "(Shared) BrilliantSole Demo";
+			path = "(Mac) Widget";
+			sourceTree = "<group>";
+		};
+		5F060EC22D7239220032D885 /* (Watch) Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5F060ECE2D7239230032D885 /* Exceptions for "(Watch) Widget" folder in "(Watch) BrilliantSole Widget" target */,
+			);
+			path = "(Watch) Widget";
+			sourceTree = "<group>";
+		};
+		5F6ADB2F2D72342F0075300D /* (iOS) Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5F6ADB3E2D7234300075300D /* Exceptions for "(iOS) Widget" folder in "(iOS) BrilliantSole Widget" target */,
+			);
+			path = "(iOS) Widget";
+			sourceTree = "<group>";
+		};
+		5F8EA8292D59651400B81545 /* (iOS) App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(iOS) App";
+			sourceTree = "<group>";
+		};
+		5F8EA8572D59653700B81545 /* (Mac) App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(Mac) App";
+			sourceTree = "<group>";
+		};
+		5F8EA8BE2D59663100B81545 /* (TV) App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(TV) App";
+			sourceTree = "<group>";
+		};
+		5F8EA8D02D59665300B81545 /* (VisionOS) App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(VisionOS) App";
+			sourceTree = "<group>";
+		};
+		5F8EA9D42D59AF9B00B81545 /* (Watch) App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "(Watch) App";
+			sourceTree = "<group>";
+		};
+		5FA4ACF82D5B0BCD000EA421 /* (Shared) Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5F060E992D7236BF0032D885 /* Exceptions for "(Shared) Widget" folder in "(iOS) BrilliantSole Widget" target */,
+				5F060EB82D7238AF0032D885 /* Exceptions for "(Shared) Widget" folder in "(Mac) BrilliantSole Widget" target */,
+			);
+			path = "(Shared) Widget";
+			sourceTree = "<group>";
+		};
+		5FBC346B2D38722100B0DB20 /* (Shared) App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5F8EA8E72D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(iOS) BrilliantSole Demo" target */,
+				5F8EA8E82D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(Mac) BrilliantSole Demo" target */,
+				5F8EA8E92D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(TV) BrilliantSole Demo" target */,
+				5F8EA8EA2D5968B300B81545 /* Exceptions for "(Shared) App" folder in "(VisionOS) BrilliantSole Demo" target */,
+				5F8EA9E72D59AFD200B81545 /* Exceptions for "(Shared) App" folder in "(Watch) BrilliantSole Demo" target */,
+				5F060E9B2D7237280032D885 /* Exceptions for "(Shared) App" folder in "(iOS) BrilliantSole Widget" target */,
+			);
+			path = "(Shared) App";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5F060E9E2D7238400032D885 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F060EB62D7238840032D885 /* BrilliantSole in Frameworks */,
+				5F060EA32D7238410032D885 /* SwiftUI.framework in Frameworks */,
+				5F060EA22D7238410032D885 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F060EBC2D7239220032D885 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F060ED22D72397D0032D885 /* BrilliantSole in Frameworks */,
+				5F060EC12D7239220032D885 /* SwiftUI.framework in Frameworks */,
+				5F060EC02D7239220032D885 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F6ADB272D72342F0075300D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F6ADB402D7234620075300D /* BrilliantSole in Frameworks */,
+				5F6ADB2E2D72342F0075300D /* SwiftUI.framework in Frameworks */,
+				5F6ADB2C2D72342F0075300D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8EA8252D59651400B81545 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -573,6 +747,8 @@
 		5F8910DB2D3B84540097BBFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F6ADB2B2D72342F0075300D /* WidgetKit.framework */,
+				5F6ADB2D2D72342F0075300D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -588,13 +764,16 @@
 			isa = PBXGroup;
 			children = (
 				5F8EA8222D5963CF00B81545 /* TODO */,
-				5FBC346B2D38722100B0DB20 /* (Shared) BrilliantSole Demo */,
-				5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */,
-				5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */,
-				5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */,
-				5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
-				5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
-				5FA4ACF82D5B0BCD000EA421 /* (Shared) BrilliantSole Widget */,
+				5FBC346B2D38722100B0DB20 /* (Shared) App */,
+				5F8EA8292D59651400B81545 /* (iOS) App */,
+				5F8EA8572D59653700B81545 /* (Mac) App */,
+				5F8EA9D42D59AF9B00B81545 /* (Watch) App */,
+				5F8EA8BE2D59663100B81545 /* (TV) App */,
+				5F8EA8D02D59665300B81545 /* (VisionOS) App */,
+				5FA4ACF82D5B0BCD000EA421 /* (Shared) Widget */,
+				5F6ADB2F2D72342F0075300D /* (iOS) Widget */,
+				5F060EA42D7238410032D885 /* (Mac) Widget */,
+				5F060EC22D7239220032D885 /* (Watch) Widget */,
 				5F8910DB2D3B84540097BBFC /* Frameworks */,
 				5F8EA8D12D59665300B81545 /* Packages */,
 				5FBC346A2D38722100B0DB20 /* Products */,
@@ -609,6 +788,9 @@
 				5F8EA8BD2D59663100B81545 /* (TV) BrilliantSole Demo.app */,
 				5F8EA8CF2D59665300B81545 /* (VisionOS) BrilliantSole Demo.app */,
 				5F8EA9D32D59AF9B00B81545 /* (Watch) BrilliantSole Demo.app */,
+				5F6ADB2A2D72342F0075300D /* (iOS) BrilliantSole Widget.appex */,
+				5F060EA12D7238400032D885 /* (Mac) BrilliantSole Widget.appex */,
+				5F060EBF2D7239220032D885 /* (Watch) BrilliantSole Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -616,6 +798,75 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5F060EA02D7238400032D885 /* (Mac) BrilliantSole Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F060EB02D7238420032D885 /* Build configuration list for PBXNativeTarget "(Mac) BrilliantSole Widget" */;
+			buildPhases = (
+				5F060E9D2D7238400032D885 /* Sources */,
+				5F060E9E2D7238400032D885 /* Frameworks */,
+				5F060E9F2D7238400032D885 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F060EA42D7238410032D885 /* (Mac) Widget */,
+			);
+			name = "(Mac) BrilliantSole Widget";
+			packageProductDependencies = (
+				5F060EB52D7238840032D885 /* BrilliantSole */,
+			);
+			productName = WidgetExtension;
+			productReference = 5F060EA12D7238400032D885 /* (Mac) BrilliantSole Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F060ECB2D7239230032D885 /* Build configuration list for PBXNativeTarget "(Watch) BrilliantSole Widget" */;
+			buildPhases = (
+				5F060EBB2D7239220032D885 /* Sources */,
+				5F060EBC2D7239220032D885 /* Frameworks */,
+				5F060EBD2D7239220032D885 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F060EC22D7239220032D885 /* (Watch) Widget */,
+			);
+			name = "(Watch) BrilliantSole Widget";
+			packageProductDependencies = (
+				5F060ED12D72397D0032D885 /* BrilliantSole */,
+			);
+			productName = WidgetExtension;
+			productReference = 5F060EBF2D7239220032D885 /* (Watch) BrilliantSole Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5F6ADB292D72342F0075300D /* (iOS) BrilliantSole Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F6ADB3D2D7234300075300D /* Build configuration list for PBXNativeTarget "(iOS) BrilliantSole Widget" */;
+			buildPhases = (
+				5F6ADB262D72342F0075300D /* Sources */,
+				5F6ADB272D72342F0075300D /* Frameworks */,
+				5F6ADB282D72342F0075300D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F6ADB2F2D72342F0075300D /* (iOS) Widget */,
+			);
+			name = "(iOS) BrilliantSole Widget";
+			packageProductDependencies = (
+				5F6ADB3F2D7234620075300D /* BrilliantSole */,
+			);
+			productName = WidgetExtension;
+			productReference = 5F6ADB2A2D72342F0075300D /* (iOS) BrilliantSole Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F8EA8492D59651500B81545 /* Build configuration list for PBXNativeTarget "(iOS) BrilliantSole Demo" */;
@@ -624,14 +875,16 @@
 				5F8EA8252D59651400B81545 /* Frameworks */,
 				5F8EA8262D59651400B81545 /* Resources */,
 				5F8EA9E12D59AF9C00B81545 /* Embed Watch Content */,
+				5F6ADB3A2D7234300075300D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5F8EA9DF2D59AF9C00B81545 /* PBXTargetDependency */,
+				5F6ADB382D7234300075300D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5F8EA8292D59651400B81545 /* (iOS) BrilliantSole Demo */,
+				5F8EA8292D59651400B81545 /* (iOS) App */,
 			);
 			name = "(iOS) BrilliantSole Demo";
 			packageProductDependencies = (
@@ -648,13 +901,15 @@
 				5F8EA8522D59653700B81545 /* Sources */,
 				5F8EA8532D59653700B81545 /* Frameworks */,
 				5F8EA8542D59653700B81545 /* Resources */,
+				5F060EB42D7238420032D885 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5F060EAE2D7238420032D885 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5F8EA8572D59653700B81545 /* (Mac) BrilliantSole Demo */,
+				5F8EA8572D59653700B81545 /* (Mac) App */,
 			);
 			name = "(Mac) BrilliantSole Demo";
 			packageProductDependencies = (
@@ -677,7 +932,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5F8EA8BE2D59663100B81545 /* (TV) BrilliantSole Demo */,
+				5F8EA8BE2D59663100B81545 /* (TV) App */,
 			);
 			name = "(TV) BrilliantSole Demo";
 			packageProductDependencies = (
@@ -700,7 +955,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5F8EA8D02D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
+				5F8EA8D02D59665300B81545 /* (VisionOS) App */,
 			);
 			name = "(VisionOS) BrilliantSole Demo";
 			packageProductDependencies = (
@@ -717,13 +972,15 @@
 				5F8EA9CF2D59AF9B00B81545 /* Sources */,
 				5F8EA9D02D59AF9B00B81545 /* Frameworks */,
 				5F8EA9D12D59AF9B00B81545 /* Resources */,
+				5F060ECF2D7239230032D885 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5F060EC92D7239230032D885 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5F8EA9D42D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
+				5F8EA9D42D59AF9B00B81545 /* (Watch) App */,
 			);
 			name = "(Watch) BrilliantSole Demo";
 			packageProductDependencies = (
@@ -743,6 +1000,15 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					5F060EA02D7238400032D885 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					5F060EBE2D7239220032D885 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					5F6ADB292D72342F0075300D = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					5F8EA8272D59651400B81545 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -782,11 +1048,35 @@
 				5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */,
 				5F8EA8CE2D59665300B81545 /* (VisionOS) BrilliantSole Demo */,
 				5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */,
+				5F6ADB292D72342F0075300D /* (iOS) BrilliantSole Widget */,
+				5F060EA02D7238400032D885 /* (Mac) BrilliantSole Widget */,
+				5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5F060E9F2D7238400032D885 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F060EBD2D7239220032D885 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F6ADB282D72342F0075300D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8EA8262D59651400B81545 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -825,6 +1115,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5F060E9D2D7238400032D885 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F060EBB2D7239220032D885 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F6ADB262D72342F0075300D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8EA8242D59651400B81545 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -863,6 +1174,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5F060EAE2D7238420032D885 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F060EA02D7238400032D885 /* (Mac) BrilliantSole Widget */;
+			targetProxy = 5F060EAD2D7238420032D885 /* PBXContainerItemProxy */;
+		};
+		5F060EC92D7239230032D885 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */;
+			targetProxy = 5F060EC82D7239230032D885 /* PBXContainerItemProxy */;
+		};
+		5F6ADB382D7234300075300D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F6ADB292D72342F0075300D /* (iOS) BrilliantSole Widget */;
+			targetProxy = 5F6ADB372D7234300075300D /* PBXContainerItemProxy */;
+		};
 		5F8EA9DF2D59AF9C00B81545 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
@@ -871,6 +1197,194 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5F060EB12D7238420032D885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "(Mac) Widget/Widget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(Mac) Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-Mac.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5F060EB22D7238420032D885 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "(Mac) Widget/Widget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(Mac) Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-Mac.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5F060ECC2D7239230032D885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(Watch) Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS.watchkitapp.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
+			};
+			name = Debug;
+		};
+		5F060ECD2D7239230032D885 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(Watch) Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS.watchkitapp.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
+			};
+			name = Release;
+		};
+		5F6ADB3B2D7234300075300D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(iOS) Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F6ADB3C2D7234300075300D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT7J75V2U8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(iOS) Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrilliantSole.BrilliantSole-Demo-iOS.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5F8EA84A2D59651500B81545 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -959,7 +1473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "(Mac) BrilliantSole Demo/BrilliantSole_Demo_Mac.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "(Mac) App/BrilliantSole_Demo_Mac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -994,7 +1508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "(Mac) BrilliantSole Demo/BrilliantSole_Demo_Mac.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "(Mac) App/BrilliantSole_Demo_Mac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1342,6 +1856,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F060EB02D7238420032D885 /* Build configuration list for PBXNativeTarget "(Mac) BrilliantSole Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F060EB12D7238420032D885 /* Debug */,
+				5F060EB22D7238420032D885 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F060ECB2D7239230032D885 /* Build configuration list for PBXNativeTarget "(Watch) BrilliantSole Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F060ECC2D7239230032D885 /* Debug */,
+				5F060ECD2D7239230032D885 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F6ADB3D2D7234300075300D /* Build configuration list for PBXNativeTarget "(iOS) BrilliantSole Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F6ADB3B2D7234300075300D /* Debug */,
+				5F6ADB3C2D7234300075300D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5F8EA8492D59651500B81545 /* Build configuration list for PBXNativeTarget "(iOS) BrilliantSole Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1406,6 +1947,21 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F060EB52D7238840032D885 /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
+		5F060ED12D72397D0032D885 /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
+		5F6ADB3F2D7234620075300D /* BrilliantSole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
+			productName = BrilliantSole;
+		};
 		5F8EA9102D59696300B81545 /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F8EA81D2D595C5400B81545 /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;

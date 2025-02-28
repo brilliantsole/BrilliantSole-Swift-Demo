@@ -86,7 +86,7 @@ struct ContentView: View {
                 }
                 .tag(TabEnum.scanner)
                 .environmentObject(deviceNavigationManager)
-            #if !os(watchOS)
+            #if !os(watchOS) && !os(tvOS)
                 .badge(discoveredDeviceCount)
                 .onReceive(scanner.discoveredDevicesPublisher) { discoveredDevices in
                     discoveredDeviceCount = discoveredDevices.count
@@ -103,7 +103,7 @@ struct ContentView: View {
                 }
                 .tag(TabEnum.devices)
                 .environmentObject(deviceNavigationManager)
-            #if !os(watchOS)
+            #if !os(watchOS) && !os(tvOS)
                 .badge(deviceCount)
                 .onReceive(BSDeviceManager.availableDevicesPublisher) { devices in
                     deviceCount = devices.count
