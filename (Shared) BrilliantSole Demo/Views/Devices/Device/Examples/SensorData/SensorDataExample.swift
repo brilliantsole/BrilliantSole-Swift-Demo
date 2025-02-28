@@ -13,10 +13,27 @@ struct SensorDataExample: View {
     let device: BSDevice
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            if device.containsSensorType(.pressure) {
+                PressureDataSection(device: device)
+            }
+            MotionDataSection(device: device)
+            if device.containsSensorType(.barometer) {
+                BarometerDataSection(device: device)
+            }
+        }
+        .navigationTitle("Sensor Data")
+        .onDisappear {
+            device.clearSensorConfiguration()
+        }
     }
 }
 
 #Preview {
-    SensorDataExample(device: .mock)
+    NavigationStack {
+        SensorDataExample(device: .mock)
+    }
+    #if os(macOS)
+    .frame(maxWidth: 350, minHeight: 300)
+    #endif
 }

@@ -16,11 +16,12 @@ enum DevicePairExample: CaseIterable, Identifiable {
     case motion
     case pressure
     case centerOfPressure
+    case balance
     case vibration
 
     var requiresPressure: Bool {
         switch self {
-        case .pressure, .centerOfPressure:
+        case .pressure, .centerOfPressure, .balance:
             true
         default:
             false
@@ -36,6 +37,8 @@ enum DevicePairExample: CaseIterable, Identifiable {
         switch self {
         case .motion:
             DevicePairMotionExample(devicePair: devicePair)
+        case .balance:
+            BalanceExample(centerOfPressureProvider: devicePair)
         case .pressure:
             DevicePairPressureExample(devicePair: devicePair)
         case .centerOfPressure:
