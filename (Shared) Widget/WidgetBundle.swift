@@ -9,8 +9,11 @@ import SwiftUI
 import WidgetKit
 
 @main
-struct MyWidgetBundle: WidgetBundle {
+struct BSWidgetBundle: WidgetBundle {
     var body: some Widget {
-        _Widget()
+        // BatteryLevelWidget()
+        #if !os(watchOS)
+        ScannerWidget()
+        #endif
     }
 }

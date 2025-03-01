@@ -1,0 +1,33 @@
+//
+//  ScannerTimelineEntry.swift
+//  BrilliantSoleSwiftDemo
+//
+//  Created by Zack Qattan on 2/28/25.
+//
+
+import WidgetKit
+
+struct ScannerTimelineEntry: TimelineEntry {
+    let date: Date
+    private var deviceIds: [String]?
+
+    private var deviceMetadataManager: DeviceMetadataManager { .shared }
+
+    init(date: Date = .now, deviceIds: [String] = []) {
+        self.date = date
+        self.deviceIds = deviceIds
+    }
+
+    func getInformation(index: Int) -> DeviceMetadata? {
+        if let deviceIds, index < deviceIds.count {
+            return getInformation(id: deviceIds[index])
+        }
+        else {
+            return deviceMetadataManager.getInformation(index: index)
+        }
+    }
+
+    func getInformation(id: String) -> DeviceMetadata? {
+        deviceMetadataManager.getInformation(id: id)
+    }
+}
