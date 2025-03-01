@@ -136,6 +136,7 @@
 				Scanner/ScannerWidgetConfiguration.swift,
 				Scanner/ScannerWidgetEntryView.swift,
 				Scanner/ScannerWidgetProvider.swift,
+				Utils/UserDefaults.swift,
 				Utils/WidgetViewModifier.swift,
 				WidgetBundle.swift,
 			);
@@ -177,6 +178,7 @@
 				Scanner/ScannerWidgetConfiguration.swift,
 				Scanner/ScannerWidgetEntryView.swift,
 				Scanner/ScannerWidgetProvider.swift,
+				Utils/UserDefaults.swift,
 				Utils/WidgetViewModifier.swift,
 				WidgetBundle.swift,
 			);
@@ -205,6 +207,7 @@
 				Scanner/ScannerWidgetConfiguration.swift,
 				Scanner/ScannerWidgetEntryView.swift,
 				Scanner/ScannerWidgetProvider.swift,
+				Utils/UserDefaults.swift,
 				Utils/WidgetViewModifier.swift,
 			);
 			target = 5F8EA8272D59651400B81545 /* (iOS) BrilliantSole Demo */;
@@ -224,6 +227,7 @@
 				Scanner/ScannerWidgetConfiguration.swift,
 				Scanner/ScannerWidgetEntryView.swift,
 				Scanner/ScannerWidgetProvider.swift,
+				Utils/UserDefaults.swift,
 				Utils/WidgetViewModifier.swift,
 			);
 			target = 5F8EA8552D59653700B81545 /* (Mac) BrilliantSole Demo */;
@@ -243,6 +247,7 @@
 				DeviceMetadataManager.swift,
 				DiscoveredDeviceMetadata.swift,
 				DiscoveredDeviceMetadataManager.swift,
+				Utils/UserDefaults.swift,
 			);
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
 		};
@@ -254,6 +259,7 @@
 				DeviceMetadataManager.swift,
 				DiscoveredDeviceMetadata.swift,
 				DiscoveredDeviceMetadataManager.swift,
+				Utils/UserDefaults.swift,
 				WidgetBundle.swift,
 			);
 			target = 5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */;
@@ -1382,6 +1388,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "(Mac) Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1412,6 +1420,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "(Mac) Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BrilliantSole Widget";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connecto to BrilliantSole devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

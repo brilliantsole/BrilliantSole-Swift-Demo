@@ -16,18 +16,18 @@ import WidgetKit
 @StaticLogger(disabled: false)
 @Singleton
 class DeviceMetadataManager {
-    private let defaults: UserDefaults = .init(suiteName: "group.com.brilliantsole.demo.devices")!
+    private let defaults: UserDefaults? = getUserDefaults("devices")
 
     var ids: [String] {
-        defaults.object(forKey: "deviceIds") as? [String] ?? []
+        defaults?.object(forKey: "deviceIds") as? [String] ?? []
     }
 
     var isScanning: Bool {
-        defaults.object(forKey: "isScanning") as? Bool ?? false
+        defaults?.object(forKey: "isScanning") as? Bool ?? false
     }
 
     func getInformation(id: String) -> DeviceMetadata? {
-        guard let value = defaults.object(forKey: "device-\(id)") as? RawDeviceMetadata,
+        guard let value = defaults?.object(forKey: "device-\(id)") as? RawDeviceMetadata,
               let name = value["name"],
               let deviceTypeName = value["deviceType"],
               let deviceType: BSDeviceType = .init(name: deviceTypeName),
@@ -72,7 +72,7 @@ class DeviceMetadataManager {
         if let connectionType = device.connectionType {
             rawDeviceMetadata["connectionType"] = connectionType.name
         }
-        defaults.set(rawDeviceMetadata, forKey: key(for: device))
+        defaults?.set(rawDeviceMetadata, forKey: key(for: device))
         let _key = key(for: device)
         logger?.debug("set value for key \(_key): \(rawDeviceMetadata)")
     }
@@ -97,19 +97,19 @@ class DeviceMetadataManager {
             }).store(in: &devicesCancellables[device.id]!)
 
             let newIds = BSDeviceManager.availableDevices.map { $0.id }
-            defaults.setValue(newIds, forKey: "deviceIds")
+            defaults?.setValue(newIds, forKey: "deviceIds")
             logger?.debug("device added - updating deviceIds to \(newIds)")
 
             reloadTimelines()
         }).store(in: &cancellables)
 
         BSDeviceManager.unavailableDevicePublisher.sink(receiveValue: { [self] device in
-            defaults.removeObject(forKey: key(for: device))
+            defaults?.removeObject(forKey: key(for: device))
             let _key = key(for: device)
             logger?.debug("removed value for key \(_key)")
 
             let newIds = BSDeviceManager.availableDevices.map { $0.id }
-            defaults.set(newIds, forKey: "deviceIds")
+            defaults?.set(newIds, forKey: "deviceIds")
             logger?.debug("device removed - updating deviceIds to \(newIds)")
 
             devicesCancellables.removeValue(forKey: device.id)
@@ -126,9 +126,9 @@ class DeviceMetadataManager {
 
     func clear() {
         for id in ids {
-            defaults.removeObject(forKey: "device-\(id)")
+            defaults?.removeObject(forKey: "device-\(id)")
         }
-        defaults.removeObject(forKey: "deviceIds")
+        defaults?.removeObject(forKey: "deviceIds")
         WidgetCenter.shared.reloadAllTimelines()
     }
 }

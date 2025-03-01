@@ -16,22 +16,22 @@ import WidgetKit
 @StaticLogger(disabled: false)
 @Singleton()
 class DiscoveredDeviceMetadataManager {
-    private let defaults: UserDefaults = .init(suiteName: "group.com.brilliantsole.demo.discovered-devices")!
+    private let defaults: UserDefaults? = getUserDefaults("discovered-devices")
 
     var scanner: BSScanner {
         BSConnectionType.ble.scanner
     }
 
     var ids: [String] {
-        defaults.object(forKey: "deviceIds") as? [String] ?? []
+        defaults?.object(forKey: "deviceIds") as? [String] ?? []
     }
 
     var isScanning: Bool {
-        defaults.object(forKey: "isScanning") as? Bool ?? false
+        defaults?.object(forKey: "isScanning") as? Bool ?? false
     }
 
     func getInformation(id: String) -> DiscoveredDeviceMetadata? {
-        guard let value = defaults.object(forKey: "device-\(id)") as? RawDiscoveredDeviceMetadata,
+        guard let value = defaults?.object(forKey: "device-\(id)") as? RawDiscoveredDeviceMetadata,
               let name = value["name"],
               let deviceTypeName = value["deviceType"],
               let deviceType: BSDeviceType = .init(name: deviceTypeName),
@@ -89,7 +89,7 @@ class DiscoveredDeviceMetadataManager {
             if let connectionType = device.connectionType {
                 rawDiscoveredDeviceMetadata["connectionType"] = connectionType.name
             }
-            defaults.set(rawDiscoveredDeviceMetadata, forKey: key(for: discoveredDevice))
+            defaults?.set(rawDiscoveredDeviceMetadata, forKey: key(for: discoveredDevice))
             let _key = key(for: discoveredDevice)
             logger?.debug("set value for key \(_key): \(rawDiscoveredDeviceMetadata)")
         }
@@ -108,7 +108,7 @@ class DiscoveredDeviceMetadataManager {
         scanner.isScanningPublisher.sink { [self] isScanning in
             let newIsScanning = isScanning
             logger?.debug("updating isScanning to \(newIsScanning)")
-            defaults.setValue(newIsScanning, forKey: "isScanning")
+            defaults?.setValue(newIsScanning, forKey: "isScanning")
             reloadTimelines()
         }.store(in: &cancellables)
 
@@ -147,7 +147,7 @@ class DiscoveredDeviceMetadataManager {
 //                }
 //
 //                for item in idsToRemove {
-//                    defaults.removeObject(forKey: key(id: item))
+//                    defaults?.removeObject(forKey: key(id: item))
 //                    let _key = key(id: item)
 //                    logger?.debug("removed value for key \(_key)")
 //                }
@@ -155,7 +155,7 @@ class DiscoveredDeviceMetadataManager {
 //
 //                if currentIds.count != newIds.count || !currentIds.allSatisfy({ newIds.contains($0) }) {
 //                    shouldReloadTimelines = true
-//                    defaults.setValue(newIds, forKey: "deviceIds")
+//                    defaults?.setValue(newIds, forKey: "deviceIds")
 //                    logger?.debug("updating deviceIds to \(newIds)")
 //                }
 //
@@ -175,10 +175,10 @@ class DiscoveredDeviceMetadataManager {
         logger?.log("clear")
         for id in ids {
             logger?.log("removing object for key \("device-\(id)")")
-            defaults.removeObject(forKey: "device-\(id)")
+            defaults?.removeObject(forKey: "device-\(id)")
         }
         logger?.log("removing object for key \"deviceIds\"")
-        defaults.removeObject(forKey: "deviceIds")
+        defaults?.removeObject(forKey: "deviceIds")
         reloadTimelines()
     }
 }

@@ -26,6 +26,10 @@ struct BSToggleScanIntent: AppIntent {
         self.connectionTypeName = connectionTypeName
     }
 
+    #if os(macOS)
+    static var openAppWhenRun: Bool = true
+    #endif
+
     @MainActor
     func perform() async throws -> some IntentResult {
         guard let connectionType else {
