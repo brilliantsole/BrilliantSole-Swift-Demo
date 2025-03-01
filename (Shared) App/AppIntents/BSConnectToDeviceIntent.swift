@@ -39,10 +39,6 @@ struct BSConnectToDeviceIntent: AppIntent {
     @MainActor
     func perform() async throws -> some IntentResult {
         logger?.debug("connecting to device \(deviceId) via \(connectionType?.name ?? "")")
-        guard let connectionType else {
-            logger?.error("no connectionType defined")
-            return .result()
-        }
         guard let scanner else {
             logger?.error("no scanner found")
             return .result()

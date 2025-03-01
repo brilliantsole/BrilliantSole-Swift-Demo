@@ -8,5 +8,9 @@
 		<string>BSConnectToDeviceIntent</string>
 		<string>BSDisconnectFromDeviceIntent</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+	</array>
 </dict>
 </plist>

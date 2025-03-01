@@ -16,7 +16,7 @@ import WidgetKit
 @StaticLogger(disabled: false)
 @Singleton
 class DeviceMetadataManager {
-    private let defaults: UserDefaults = .init(suiteName: "group.com.\(teamId).devices")!
+    private let defaults: UserDefaults = .init(suiteName: "group.com.brilliantsole.demo.devices")!
 
     var ids: [String] {
         defaults.object(forKey: "deviceIds") as? [String] ?? []

@@ -6,10 +6,8 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.$(TeamIdentifierPrefix).brilliantsole.devices</string>
-		<string>group.$(TeamIdentifierPrefix).brilliantsole.discovered-devices</string>
+		<string>group.com.brilliantsole.demo.devices</string>
+		<string>group.com.brilliantsole.demo.discovered-devices</string>
 	</array>
-	<key>com.apple.security.files.user-selected.read-only</key>
-	<true/>
 </dict>
 </plist>

@@ -3,6 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>com.apple.security.application-groups</key>
-	<array/>
+	<array>
+		<string>group.com.brilliantsole.demo.discovered-devices</string>
+		<string>group.com.brilliantsole.demo.devices</string>
+	</array>
 </dict>
 </plist>

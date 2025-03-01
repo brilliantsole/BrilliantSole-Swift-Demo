@@ -20,8 +20,6 @@ struct BSToggleScanIntent: AppIntent {
         .init(name: connectionTypeName)
     }
 
-    static var openAppWhenRun: Bool = true
-
     init() {}
 
     init(connectionTypeName: String) {

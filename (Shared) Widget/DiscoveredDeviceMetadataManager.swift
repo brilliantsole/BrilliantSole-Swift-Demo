@@ -16,7 +16,7 @@ import WidgetKit
 @StaticLogger(disabled: false)
 @Singleton()
 class DiscoveredDeviceMetadataManager {
-    private let defaults: UserDefaults = .init(suiteName: "group.com.\(teamId).discovered-devices")!
+    private let defaults: UserDefaults = .init(suiteName: "group.com.brilliantsole.demo.discovered-devices")!
 
     var scanner: BSScanner {
         BSConnectionType.ble.scanner

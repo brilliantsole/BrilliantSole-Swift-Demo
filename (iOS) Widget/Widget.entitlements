@@ -2,11 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>INIntentsSupported</key>
+	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>BSToggleScanIntent</string>
-		<string>BSConnectToDeviceIntent</string>
-		<string>BSDisconnectFromDeviceIntent</string>
+		<string>group.com.brilliantsole.demo.devices</string>
+		<string>group.com.brilliantsole.demo.discovered-devices</string>
 	</array>
 </dict>
 </plist>
