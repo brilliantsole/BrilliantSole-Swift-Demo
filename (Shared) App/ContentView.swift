@@ -7,9 +7,11 @@
 
 import BrilliantSole
 import Combine
+import OSLog
 import SwiftUI
 import UkatonMacros
 
+@StaticLogger
 struct ContentView: View {
     // MARK: - tabEum
 
@@ -125,6 +127,37 @@ struct ContentView: View {
         })
         .environmentObject(vibrationConfigurationState)
         .environmentObject(tfliteFileState)
+        .onOpenURL { incomingURL in
+            logger?.debug("(ContentView) App was opened via URL: \(incomingURL)")
+            handleIncomingURL(incomingURL)
+        }
+        .modify {
+            #if os(macOS)
+                $0.onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { _ in
+                    // DeviceMetadataManager.shared.clear()
+                }
+            #endif
+        }
+    }
+
+    private func handleIncomingURL(_ url: URL) {
+        guard url.isDeeplink else {
+            return
+        }
+
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let action = components.host
+        else {
+            logger?.debug("Invalid URL")
+            return
+        }
+
+        switch action {
+        case "select-device":
+            selectedTab = .devices
+        default:
+            logger?.debug("uncaught action \"\(action)\"")
+        }
     }
 }
 

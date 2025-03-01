@@ -112,6 +112,26 @@ class DiscoveredDeviceMetadataManager {
             reloadTimelines()
         }.store(in: &cancellables)
 
+        scanner.discoveredDevicePublisher.sink { [self] discoveredDevice in
+            if discoveredDevicesCancellables[discoveredDevice.id] == nil {
+                discoveredDevicesCancellables[discoveredDevice.id] = .init()
+            }
+            discoveredDevice.connectionStatusPublisher.sink { [self] _ in
+                Task {
+                    logger?.debug("updating connectionStatus for \(discoveredDevice.name, privacy: .public)")
+                    let shouldReload = updateDiscoveredDeviceMetadata(for: discoveredDevice)
+                    if shouldReload {
+                        reloadTimelines()
+                    }
+                }
+            }.store(in: &discoveredDevicesCancellables[discoveredDevice.id]!)
+        }.store(in: &cancellables)
+
+        scanner.expiredDiscoveredDevicePublisher.sink { [self] expiredDiscoveredDevice in
+            logger?.debug("removing discoveredDevicesCancellables for \(expiredDiscoveredDevice.name, privacy: .public)")
+            discoveredDevicesCancellables.removeValue(forKey: expiredDiscoveredDevice.id)
+        }.store(in: &cancellables)
+
         scanner.discoveredDevicesPublisher.debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [self] discoveredDevices in
                 var shouldReloadTimelines = false

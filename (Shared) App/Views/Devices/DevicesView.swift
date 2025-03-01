@@ -6,8 +6,11 @@
 //
 
 import BrilliantSole
+import OSLog
 import SwiftUI
+import UkatonMacros
 
+@StaticLogger
 struct DevicesView: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
@@ -39,6 +42,39 @@ struct DevicesView: View {
         }
         .onReceive(BSDeviceManager.availableDevicesPublisher) { devices in
             self.devices = devices
+        }
+        .onOpenURL { incomingURL in
+            logger?.debug("(DeviceDiscovery) App was opened via URL: \(incomingURL)")
+            handleIncomingURL(incomingURL)
+        }
+    }
+
+    private func handleIncomingURL(_ url: URL) {
+        guard url.isDeeplink else {
+            return
+        }
+
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let action = components.host
+        else {
+            logger?.debug("Invalid URL")
+            return
+        }
+
+        switch action {
+        case "select-device":
+            if let deviceId = components.queryItems?.first(where: { $0.name == "id" })?.value {
+                guard let device = devices.first(where: { $0.id == deviceId }) else {
+                    logger?.error("no device found for \(deviceId)")
+                    return
+                }
+                navigationManager.navigateTo(device)
+            }
+            else {
+                logger?.error("no id query found in url")
+            }
+        default:
+            logger?.error("uncaught action \"\(action)\"")
         }
     }
 }

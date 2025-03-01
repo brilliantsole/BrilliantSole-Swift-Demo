@@ -1,5 +1,4 @@
 ScannerWidget
-    show devices
     connect/disconnect
 BatteryWidget
 Cleanup
