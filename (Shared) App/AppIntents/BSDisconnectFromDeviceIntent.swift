@@ -12,6 +12,10 @@ import OSLog
 private let logger = getLogger(category: "BSDisconnectFromDeviceIntent", disabled: false)
 
 struct BSDisconnectFromDeviceIntent: AppIntent {
+    #if os(macOS)
+    static var openAppWhenRun: Bool = true
+    #endif
+
     static var title = LocalizedStringResource("Disconnect from Device")
 
     @Parameter(title: "device id")

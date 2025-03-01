@@ -12,6 +12,10 @@ import OSLog
 private let logger = getLogger(category: "BSToggleScanIntent", disabled: false)
 
 struct BSToggleScanIntent: AppIntent {
+    #if os(macOS)
+    static var openAppWhenRun: Bool = true
+    #endif
+
     static var title = LocalizedStringResource("Toggle Scan")
 
     @Parameter(title: "connection type")
@@ -25,10 +29,6 @@ struct BSToggleScanIntent: AppIntent {
     init(connectionTypeName: String) {
         self.connectionTypeName = connectionTypeName
     }
-
-    #if os(macOS)
-    static var openAppWhenRun: Bool = true
-    #endif
 
     @MainActor
     func perform() async throws -> some IntentResult {

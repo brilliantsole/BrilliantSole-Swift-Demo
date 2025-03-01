@@ -26,6 +26,7 @@ struct Scanner: View {
         _discoveredDevices = .init(initialValue: scanner.discoveredDevices)
         #if !os(visionOS) && !os(tvOS)
             DiscoveredDeviceMetadataManager.shared.listenForUpdates()
+            DeviceMetadataManager.shared.listenForUpdates()
         #endif
     }
 

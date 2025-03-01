@@ -112,57 +112,57 @@ class DiscoveredDeviceMetadataManager {
             reloadTimelines()
         }.store(in: &cancellables)
 
-//        BSDeviceManager.availableDevicePublisher.sink { [self] _ in
-//            if devicesCancellables[device.id] == nil {
-//                devicesCancellables[device.id] = .init()
-//            }
-//
-//            device.connectionStatusPublisher.sink { [self] _ in
-//                guard let discoveredDeviceIndex = scanner.discoveredDevices.firstIndex(where: { $0.device == device }) else {
-//                    return
-//                }
-//                let shouldReload = updateDeviceInformation(for: scanner.discoveredDevices[discoveredDeviceIndex])
-//                if shouldReload {
-//                    reloadTimelines()
-//                }
-//            }.store(in: &devicesCancellables[device.id]!)
-//        }.store(in: &cancellables)
-//
-//        BSDeviceManager.unavailableDevicePublisher.sink { [self] device in
-//            logger?.debug("removing value for mission \(device.id)")
-//            devicesCancellables.removeValue(forKey: device.id)
-//            reloadTimelines()
-//        }.store(in: &cancellables)
-//
-//        scanner.discoveredDevicesPublisher.debounce(for: .seconds(0.5), scheduler: RunLoop.main)
-//            .sink { [self] _ in
-//                var shouldReloadTimelines = false
-//
-//                let currentIds = ids
-//                let newIds = discoveredDevices.compactMap { $0.id }
-//                logger?.debug("newIds \(newIds, privacy: .public)")
-//                let idsToRemove = currentIds.filter { !newIds.contains($0) }
-//                for discoveredDevice in discoveredDevices {
-//                    shouldReloadTimelines = shouldReloadTimelines || updateDeviceInformation(for: discoveredDevice)
-//                }
-//
-//                for item in idsToRemove {
-//                    defaults?.removeObject(forKey: key(id: item))
-//                    let _key = key(id: item)
-//                    logger?.debug("removed value for key \(_key)")
-//                }
-//                shouldReloadTimelines = shouldReloadTimelines || !idsToRemove.isEmpty
-//
-//                if currentIds.count != newIds.count || !currentIds.allSatisfy({ newIds.contains($0) }) {
-//                    shouldReloadTimelines = true
-//                    defaults?.setValue(newIds, forKey: "deviceIds")
-//                    logger?.debug("updating deviceIds to \(newIds)")
-//                }
-//
-//                if shouldReloadTimelines {
-//                    reloadTimelines()
-//                }
-//            }.store(in: &cancellables)
+        BSDeviceManager.availableDevicePublisher.sink { [self] device in
+            if devicesCancellables[device.id] == nil {
+                devicesCancellables[device.id] = .init()
+            }
+
+            device.connectionStatusPublisher.sink { [self] _ in
+                guard let discoveredDeviceIndex = scanner.discoveredDevices.firstIndex(where: { $0.device == device }) else {
+                    return
+                }
+                let shouldReload = updateDeviceInformation(for: scanner.discoveredDevices[discoveredDeviceIndex])
+                if shouldReload {
+                    reloadTimelines()
+                }
+            }.store(in: &devicesCancellables[device.id]!)
+        }.store(in: &cancellables)
+
+        BSDeviceManager.unavailableDevicePublisher.sink { [self] device in
+            logger?.debug("removing value for mission \(device.id)")
+            devicesCancellables.removeValue(forKey: device.id)
+            reloadTimelines()
+        }.store(in: &cancellables)
+
+        scanner.discoveredDevicesPublisher.debounce(for: .seconds(0.5), scheduler: RunLoop.main)
+            .sink { [self] discoveredDevices in
+                var shouldReloadTimelines = false
+
+                let currentIds = ids
+                let newIds = discoveredDevices.compactMap { $0.id }
+                logger?.debug("newIds \(newIds, privacy: .public)")
+                let idsToRemove = currentIds.filter { !newIds.contains($0) }
+                for discoveredDevice in discoveredDevices {
+                    shouldReloadTimelines = shouldReloadTimelines || updateDeviceInformation(for: discoveredDevice)
+                }
+
+                for item in idsToRemove {
+                    defaults?.removeObject(forKey: key(id: item))
+                    let _key = key(id: item)
+                    logger?.debug("removed value for key \(_key)")
+                }
+                shouldReloadTimelines = shouldReloadTimelines || !idsToRemove.isEmpty
+
+                if currentIds.count != newIds.count || !currentIds.allSatisfy({ newIds.contains($0) }) {
+                    shouldReloadTimelines = true
+                    defaults?.setValue(newIds, forKey: "deviceIds")
+                    logger?.debug("updating deviceIds to \(newIds)")
+                }
+
+                if shouldReloadTimelines {
+                    reloadTimelines()
+                }
+            }.store(in: &cancellables)
     }
 
     func reloadTimelines() {

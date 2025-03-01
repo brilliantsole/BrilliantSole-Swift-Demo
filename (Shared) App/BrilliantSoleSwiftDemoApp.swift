@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
-#if !os(visionOS) && !os(tvOS)
-import WidgetKit
-#endif
 
 @main
 struct BrilliantSoleSwiftDemoApp: App {
     init() {
         #if !os(visionOS) && !os(tvOS)
-        // DeviceMetadataManager.shared.clear()
-        // DiscoveredDeviceMetadataManager.shared.clear()
+//            DeviceMetadataManager.shared.clear()
+//            DiscoveredDeviceMetadataManager.shared.clear()
         #endif
     }
 

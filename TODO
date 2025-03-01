@@ -1,6 +1,4 @@
-AppIntent
 ScannerWidget
-    update UI
     show devices
     connect/disconnect
 BatteryWidget
