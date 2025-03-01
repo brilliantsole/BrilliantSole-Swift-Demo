@@ -24,6 +24,9 @@ struct Scanner: View {
         _isScanning = .init(initialValue: scanner.isScanning)
         _isScanningAvailable = .init(initialValue: scanner.isScanningAvailable)
         _discoveredDevices = .init(initialValue: scanner.discoveredDevices)
+        #if !os(visionOS) && !os(tvOS)
+            DiscoveredDeviceMetadataManager.shared.listenForUpdates()
+        #endif
     }
 
     var body: some View {

@@ -6,8 +6,8 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.brilliantsole.discovered-devices</string>
-		<string>group.com.brilliantsole.devices</string>
+		<string>group.$(TeamIdentifierPrefix).brilliantsole.discovered-devices</string>
+		<string>group.$(TeamIdentifierPrefix).brilliantsole.devices</string>
 	</array>
 	<key>com.apple.security.device.bluetooth</key>
 	<true/>

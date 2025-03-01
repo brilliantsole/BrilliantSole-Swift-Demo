@@ -113,6 +113,8 @@
 		5F06118E2D726EE90032D885 /* (iOS) BrilliantSole Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "(iOS) BrilliantSole Demo.entitlements"; sourceTree = "<group>"; };
 		5F06118F2D726F330032D885 /* (Watch) BrilliantSole Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "(Watch) BrilliantSole Demo.entitlements"; sourceTree = "<group>"; };
 		5F0614312D7292890032D885 /* -TV--BrilliantSole-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-TV--BrilliantSole-Demo-Info.plist"; sourceTree = "<group>"; };
+		5F0614322D72A2010032D885 /* (iOS) BrilliantSole Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "(iOS) BrilliantSole Widget.entitlements"; sourceTree = "<group>"; };
+		5F0614332D72A2100032D885 /* (Watch) BrilliantSole Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "(Watch) BrilliantSole Widget.entitlements"; sourceTree = "<group>"; };
 		5F6ADB2A2D72342F0075300D /* (iOS) BrilliantSole Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(iOS) BrilliantSole Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6ADB2B2D72342F0075300D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5F6ADB2D2D72342F0075300D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -908,6 +910,8 @@
 		5FBC34602D38722100B0DB20 = {
 			isa = PBXGroup;
 			children = (
+				5F0614332D72A2100032D885 /* (Watch) BrilliantSole Widget.entitlements */,
+				5F0614322D72A2010032D885 /* (iOS) BrilliantSole Widget.entitlements */,
 				5F0614312D7292890032D885 /* -TV--BrilliantSole-Demo-Info.plist */,
 				5F06118F2D726F330032D885 /* (Watch) BrilliantSole Demo.entitlements */,
 				5F06118E2D726EE90032D885 /* (iOS) BrilliantSole Demo.entitlements */,
@@ -1412,6 +1416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "(Watch) BrilliantSole Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KT7J75V2U8;
@@ -1442,6 +1447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "(Watch) BrilliantSole Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KT7J75V2U8;
@@ -1473,6 +1479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "(iOS) BrilliantSole Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KT7J75V2U8;
@@ -1506,6 +1513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "(iOS) BrilliantSole Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KT7J75V2U8;

@@ -13,10 +13,10 @@ import SwiftUI
 import UkatonMacros
 import WidgetKit
 
-@StaticLogger
+@StaticLogger(disabled: false)
 @Singleton
 class DeviceMetadataManager {
-    private let defaults: UserDefaults = .init(suiteName: "group.com.brilliantsole.devices")!
+    private let defaults: UserDefaults = .init(suiteName: "group.com.\(teamId).devices")!
 
     var ids: [String] {
         defaults.object(forKey: "deviceIds") as? [String] ?? []
@@ -82,7 +82,7 @@ class DeviceMetadataManager {
         guard !isListeningForUpdates else { return }
         isListeningForUpdates = true
 
-        // logger?.debug("listening for BSDevicesInformation updates")
+        logger?.debug("listening for DeviceMetadata updates")
 
         BSDeviceManager.availableDevicePublisher.sink(receiveValue: { [self] device in
             updateDeviceMetadata(for: device)
@@ -102,6 +102,7 @@ class DeviceMetadataManager {
 
             reloadTimelines()
         }).store(in: &cancellables)
+
         BSDeviceManager.unavailableDevicePublisher.sink(receiveValue: { [self] device in
             defaults.removeObject(forKey: key(for: device))
             let _key = key(for: device)

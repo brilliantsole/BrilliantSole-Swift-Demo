@@ -7,5 +7,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>com.apple.security.temporary-exception.shared-preference.read-write</key>
+	<string></string>
 </dict>
 </plist>
