@@ -30,7 +30,7 @@ class DiscoveredDeviceMetadataManager {
         defaults?.object(forKey: "isScanning") as? Bool ?? false
     }
 
-    func getInformation(id: String) -> DiscoveredDeviceMetadata? {
+    func getMetadata(id: String) -> DiscoveredDeviceMetadata? {
         guard let value = defaults?.object(forKey: "device-\(id)") as? RawDiscoveredDeviceMetadata,
               let name = value["name"],
               let deviceTypeName = value["deviceType"],
@@ -51,7 +51,7 @@ class DiscoveredDeviceMetadataManager {
 
     func getInformation(index: Int) -> DiscoveredDeviceMetadata? {
         guard index < ids.count else { return nil }
-        return getInformation(id: ids[index])
+        return getMetadata(id: ids[index])
     }
 
     private func key(for discoveredDevice: BSDiscoveredDevice) -> String {
@@ -63,37 +63,37 @@ class DiscoveredDeviceMetadataManager {
     }
 
     private var cancellables: Set<AnyCancellable> = .init()
-    private var devicesCancellables: [String: Set<AnyCancellable>] = .init()
-    private func updateDeviceInformation(for discoveredDevice: BSDiscoveredDevice) -> Bool {
-        var shouldUpdateDeviceMetadata = false
-        if let discoveredDeviceInformation = getInformation(id: discoveredDevice.id), let device = discoveredDevice.device {
-            if discoveredDevice.name != discoveredDeviceInformation.name ||
-                discoveredDevice.deviceType != discoveredDeviceInformation.deviceType ||
-                device.isConnected != discoveredDeviceInformation.isConnected ||
-                device.connectionStatus != discoveredDeviceInformation.connectionStatus ||
-                device.connectionType != discoveredDeviceInformation.connectionType
+    private var discoveredDevicesCancellables: [String: Set<AnyCancellable>] = .init()
+    private func updateDiscoveredDeviceMetadata(for discoveredDevice: BSDiscoveredDevice) -> Bool {
+        var shouldUpdateDiscoveredDeviceMetadata = false
+        if let discoveredDeviceMetadata = getMetadata(id: discoveredDevice.id) {
+            if discoveredDevice.name != discoveredDeviceMetadata.name ||
+                discoveredDevice.deviceType != discoveredDeviceMetadata.deviceType ||
+                discoveredDevice.isConnected != discoveredDeviceMetadata.isConnected ||
+                discoveredDevice.connectionStatus != discoveredDeviceMetadata.connectionStatus ||
+                discoveredDevice.connectionType != discoveredDeviceMetadata.connectionType
             {
-                shouldUpdateDeviceMetadata = true
+                shouldUpdateDiscoveredDeviceMetadata = true
             }
         }
         else {
-            shouldUpdateDeviceMetadata = true
+            shouldUpdateDiscoveredDeviceMetadata = true
         }
 
-        if shouldUpdateDeviceMetadata, let device = discoveredDevice.device {
+        if shouldUpdateDiscoveredDeviceMetadata {
             var rawDiscoveredDeviceMetadata: RawDiscoveredDeviceMetadata = [
                 "name": discoveredDevice.name,
                 "deviceType": discoveredDevice.deviceType.name,
-                "connectionStatus": device.connectionStatus.name
+                "connectionStatus": discoveredDevice.connectionStatus.name
             ]
-            if let connectionType = device.connectionType {
+            if let connectionType = discoveredDevice.connectionType {
                 rawDiscoveredDeviceMetadata["connectionType"] = connectionType.name
             }
             defaults?.set(rawDiscoveredDeviceMetadata, forKey: key(for: discoveredDevice))
             let _key = key(for: discoveredDevice)
-            logger?.debug("set value for key \(_key): \(rawDiscoveredDeviceMetadata)")
+            logger?.debug("set value for key \(_key, privacy: .public): \(rawDiscoveredDeviceMetadata, privacy: .public)")
         }
-        return shouldUpdateDeviceMetadata
+        return shouldUpdateDiscoveredDeviceMetadata
     }
 
     private var isListeningForUpdates: Bool = false
@@ -112,51 +112,31 @@ class DiscoveredDeviceMetadataManager {
             reloadTimelines()
         }.store(in: &cancellables)
 
-        BSDeviceManager.availableDevicePublisher.sink { [self] device in
-            if devicesCancellables[device.id] == nil {
-                devicesCancellables[device.id] = .init()
-            }
-
-            device.connectionStatusPublisher.sink { [self] _ in
-                guard let discoveredDeviceIndex = scanner.discoveredDevices.firstIndex(where: { $0.device == device }) else {
-                    return
-                }
-                let shouldReload = updateDeviceInformation(for: scanner.discoveredDevices[discoveredDeviceIndex])
-                if shouldReload {
-                    reloadTimelines()
-                }
-            }.store(in: &devicesCancellables[device.id]!)
-        }.store(in: &cancellables)
-
-        BSDeviceManager.unavailableDevicePublisher.sink { [self] device in
-            logger?.debug("removing value for mission \(device.id)")
-            devicesCancellables.removeValue(forKey: device.id)
-            reloadTimelines()
-        }.store(in: &cancellables)
-
         scanner.discoveredDevicesPublisher.debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [self] discoveredDevices in
                 var shouldReloadTimelines = false
 
-                let currentIds = ids
-                let newIds = discoveredDevices.compactMap { $0.id }
-                logger?.debug("newIds \(newIds, privacy: .public)")
-                let idsToRemove = currentIds.filter { !newIds.contains($0) }
+                let oldIds = ids
+                let currentIds = discoveredDevices.compactMap { $0.id }
+                logger?.debug("currentIds \(currentIds, privacy: .public)")
+                let idsToRemove = oldIds.filter { !currentIds.contains($0) }
                 for discoveredDevice in discoveredDevices {
-                    shouldReloadTimelines = shouldReloadTimelines || updateDeviceInformation(for: discoveredDevice)
+                    let shouldUpdateDiscoveredDeviceMetadata = updateDiscoveredDeviceMetadata(for: discoveredDevice)
+                    shouldReloadTimelines = shouldReloadTimelines || shouldUpdateDiscoveredDeviceMetadata
                 }
 
                 for item in idsToRemove {
                     defaults?.removeObject(forKey: key(id: item))
+                    discoveredDevicesCancellables.removeValue(forKey: item)
                     let _key = key(id: item)
                     logger?.debug("removed value for key \(_key)")
                 }
                 shouldReloadTimelines = shouldReloadTimelines || !idsToRemove.isEmpty
 
-                if currentIds.count != newIds.count || !currentIds.allSatisfy({ newIds.contains($0) }) {
+                if oldIds.count != currentIds.count || !oldIds.allSatisfy({ currentIds.contains($0) }) {
                     shouldReloadTimelines = true
-                    defaults?.setValue(newIds, forKey: "deviceIds")
-                    logger?.debug("updating deviceIds to \(newIds)")
+                    defaults?.setValue(currentIds, forKey: "deviceIds")
+                    logger?.debug("updating deviceIds to \(currentIds)")
                 }
 
                 if shouldReloadTimelines {
@@ -167,7 +147,7 @@ class DiscoveredDeviceMetadataManager {
 
     func reloadTimelines() {
         logger?.debug("(DiscoveredDeviceMetadataManager) reloading timelines")
-        // WidgetCenter.shared.reloadTimelines(ofKind: "com.brilliantsole.demo.device-discovery")
+        // WidgetCenter.shared.reloadTimelines(ofKind: "com.brilliantsole.widget.scanner")
         WidgetCenter.shared.reloadAllTimelines()
     }
 

@@ -11,8 +11,8 @@ import SwiftUI
 struct BrilliantSoleSwiftDemoApp: App {
     init() {
         #if !os(visionOS) && !os(tvOS)
-//            DeviceMetadataManager.shared.clear()
-//            DiscoveredDeviceMetadataManager.shared.clear()
+            DeviceMetadataManager.shared.clear()
+            DiscoveredDeviceMetadataManager.shared.clear()
         #endif
     }
 

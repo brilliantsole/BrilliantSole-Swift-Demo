@@ -23,7 +23,7 @@ struct ScannerDeviceRow: View {
     }
 
     init(id: String) {
-        discoveredDeviceMetadata = DiscoveredDeviceMetadataManager.shared.getInformation(id: id) ?? .none
+        discoveredDeviceMetadata = DiscoveredDeviceMetadataManager.shared.getMetadata(id: id) ?? .none
         deviceMetadata = DeviceMetadataManager.shared.getInformation(id: discoveredDeviceMetadata.id) ?? .none
     }
 
