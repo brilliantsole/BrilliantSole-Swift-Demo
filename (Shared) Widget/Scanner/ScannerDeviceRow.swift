@@ -218,8 +218,7 @@ struct ScannerDeviceRow: View {
             else {
                 if connectionStatus == .notConnected {
                     Button(intent: BSConnectToDeviceIntent(connectionId: id, connectionType: .ble), label: {
-                        Text("ble")
-                            .accessibilityLabel("connect via bluetooth")
+                        Text("connect")
                     })
                     .buttonStyle(.borderedProminent)
                 }

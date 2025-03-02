@@ -16,11 +16,17 @@ import WidgetKit
 struct BatteryLevelView: View {
     init(index: Int) {
         deviceMetadata = DeviceMetadataManager.shared.getMetadata(index: index) ?? .none
+        if !deviceMetadata.isConnected, !deviceMetadata.isNone {
+            deviceMetadata = .none
+        }
         logger?.debug("BatteryLevelView \(index)")
     }
 
     init(id: String) {
         deviceMetadata = DeviceMetadataManager.shared.getMetadata(id: id) ?? .none
+        if !deviceMetadata.isConnected, !deviceMetadata.isNone {
+            deviceMetadata = .none
+        }
         logger?.debug("BatteryLevelView \(id)")
     }
 
@@ -178,7 +184,7 @@ struct BatteryLevelView: View {
             Link(destination: link) {
                 _body
                     .modify {
-                        #if os(watchOS)
+                        #if !os(watchOS)
                             $0.widgetURL(link)
                         #endif
                     }

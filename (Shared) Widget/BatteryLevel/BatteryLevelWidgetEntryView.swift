@@ -12,7 +12,7 @@ import WidgetKit
 
 struct BatteryLevelWidgetEntryView: View {
     var entry: BatteryLevelWidgetProvider.Entry
-
+    
     @Environment(\.widgetFamily) var family
 
     var spacing: CGFloat = 12

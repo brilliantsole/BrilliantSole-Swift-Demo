@@ -12,9 +12,7 @@ import OSLog
 private let logger = getLogger(category: "BSConnectToDeviceIntent", disabled: false)
 
 struct BSConnectToDeviceIntent: AppIntent {
-    #if os(macOS)
     static var openAppWhenRun: Bool = true
-    #endif
 
     static var title = LocalizedStringResource("Connect to Device")
 
