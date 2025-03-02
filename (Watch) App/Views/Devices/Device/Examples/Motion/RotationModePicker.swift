@@ -21,7 +21,7 @@ struct RotationModePicker: View {
                     Button {
                         var sensorConfiguration: BSSensorConfiguration = .init()
                         isEnabled.toggle()
-                        sensorConfiguration[.rotation] = isEnabled ? ._20ms : ._0ms
+                        sensorConfiguration[.gameRotation] = isEnabled ? ._20ms : ._0ms
                         sensorConfigurable.setSensorConfiguration(sensorConfiguration)
                     } label: {
                         Image(systemName: isEnabled ? "rotate.3d.fill" : "rotate.3d")
