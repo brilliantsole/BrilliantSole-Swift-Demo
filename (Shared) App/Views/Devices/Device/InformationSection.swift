@@ -63,6 +63,11 @@ struct InformationSection: View {
                     Text(deviceType.name)
                 }
             }
+            #if os(tvOS)
+            .pickerStyle(.menu)
+            #else
+            .pickerStyle(.segmented)
+            #endif
             .onChange(of: newDeviceType) {
                 device.setDeviceType(newDeviceType)
             }

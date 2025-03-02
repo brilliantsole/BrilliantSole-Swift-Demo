@@ -59,7 +59,11 @@ struct RotationModePicker: View {
                     }
                 }
             }
+            #if os(tvOS)
+            .pickerStyle(.menu)
+            #else
             .pickerStyle(.segmented)
+            #endif
             .onChange(of: rotationMode) { _, newRotationMode in
                 var sensorConfiguration: BSSensorConfiguration = .init()
                 for rotationMode in RotationMode.allCases {

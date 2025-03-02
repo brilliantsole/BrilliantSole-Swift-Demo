@@ -1,5 +1,5 @@
 //
-//  UdpClient.swift
+//  UdpClientView.swift
 //  BrilliantSoleSwiftDemo
 //
 //  Created by Zack Qattan on 2/15/25.
@@ -9,7 +9,7 @@ import BrilliantSole
 import Combine
 import SwiftUI
 
-struct UdpClient: View {
+struct UdpClientView: View {
     private let client: BSUdpClient = .shared
     @State private var ipAddress: String
     @State private var isIpAddressValid: Bool = false
@@ -90,6 +90,9 @@ struct UdpClient: View {
                     }
             }
         }
+        #if os(tvOS)
+        .focusSection()
+        #endif
         .disabled(connectionStatus != .notConnected)
         .onReceive(client.connectionStatusPublisher) { newConnectionStatus in
             connectionStatus = newConnectionStatus
@@ -99,12 +102,15 @@ struct UdpClient: View {
             ConnectableButton(connectable: client)
             Spacer()
         }
+        #if os(tvOS)
+        .focusSection()
+        #endif
     }
 }
 
 #Preview {
     List {
-        UdpClient()
+        UdpClientView()
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

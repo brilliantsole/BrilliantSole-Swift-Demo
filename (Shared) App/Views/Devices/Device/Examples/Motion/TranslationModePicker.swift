@@ -48,7 +48,11 @@ struct TranslationModePicker: View {
                     }
                 }
             }
+            #if os(tvOS)
+            .pickerStyle(.menu)
+            #else
             .pickerStyle(.segmented)
+            #endif
             .onChange(of: translationMode) { _, newTranslationMode in
                 var sensorConfiguration: BSSensorConfiguration = .init()
                 for translationMode in TranslationMode.allCases {

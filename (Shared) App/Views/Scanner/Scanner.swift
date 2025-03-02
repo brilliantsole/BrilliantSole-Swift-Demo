@@ -46,7 +46,7 @@ struct Scanner: View {
                     }
 
                     if selectedScannerType == .udpClient {
-                        UdpClient()
+                        UdpClientView()
                     }
                 }
 
