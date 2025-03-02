@@ -183,31 +183,60 @@ struct BatteryLevelView: View {
         else {
             Link(destination: link) {
                 _body
-                    .modify {
-                        #if !os(watchOS)
-                            $0.widgetURL(link)
-                        #endif
-                    }
             }
         }
     }
 
     var circleBody: some View {
         ZStack {
-            image
+            let yOffset: CGFloat = switch family {
+            case .systemMedium:
+                0
+            default:
+                -6
+            }
 
+            image
             ProgressView(value: .init(batteryLevelProgress))
                 .progressViewStyle(.circular)
                 .tint(batteryLevelColor)
+                .modify {
+                    if isCharging {
+                        $0.overlay(
+                            VStack {
+                                let radius: CGFloat = switch family {
+                                case .systemMedium:
+                                    7
+                                default:
+                                    7
+                                }
+                                let maskYOffset: CGFloat = switch family {
+                                case .systemMedium:
+                                    2
+                                default:
+                                    9
+                                }
+                                Circle()
+                                    .frame(width: radius*2, height: radius*2)
+                                    .blendMode(.destinationOut)
+                                    .offset(y: yOffset - radius + maskYOffset)
+                                Spacer()
+                            }
+                        )
+                        .compositingGroup()
+                    }
+                }
+
             if isCharging {
                 VStack {
                     Image(systemName: "bolt.fill")
-                        .imageScale(.medium)
-                        .offset(y: -5)
+                        .imageScale(.small)
+                        .offset(y: yOffset)
                     Spacer()
                 }
             }
         }
+        .frame(maxHeight: 80)
         .modify {
             #if os(watchOS)
                 $0.widgetLabel {
@@ -289,10 +318,10 @@ struct BatteryLevelView: View {
         case .systemSmall, .accessoryCircular:
             circleBody
         case .systemMedium:
-            VStack(spacing: 12) {
+            VStack(spacing: 8) {
                 circleBody
                 batteryLevelView
-                    .font(.title)
+                    .font(.title2)
             }
         case .systemLarge, .systemExtraLarge:
             HStack {
