@@ -115,7 +115,7 @@ struct ContentView: View {
             DevicePairView()
                 .modify {
                     if !isWatch {
-                        $0.tabItem {
+                        $0.tabItem { 
                             Label("Device Pair", systemImage: devicePairImageString)
                         }
                     }
