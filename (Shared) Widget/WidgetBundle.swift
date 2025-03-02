@@ -11,7 +11,7 @@ import WidgetKit
 @main
 struct BSWidgetBundle: WidgetBundle {
     var body: some Widget {
-        // BatteryLevelWidget()
+        BatteryLevelWidget()
         #if !os(watchOS)
         ScannerWidget()
         #endif

@@ -20,14 +20,14 @@ struct ScannerTimelineEntry: TimelineEntry {
 
     func getInformation(index: Int) -> DeviceMetadata? {
         if let deviceIds, index < deviceIds.count {
-            return getInformation(id: deviceIds[index])
+            return getMetadata(id: deviceIds[index])
         }
         else {
             return deviceMetadataManager.getMetadata(index: index)
         }
     }
 
-    func getInformation(id: String) -> DeviceMetadata? {
+    func getMetadata(id: String) -> DeviceMetadata? {
         deviceMetadataManager.getMetadata(id: id)
     }
 }

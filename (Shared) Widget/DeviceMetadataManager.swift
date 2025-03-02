@@ -106,8 +106,8 @@ class DeviceMetadataManager {
                 reloadTimelines()
             }).store(in: &devicesCancellables[device.connectionId]!)
 
-            let newIds = BSDeviceManager.availableDevices.map { $0.id }
-            defaults?.setValue(newIds, forKey: "deviceIds")
+            let newIds = BSDeviceManager.availableDevices.map { $0.connectionId }
+            defaults?.set(newIds, forKey: "deviceIds")
             logger?.debug("device added - updating deviceIds to \(newIds)")
 
             reloadTimelines()
@@ -118,7 +118,7 @@ class DeviceMetadataManager {
             let _key = key(for: device)
             logger?.debug("removed value for key \(_key)")
 
-            let newIds = BSDeviceManager.availableDevices.map { $0.id }
+            let newIds = BSDeviceManager.availableDevices.map { $0.connectionId }
             defaults?.set(newIds, forKey: "deviceIds")
             logger?.debug("device removed - updating deviceIds to \(newIds)")
 
