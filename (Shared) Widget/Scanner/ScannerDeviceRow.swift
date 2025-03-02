@@ -176,11 +176,18 @@ struct ScannerDeviceRow: View {
 
     @ViewBuilder
     var header: some View {
-        HStack {
+        let headerBody = HStack {
             image
             Text("\(name)")
         }
-        .widgetURL(link)
+        if isConnected {
+            Link(destination: link) {
+                headerBody
+            }
+        }
+        else {
+            headerBody
+        }
     }
 
     @ViewBuilder

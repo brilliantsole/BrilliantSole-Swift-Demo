@@ -14,6 +14,8 @@ private let logger = getLogger(category: "BSToggleScanIntent", disabled: false)
 struct BSToggleScanIntent: AppIntent {
     #if os(macOS)
     static var openAppWhenRun: Bool = true
+    #else
+    static var openAppWhenRun: Bool = false
     #endif
 
     static var title = LocalizedStringResource("Toggle Scan")

@@ -265,7 +265,6 @@
 				AppGroupDeviceMetadata.swift,
 				BatteryLevel/BatteryLevelTimelineEntry.swift,
 				BatteryLevel/BatteryLevelView.swift,
-				BatteryLevel/BatteryLevelWidget.swift,
 				BatteryLevel/BatteryLevelWidgetConfiguration.swift,
 				BatteryLevel/BatteryLevelWidgetEntryView.swift,
 				BatteryLevel/BatteryLevelWidgetProvider.swift,
@@ -274,6 +273,7 @@
 				DiscoveredDeviceMetadata.swift,
 				DiscoveredDeviceMetadataManager.swift,
 				Utils/UserDefaults.swift,
+				Utils/WidgetViewModifier.swift,
 			);
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
 		};
@@ -283,7 +283,6 @@
 				AppGroupDeviceMetadata.swift,
 				BatteryLevel/BatteryLevelTimelineEntry.swift,
 				BatteryLevel/BatteryLevelView.swift,
-				BatteryLevel/BatteryLevelWidget.swift,
 				BatteryLevel/BatteryLevelWidgetConfiguration.swift,
 				BatteryLevel/BatteryLevelWidgetEntryView.swift,
 				BatteryLevel/BatteryLevelWidgetProvider.swift,
@@ -292,6 +291,7 @@
 				DiscoveredDeviceMetadata.swift,
 				DiscoveredDeviceMetadataManager.swift,
 				Utils/UserDefaults.swift,
+				Utils/WidgetViewModifier.swift,
 				WidgetBundle.swift,
 			);
 			target = 5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */;

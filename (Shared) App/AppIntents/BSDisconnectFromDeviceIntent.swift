@@ -29,9 +29,9 @@ struct BSDisconnectFromDeviceIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        logger?.debug("disconnecting from device \(connectionId)")
+        logger?.debug("disconnecting from device \(connectionId, privacy: .public)")
         guard let device = BSDeviceManager.availableDevices.first(where: { $0.connectionId == connectionId }) else {
-            logger?.error("no device found with id \(connectionId)")
+            logger?.error("no device found with id \(connectionId, privacy: .public)")
             return .result()
         }
         device.disconnect()

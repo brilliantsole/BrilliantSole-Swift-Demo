@@ -65,16 +65,17 @@ struct DevicesView: View {
         case "select-device":
             if let connectionId = components.queryItems?.first(where: { $0.name == "id" })?.value {
                 guard let device = devices.first(where: { $0.connectionId == connectionId }) else {
-                    logger?.error("no device found for connectionId \(connectionId)")
+                    logger?.error("no device found for connectionId \(connectionId, privacy: .public)")
                     return
                 }
-                navigationManager.navigateTo(device)
+                logger?.log("navigating to \(device.name, privacy: .public)")
+                navigationManager.path = .init([device])
             }
             else {
                 logger?.error("no id query found in url")
             }
         default:
-            logger?.error("uncaught action \"\(action)\"")
+            logger?.error("uncaught action \"\(action, privacy: .public)\"")
         }
     }
 }

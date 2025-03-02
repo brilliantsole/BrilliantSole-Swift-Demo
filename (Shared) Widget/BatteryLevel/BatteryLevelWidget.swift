@@ -7,12 +7,10 @@
 
 import AppIntents
 import BrilliantSole
-import OSLog
 import SwiftUI
 import UkatonMacros
 import WidgetKit
 
-@StaticLogger
 struct BatteryLevelWidget: Widget {
     var body: some WidgetConfiguration {
         BatteryLevelWidgetConfiguration()
