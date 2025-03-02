@@ -13,7 +13,7 @@ private let logger = getLogger(category: "BSToggleScanIntent", disabled: false)
 
 struct BSToggleScanIntent: AppIntent {
     #if os(macOS)
-    static var openAppWhenRun: Bool = true
+    static var openAppWhenRun: Bool = false
     #else
     static var openAppWhenRun: Bool = false
     #endif
