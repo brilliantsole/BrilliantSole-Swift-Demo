@@ -18,13 +18,13 @@ struct ScannerDeviceRow: View {
     var deviceMetadata: DeviceMetadata
 
     init(index: Int) {
-        discoveredDeviceMetadata = DiscoveredDeviceMetadataManager.shared.getInformation(index: index) ?? .none
-        deviceMetadata = DeviceMetadataManager.shared.getInformation(id: discoveredDeviceMetadata.id) ?? .none
+        discoveredDeviceMetadata = DiscoveredDeviceMetadataManager.shared.getMetadata(index: index) ?? .none
+        deviceMetadata = DeviceMetadataManager.shared.getMetadata(id: discoveredDeviceMetadata.id) ?? .none
     }
 
     init(id: String) {
         discoveredDeviceMetadata = DiscoveredDeviceMetadataManager.shared.getMetadata(id: id) ?? .none
-        deviceMetadata = DeviceMetadataManager.shared.getInformation(id: discoveredDeviceMetadata.id) ?? .none
+        deviceMetadata = DeviceMetadataManager.shared.getMetadata(id: discoveredDeviceMetadata.id) ?? .none
     }
 
     init() {
@@ -44,7 +44,7 @@ struct ScannerDeviceRow: View {
     }
 
     var connectionStatus: BSConnectionStatus? {
-        deviceMetadata.connectionStatus
+        _deviceMetadata.connectionStatus
     }
 
     var isConnected: Bool {
@@ -199,7 +199,7 @@ struct ScannerDeviceRow: View {
     var connectionContent: some View {
         HStack {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
-                Button(role: .destructive, intent: BSDisconnectFromDeviceIntent(deviceId: id), label: {
+                Button(role: .destructive, intent: BSDisconnectFromDeviceIntent(connectionId: id), label: {
                     Text("disconnect")
                 })
                 .buttonStyle(.borderedProminent)
@@ -210,7 +210,7 @@ struct ScannerDeviceRow: View {
             }
             else {
                 if connectionStatus == .notConnected {
-                    Button(intent: BSConnectToDeviceIntent(deviceId: id, connectionType: .ble), label: {
+                    Button(intent: BSConnectToDeviceIntent(connectionId: id, connectionType: .ble), label: {
                         Text("ble")
                             .accessibilityLabel("connect via bluetooth")
                     })
@@ -218,7 +218,7 @@ struct ScannerDeviceRow: View {
                 }
                 else {
                     if let connectionType {
-                        Button(role: .cancel, intent: BSDisconnectFromDeviceIntent(deviceId: id), label: {
+                        Button(role: .cancel, intent: BSDisconnectFromDeviceIntent(connectionId: id), label: {
                             Text("connecting...")
                                 .accessibilityLabel("cancel connection via \(connectionType.name)")
                         })

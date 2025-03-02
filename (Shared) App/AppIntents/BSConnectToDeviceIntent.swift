@@ -18,8 +18,8 @@ struct BSConnectToDeviceIntent: AppIntent {
 
     static var title = LocalizedStringResource("Connect to Device")
 
-    @Parameter(title: "device id")
-    var deviceId: String
+    @Parameter(title: "connection id")
+    var connectionId: String
 
     @Parameter(title: "connection type")
     var connectionTypeName: String
@@ -29,26 +29,26 @@ struct BSConnectToDeviceIntent: AppIntent {
 
     init() {}
 
-    init(deviceId: String, connectionTypeName: String) {
-        self.deviceId = deviceId
+    init(connectionId: String, connectionTypeName: String) {
+        self.connectionId = connectionId
         self.connectionTypeName = connectionTypeName
     }
 
-    init(deviceId: String, connectionType: BSConnectionType) {
-        self.init(deviceId: deviceId, connectionTypeName: connectionType.name)
+    init(connectionId: String, connectionType: BSConnectionType) {
+        self.init(connectionId: connectionId, connectionTypeName: connectionType.name)
     }
 
     var scanner: BSScanner? { connectionType?.scanner }
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        logger?.debug("connecting to device \(deviceId) via \(connectionType?.name ?? "")")
+        logger?.debug("connecting to device \(connectionId) via \(connectionType?.name ?? "")")
         guard let scanner else {
             logger?.error("no scanner found")
             return .result()
         }
-        guard let discoveredDevice = scanner.discoveredDevicesMap[deviceId] else {
-            logger?.error("no discoveredDevice found for deviceId \(deviceId)")
+        guard let discoveredDevice = scanner.discoveredDevicesMap[connectionId] else {
+            logger?.error("no discoveredDevice found for connectionId \(connectionId)")
             return .result()
         }
         discoveredDevice.connect()

@@ -63,9 +63,9 @@ struct DevicesView: View {
 
         switch action {
         case "select-device":
-            if let deviceId = components.queryItems?.first(where: { $0.name == "id" })?.value {
-                guard let device = devices.first(where: { $0.id == deviceId }) else {
-                    logger?.error("no device found for \(deviceId)")
+            if let connectionId = components.queryItems?.first(where: { $0.name == "id" })?.value {
+                guard let device = devices.first(where: { $0.connectionId == connectionId }) else {
+                    logger?.error("no device found for connectionId \(connectionId)")
                     return
                 }
                 navigationManager.navigateTo(device)

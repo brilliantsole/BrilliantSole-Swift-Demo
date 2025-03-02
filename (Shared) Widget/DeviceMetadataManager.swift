@@ -26,7 +26,7 @@ class DeviceMetadataManager {
         defaults?.object(forKey: "isScanning") as? Bool ?? false
     }
 
-    func getInformation(id: String) -> DeviceMetadata? {
+    func getMetadata(id: String) -> DeviceMetadata? {
         guard let value = defaults?.object(forKey: "device-\(id)") as? RawDeviceMetadata,
               let name = value["name"],
               let deviceTypeName = value["deviceType"],
@@ -50,13 +50,13 @@ class DeviceMetadataManager {
         return .init(id: id, name: name, deviceType: deviceType, batteryLevel: batteryLevel, isCharging: isCharging, connectionType: connectionType, connectionStatus: connectionStatus)
     }
 
-    func getInformation(index: Int) -> DeviceMetadata? {
+    func getMetadata(index: Int) -> DeviceMetadata? {
         guard index < ids.count else { return nil }
-        return getInformation(id: ids[index])
+        return getMetadata(id: ids[index])
     }
 
     private func key(for device: BSDevice) -> String {
-        "device-\(device.id)"
+        "device-\(device.connectionId)"
     }
 
     private var cancellables: Set<AnyCancellable> = .init()
@@ -74,7 +74,7 @@ class DeviceMetadataManager {
         }
         defaults?.set(rawDeviceMetadata, forKey: key(for: device))
         let _key = key(for: device)
-        logger?.debug("set value for key \(_key): \(rawDeviceMetadata)")
+        logger?.debug("set value for key \(_key, privacy: .public): \(rawDeviceMetadata, privacy: .public)")
     }
 
     private var isListeningForUpdates: Bool = false
@@ -85,16 +85,26 @@ class DeviceMetadataManager {
         logger?.debug("listening for DeviceMetadata updates")
 
         BSDeviceManager.availableDevicePublisher.sink(receiveValue: { [self] device in
-            updateDeviceMetadata(for: device)
-
-            if devicesCancellables[device.id] == nil {
-                devicesCancellables[device.id] = .init()
+            if devicesCancellables[device.connectionId] == nil {
+                devicesCancellables[device.connectionId] = .init()
             }
+
+            updateDeviceMetadata(for: device)
 
             device.batteryLevelPublisher.dropFirst().sink(receiveValue: { [self, device] _ in
                 updateDeviceMetadata(for: device)
                 reloadTimelines()
-            }).store(in: &devicesCancellables[device.id]!)
+            }).store(in: &devicesCancellables[device.connectionId]!)
+
+            device.connectionStatusPublisher.dropFirst().sink(receiveValue: { [self, device] _ in
+                updateDeviceMetadata(for: device)
+                reloadTimelines()
+            }).store(in: &devicesCancellables[device.connectionId]!)
+
+            device.isBatteryChargingPublisher.dropFirst().sink(receiveValue: { [self, device] _ in
+                updateDeviceMetadata(for: device)
+                reloadTimelines()
+            }).store(in: &devicesCancellables[device.connectionId]!)
 
             let newIds = BSDeviceManager.availableDevices.map { $0.id }
             defaults?.setValue(newIds, forKey: "deviceIds")
@@ -112,14 +122,14 @@ class DeviceMetadataManager {
             defaults?.set(newIds, forKey: "deviceIds")
             logger?.debug("device removed - updating deviceIds to \(newIds)")
 
-            devicesCancellables.removeValue(forKey: device.id)
+            devicesCancellables.removeValue(forKey: device.connectionId)
 
             reloadTimelines()
         }).store(in: &cancellables)
     }
 
     func reloadTimelines() {
-        logger?.debug("(BSDevicesInformation) reloading timelines")
+        logger?.debug("reloading timelines")
         // WidgetCenter.shared.reloadTimelines(ofKind: "com.brilliantsole.demo.battery-level")
         WidgetCenter.shared.reloadAllTimelines()
     }

@@ -18,20 +18,20 @@ struct BSDisconnectFromDeviceIntent: AppIntent {
 
     static var title = LocalizedStringResource("Disconnect from Device")
 
-    @Parameter(title: "device id")
-    var deviceId: String
+    @Parameter(title: "connection id")
+    var connectionId: String
 
     init() {}
 
-    init(deviceId: String) {
-        self.deviceId = deviceId
+    init(connectionId: String) {
+        self.connectionId = connectionId
     }
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        logger?.debug("disconnecting from device \(deviceId)")
-        guard let device = BSDeviceManager.availableDevices.first(where: { $0.id == deviceId }) else {
-            logger?.error("no device found with id \(deviceId)")
+        logger?.debug("disconnecting from device \(connectionId)")
+        guard let device = BSDeviceManager.availableDevices.first(where: { $0.connectionId == connectionId }) else {
+            logger?.error("no device found with id \(connectionId)")
             return .result()
         }
         device.disconnect()

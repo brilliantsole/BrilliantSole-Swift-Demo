@@ -17,7 +17,10 @@ struct ScannerWidgetEntryView: View {
 
     private var discoveredDeviceMetadataManager: DiscoveredDeviceMetadataManager { .shared }
     private var isScanning: Bool { discoveredDeviceMetadataManager.isScanning }
-    private var ids: [String] { discoveredDeviceMetadataManager.ids }
+    private var discoveredDeviceIds: [String] { discoveredDeviceMetadataManager.ids }
+
+    private var deviceMetadataManager: DeviceMetadataManager { .shared }
+    private var deviceIds: [String] { deviceMetadataManager.ids }
 
     var spacing: CGFloat = 12
 
@@ -49,7 +52,7 @@ struct ScannerWidgetEntryView: View {
                 Spacer()
             }
         }
-        if ids.isEmpty {
+        if discoveredDeviceIds.isEmpty {
             if !isScanning {
                 HStack {
                     Spacer()
@@ -59,9 +62,9 @@ struct ScannerWidgetEntryView: View {
                 }
             }
         }
-        if !ids.isEmpty {
+        if !discoveredDeviceIds.isEmpty {
             VStack {
-                ForEach(ids, id: \.self) {
+                ForEach(discoveredDeviceIds, id: \.self) {
                     ScannerDeviceRow(id: $0)
                     Divider()
                 }

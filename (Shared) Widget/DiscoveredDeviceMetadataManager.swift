@@ -49,7 +49,7 @@ class DiscoveredDeviceMetadataManager {
         return .init(id: id, name: name, deviceType: deviceType, connectionType: connectionType, connectionStatus: connectionStatus)
     }
 
-    func getInformation(index: Int) -> DiscoveredDeviceMetadata? {
+    func getMetadata(index: Int) -> DiscoveredDeviceMetadata? {
         guard index < ids.count else { return nil }
         return getMetadata(id: ids[index])
     }
@@ -166,7 +166,7 @@ class DiscoveredDeviceMetadataManager {
     }
 
     func reloadTimelines() {
-        logger?.debug("(DiscoveredDeviceMetadataManager) reloading timelines")
+        logger?.debug("reloading timelines")
         // WidgetCenter.shared.reloadTimelines(ofKind: "com.brilliantsole.widget.scanner")
         WidgetCenter.shared.reloadAllTimelines()
     }

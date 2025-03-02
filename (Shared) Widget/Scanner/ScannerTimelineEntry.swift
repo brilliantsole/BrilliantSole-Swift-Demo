@@ -23,11 +23,11 @@ struct ScannerTimelineEntry: TimelineEntry {
             return getInformation(id: deviceIds[index])
         }
         else {
-            return deviceMetadataManager.getInformation(index: index)
+            return deviceMetadataManager.getMetadata(index: index)
         }
     }
 
     func getInformation(id: String) -> DeviceMetadata? {
-        deviceMetadataManager.getInformation(id: id)
+        deviceMetadataManager.getMetadata(id: id)
     }
 }
