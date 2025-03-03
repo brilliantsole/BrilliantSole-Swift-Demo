@@ -7,12 +7,10 @@
 
 import AppIntents
 import BrilliantSole
-import OSLog
 import SwiftUI
 import UkatonMacros
 import WidgetKit
 
-@StaticLogger
 struct ScannerDeviceRow: View {
     var discoveredDeviceMetadata: DiscoveredDeviceMetadata
     var deviceMetadata: DeviceMetadata

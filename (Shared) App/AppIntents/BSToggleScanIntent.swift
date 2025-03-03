@@ -9,7 +9,7 @@ import AppIntents
 import BrilliantSole
 import OSLog
 
-private let logger = getLogger(category: "BSToggleScanIntent", disabled: false)
+private let logger = getLogger(category: "BSToggleScanIntent", disabled: true)
 
 struct BSToggleScanIntent: AppIntent {
     static var openAppWhenRun: Bool = true

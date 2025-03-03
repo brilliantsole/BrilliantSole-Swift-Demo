@@ -13,7 +13,7 @@ import SwiftUI
 import UkatonMacros
 import WidgetKit
 
-@StaticLogger(disabled: false)
+@StaticLogger(disabled: true)
 @Singleton()
 class DiscoveredDeviceMetadataManager {
     private let defaults: UserDefaults? = getUserDefaults("discovered-devices")

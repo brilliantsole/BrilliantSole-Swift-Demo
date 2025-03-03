@@ -5,11 +5,9 @@
 //  Created by Zack Qattan on 3/1/25.
 //
 
-import OSLog
 import UkatonMacros
 import WidgetKit
 
-@StaticLogger
 struct BatteryLevelTimelineEntry: TimelineEntry {
     let date: Date
     private var ids: [String]?

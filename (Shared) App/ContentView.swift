@@ -11,7 +11,7 @@ import OSLog
 import SwiftUI
 import UkatonMacros
 
-@StaticLogger
+@StaticLogger(disabled: false)
 struct ContentView: View {
     // MARK: - tabEum
 
@@ -115,7 +115,7 @@ struct ContentView: View {
             DevicePairView()
                 .modify {
                     if !isWatch {
-                        $0.tabItem { 
+                        $0.tabItem {
                             Label("Device Pair", systemImage: devicePairImageString)
                         }
                     }

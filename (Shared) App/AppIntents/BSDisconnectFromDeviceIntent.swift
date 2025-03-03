@@ -9,7 +9,7 @@ import AppIntents
 import BrilliantSole
 import OSLog
 
-private let logger = getLogger(category: "BSDisconnectFromDeviceIntent", disabled: false)
+private let logger = getLogger(category: "BSDisconnectFromDeviceIntent", disabled: true)
 
 struct BSDisconnectFromDeviceIntent: AppIntent {
     static var openAppWhenRun: Bool = true

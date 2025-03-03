@@ -10,7 +10,7 @@ import OSLog
 import SwiftUI
 import UkatonMacros
 
-@StaticLogger
+@StaticLogger(disabled: false)
 struct DevicesView: View {
     @EnvironmentObject var navigationManager: NavigationManager
 

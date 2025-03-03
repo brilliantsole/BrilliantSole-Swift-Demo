@@ -12,7 +12,7 @@ import SwiftUI
 import UkatonMacros
 import WidgetKit
 
-@StaticLogger
+@StaticLogger(disabled: false)
 struct BatteryLevelWidgetProvider: TimelineProvider {
     typealias Entry = BatteryLevelTimelineEntry
 
