@@ -318,13 +318,6 @@
 			);
 			target = 5F060EBE2D7239220032D885 /* (Watch) BrilliantSole Widget */;
 		};
-		5F4C07E62D72E51E00ECE8CC /* Exceptions for "(TV) App" folder in "(TV) BrilliantSole Demo" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */;
-		};
 		5F4C07E72D72E52900ECE8CC /* Exceptions for "(Watch) App" folder in "(Watch) BrilliantSole Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -793,6 +786,13 @@
 			);
 			target = 5F8EA9D22D59AF9B00B81545 /* (Watch) BrilliantSole Demo */;
 		};
+		5F91087C2D7C268400434166 /* Exceptions for "(TV) App" folder in "(TV) BrilliantSole Demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5F8EA8BC2D59663100B81545 /* (TV) BrilliantSole Demo */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -837,7 +837,7 @@
 		5F8EA8BE2D59663100B81545 /* (TV) App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5F4C07E62D72E51E00ECE8CC /* Exceptions for "(TV) App" folder in "(TV) BrilliantSole Demo" target */,
+				5F91087C2D7C268400434166 /* Exceptions for "(TV) App" folder in "(TV) BrilliantSole Demo" target */,
 			);
 			path = "(TV) App";
 			sourceTree = "<group>";
@@ -1787,7 +1787,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connect to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connect to BrilliantSole devices";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1821,7 +1820,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to discover and connect to BrilliantSole devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to discover and connect to BrilliantSole devices";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We look for nearby devices";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
