@@ -89,7 +89,7 @@ struct ModelView: View {
 
         scene.rootNode.addChildNode(model.rootNode)
         model.rootNode.scale = .init(25, 25, 25)
-        model.rootNode.eulerAngles.x = .pi / 2
+        // model.rootNode.eulerAngles.x = .pi / 2
 
         // MARK: - Lights,
 
@@ -100,8 +100,15 @@ struct ModelView: View {
         // MARK: - Camera...
 
         cameraNode.camera = SCNCamera()
-        cameraNode.position = .init(x: 0, y: 0, z: 15)
-        cameraNode.eulerAngles = .init(x: 0, y: 0, z: 0)
+
+        if isTv {
+            cameraNode.position = .init(x: 0, y: 15, z: 0)
+            cameraNode.eulerAngles = .init(x: -.pi / 2, y: 0, z: 0)
+        }
+        else {
+            cameraNode.position = .init(x: 0, y: 0, z: 15)
+            cameraNode.eulerAngles = .init(x: 0, y: 0, z: 0)
+        }
         cameraNode.camera?.fieldOfView = 30
     }
 

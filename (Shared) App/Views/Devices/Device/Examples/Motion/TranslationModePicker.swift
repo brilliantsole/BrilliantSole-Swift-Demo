@@ -16,13 +16,13 @@ struct TranslationModePicker: View {
     enum TranslationMode: CaseIterable, Identifiable, Hashable {
         var id: String { name }
 
-        case none
+        case noTranslation
         case linearAcceleration
         case acceleration
 
         var sensorType: BSSensorType? {
             return switch self {
-            case .none:
+            case .noTranslation:
                 nil
             case .acceleration:
                 .acceleration
@@ -36,7 +36,7 @@ struct TranslationModePicker: View {
         }
     }
 
-    @State private var translationMode: TranslationMode = .none
+    @State private var translationMode: TranslationMode = .noTranslation
 
     var body: some View {
         HStack {

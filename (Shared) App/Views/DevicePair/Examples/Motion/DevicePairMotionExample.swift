@@ -23,6 +23,9 @@ struct DevicePairMotionExample: View {
             RotationModePicker(sensorConfigurable: devicePair)
             TranslationModePicker(sensorConfigurable: devicePair)
         }
+        #if os(tvOS)
+        .focusSection()
+        #endif
         .navigationTitle("Motion")
         .onDisappear {
             devicePair.clearSensorConfiguration()
@@ -35,14 +38,14 @@ struct DevicePairMotionExample: View {
                     .accessibilityLabel("reset orientation")
             }
             #if os(watchOS)
-                ToolbarItem(placement: .topBarTrailing) {
-                    button
-                        .foregroundColor(.primary)
-                }
+            ToolbarItem(placement: .topBarTrailing) {
+                button
+                    .foregroundColor(.primary)
+            }
             #else
-                ToolbarItem {
-                    button
-                }
+            ToolbarItem {
+                button
+            }
             #endif
         }
     }

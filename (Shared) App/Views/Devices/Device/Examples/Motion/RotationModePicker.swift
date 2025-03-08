@@ -16,7 +16,7 @@ struct RotationModePicker: View {
     enum RotationMode: CaseIterable, Identifiable {
         var id: String { name }
 
-        case none
+        case noRotation
         case gyroscope
         case rotation
         case gameRotation
@@ -24,7 +24,7 @@ struct RotationModePicker: View {
 
         var sensorType: BSSensorType? {
             return switch self {
-            case .none:
+            case .noRotation:
                 nil
             case .gyroscope:
                 .gyroscope
@@ -39,7 +39,7 @@ struct RotationModePicker: View {
 
         var showSensorType: Bool {
             return switch self {
-            case .none, .gyroscope, .rotation, .gameRotation:
+            case .noRotation, .gyroscope, .rotation, .gameRotation:
                 true
             default:
                 false
@@ -47,7 +47,7 @@ struct RotationModePicker: View {
         }
     }
 
-    @State private var rotationMode: RotationMode = .none
+    @State private var rotationMode: RotationMode = .noRotation
 
     var body: some View {
         HStack {

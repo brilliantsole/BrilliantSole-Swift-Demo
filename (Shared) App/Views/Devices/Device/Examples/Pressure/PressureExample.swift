@@ -17,6 +17,9 @@ struct PressureExample: View {
             PressureView(device: device)
             PressureModePicker(sensorConfigurable: device)
         }
+        #if os(tvOS)
+        .focusSection()
+        #endif
         .navigationTitle("Pressure")
         .onDisappear {
             device.clearSensorConfiguration()

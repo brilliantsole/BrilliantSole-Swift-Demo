@@ -21,6 +21,9 @@ struct UdpClientView: View {
 
     init() {
         _ipAddress = .init(initialValue: client.ipAddress)
+        // _ipAddress = .init(initialValue: "192.168.1.91")
+        // client.ipAddress = "192.168.1.91"
+
         _sendPort = .init(initialValue: client.sendPort)
         _receivePort = .init(initialValue: client.receivePort)
 
