@@ -12,12 +12,12 @@
 		<key>(Mac) BrilliantSole Widget.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>(TV) BrilliantSole Demo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>(VisionOS) BrilliantSole Demo.xcscheme_^#shared#^_</key>
 		<dict>
