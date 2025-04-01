@@ -26,7 +26,7 @@ struct BalanceExample: View {
 
 #Preview {
     NavigationStack {
-        BalanceExample(centerOfPressureProvider: BSDevicePair.shared)
+        BalanceExample(centerOfPressureProvider: BSDevicePair.insoles)
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

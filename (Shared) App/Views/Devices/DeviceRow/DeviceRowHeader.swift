@@ -25,6 +25,12 @@ struct DeviceRowHeader: View {
         switch deviceType {
         case .leftInsole, .rightInsole:
             "shoe"
+        case .leftGlove, .rightGlove:
+            "hand.raised"
+        case .glasses:
+            "eyeglasses"
+        case .generic:
+            "questionmark"
         case nil:
             nil
         }
@@ -40,7 +46,7 @@ struct DeviceRowHeader: View {
                 HStack(spacing: 4) {
                     Image(systemName: deviceTypeSystemImage!)
                         .modify {
-                            if deviceType == .leftInsole {
+                            if deviceType == .leftInsole || deviceType == .rightGlove {
                                 $0.scaleEffect(x: -1)
                             }
                         }

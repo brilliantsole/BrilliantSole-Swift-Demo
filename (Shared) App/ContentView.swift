@@ -37,7 +37,7 @@ struct ContentView: View {
 
     // MARK: - devicePair
 
-    private let devicePair: BSDevicePair = .shared
+    private let devicePair: BSDevicePair = .insoles
     var devicePairImageString: String {
         switch devicePairConnectionStatus {
         case .notConnected:

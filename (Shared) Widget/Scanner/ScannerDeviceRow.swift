@@ -77,6 +77,12 @@ struct ScannerDeviceRow: View {
         switch deviceType {
         case .leftInsole, .rightInsole:
             "👟"
+        case .leftGlove, .rightGlove:
+            "🧤"
+        case .glasses:
+            "👓"
+        case .generic:
+            "🕹️"
         }
     }
 

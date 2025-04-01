@@ -65,7 +65,7 @@ struct BalanceView: View {
     }
 
     private let cornerRadius: CGFloat = 10.0
-    func verticalBar(geometry: GeometryProxy, side: BSInsoleSide) -> some View {
+    func verticalBar(geometry: GeometryProxy, side: BSSide) -> some View {
         ZStack(alignment: .bottom) {
             let barWidth = geometry.size.width * 0.15
             RoundedRectangle(cornerRadius: cornerRadius)
@@ -158,7 +158,7 @@ struct BalanceView: View {
 
 #Preview {
     NavigationStack {
-        BalanceView(centerOfPressureProvider: BSDevicePair.shared)
+        BalanceView(centerOfPressureProvider: BSDevicePair.insoles)
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

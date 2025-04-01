@@ -54,7 +54,7 @@ struct ModelView: View {
     func onVector(_ vector: Vector3D) {
         guard let model else { return }
         let _vector = model.rootNode.simdOrientation.act(.init(vector))
-        model.rootNode.simdPosition.interpolate(to: _vector * 0.5, with: 0.4)
+        model.rootNode.simdPosition.interpolate(to: _vector * 0.7, with: 0.4)
     }
 
     func onLinearAcceleration(_ linearAcceleration: Vector3D) {
@@ -80,7 +80,8 @@ struct ModelView: View {
 
         // MARK: - Model
 
-        let modelName = device.deviceType.name
+        let deviceType = device.deviceType
+        let modelName = deviceType.name
         model = .init(named: "\(modelName).usdz")!
         guard let model else {
             print("failed to load model")
@@ -88,7 +89,20 @@ struct ModelView: View {
         }
 
         scene.rootNode.addChildNode(model.rootNode)
-        model.rootNode.scale = .init(25, 25, 25)
+        switch deviceType {
+        case .leftInsole, .rightInsole:
+            model.rootNode.scale = .init(25, 25, 25)
+        case .leftGlove:
+            model.rootNode.scale = .init(-1.5, 1.5, 1.5)
+        case .rightGlove:
+            model.rootNode.scale = .init(1.5, 1.5, 1.5)
+        case .glasses:
+            model.rootNode.scale = .init(0.03, 0.03, 0.03)
+            model.rootNode.position = .init(0, 0.5, 0)
+        case .generic:
+            model.rootNode.scale = .init(0.06, 0.06, 0.06)
+            model.rootNode.position = .init(0, -1, 0)
+        }
         // model.rootNode.eulerAngles.x = .pi / 2
 
         // MARK: - Lights,

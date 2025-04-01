@@ -13,11 +13,24 @@ struct PressureView: View {
     let device: BSDevice
     @State private var pressureData: BSPressureData? = nil
 
-    private let imageNames = (0 ... 7).map { "pressure\($0)" }
+    private let imageName: String
+    private let imageNames: [String]
+
+    init(device: BSDevice) {
+        self.device = device
+        if device.isUkaton {
+            self.imageName = "ukaton \(device.deviceType.name)"
+            self.imageNames = (0 ... 15).map { "ukaton-pressure-\($0)" }
+        }
+        else {
+            self.imageName = device.deviceType.name
+            self.imageNames = (0 ... 7).map { "pressure-\($0)" }
+        }
+    }
 
     var body: some View {
         ZStack {
-            Image(device.deviceType.name)
+            Image(imageName)
                 .resizable()
             if let pressureData {
                 ForEach(Array(imageNames.enumerated()), id: \.element) { index, imageName in
@@ -26,7 +39,7 @@ struct PressureView: View {
                         .renderingMode(.template)
                         .foregroundColor(.red)
                         .opacity(.init(pressureData.sensors[index].normalizedValue))
-                        .scaleEffect(x: device.deviceType == .rightInsole ? 1.0 : -1.0)
+                        .scaleEffect(x: device.side == .right ? 1.0 : -1.0)
                 }
             }
         }

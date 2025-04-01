@@ -46,6 +46,12 @@ struct BatteryLevelView: View {
         switch deviceType {
         case .leftInsole, .rightInsole:
             "👟"
+        case .leftGlove, .rightGlove:
+            "🧤"
+        case .glasses:
+            "👓"
+        case .generic:
+            "🕹️"
         }
     }
 
@@ -134,6 +140,12 @@ struct BatteryLevelView: View {
         return switch deviceType {
         case .leftInsole, .rightInsole:
             "shoe.fill"
+        case .leftGlove, .rightGlove:
+            "hand.fill"
+        case .glasses:
+            "eyeglasses"
+        case .generic:
+            "rotate.3d"
         }
     }
 
@@ -169,7 +181,7 @@ struct BatteryLevelView: View {
             Image(systemName: imageName)
                 .imageScale(imageScale)
                 .modify {
-                    if deviceType == .leftInsole {
+                    if deviceType == .leftInsole || deviceType == .rightGlove {
                         $0.scaleEffect(x: -1)
                     }
                 }

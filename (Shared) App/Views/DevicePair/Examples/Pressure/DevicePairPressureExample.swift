@@ -29,7 +29,7 @@ struct DevicePairPressureExample: View {
 
 #Preview {
     NavigationStack {
-        DevicePairPressureExample(devicePair: .shared)
+        DevicePairPressureExample(devicePair: .insoles)
     }
     #if os(macOS)
     .frame(maxWidth: 350, minHeight: 300)

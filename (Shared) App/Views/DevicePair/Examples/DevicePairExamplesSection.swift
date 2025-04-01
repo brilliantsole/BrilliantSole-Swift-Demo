@@ -41,7 +41,7 @@ struct DevicePairExamplesSection: View {
 #Preview {
     @Previewable @StateObject var navigationManager = NavigationManager()
 
-    let devicePair: BSDevicePair = .shared
+    let devicePair: BSDevicePair = .insoles
 
     NavigationStack(path: $navigationManager.path) {
         List {

@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 struct DevicePairView: View {
-    let devicePair: BSDevicePair = .shared
+    let devicePair: BSDevicePair = .insoles
     @State var connectionStatus: BSDevicePairConnectionStatus = .notConnected
 
     @EnvironmentObject var navigationManager: NavigationManager

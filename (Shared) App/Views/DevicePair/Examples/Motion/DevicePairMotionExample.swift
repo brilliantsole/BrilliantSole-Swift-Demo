@@ -53,7 +53,7 @@ struct DevicePairMotionExample: View {
 
 #Preview {
     NavigationStack {
-        DevicePairMotionExample(devicePair: .shared)
+        DevicePairMotionExample(devicePair: .insoles)
     }
     #if os(macOS)
     .frame(maxWidth: 500, minHeight: 300)
