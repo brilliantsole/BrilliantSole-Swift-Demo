@@ -81,7 +81,16 @@ struct ModelView: View {
         // MARK: - Model
 
         let deviceType = device.deviceType
-        let modelName = deviceType.name
+        let modelName = switch deviceType {
+        case .leftInsole, .rightInsole:
+            "right insole"
+        case .leftGlove, .rightGlove:
+            "right glove"
+        case .glasses:
+            "glasses"
+        case .generic:
+            "generic"
+        }
         model = .init(named: "\(modelName).usdz")!
         guard let model else {
             print("failed to load model")
@@ -91,11 +100,9 @@ struct ModelView: View {
         scene.rootNode.addChildNode(model.rootNode)
         switch deviceType {
         case .leftInsole, .rightInsole:
-            model.rootNode.scale = .init(25, 25, 25)
-        case .leftGlove:
-            model.rootNode.scale = .init(-1.5, 1.5, 1.5)
-        case .rightGlove:
-            model.rootNode.scale = .init(1.5, 1.5, 1.5)
+            model.rootNode.scale = .init(25 * (deviceType.side == .right ? 1 : -1), 25, 25)
+        case .rightGlove, .leftGlove:
+            model.rootNode.scale = .init(1.5 * (deviceType.side == .right ? 1 : -1), 1.5, 1.5)
         case .glasses:
             model.rootNode.scale = .init(0.03, 0.03, 0.03)
             model.rootNode.position = .init(0, 0.5, 0)

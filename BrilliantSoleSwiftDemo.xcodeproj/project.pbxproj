@@ -346,8 +346,6 @@
 			membershipExceptions = (
 				3DModels/generic.usdz,
 				3DModels/glasses.usdz,
-				"3DModels/left glove.usdz",
-				"3DModels/left insole.usdz",
 				"3DModels/right glove.usdz",
 				"3DModels/right insole.usdz",
 				AppIntents/BSConnectToDeviceIntent.swift,
@@ -443,8 +441,6 @@
 			membershipExceptions = (
 				3DModels/generic.usdz,
 				3DModels/glasses.usdz,
-				"3DModels/left glove.usdz",
-				"3DModels/left insole.usdz",
 				"3DModels/right glove.usdz",
 				"3DModels/right insole.usdz",
 				AppIntents/BSConnectToDeviceIntent.swift,
@@ -540,8 +536,6 @@
 			membershipExceptions = (
 				3DModels/generic.usdz,
 				3DModels/glasses.usdz,
-				"3DModels/left glove.usdz",
-				"3DModels/left insole.usdz",
 				"3DModels/right glove.usdz",
 				"3DModels/right insole.usdz",
 				BrilliantSoleSwiftDemoApp.swift,
@@ -633,8 +627,6 @@
 			membershipExceptions = (
 				3DModels/generic.usdz,
 				3DModels/glasses.usdz,
-				"3DModels/left glove.usdz",
-				"3DModels/left insole.usdz",
 				"3DModels/right glove.usdz",
 				"3DModels/right insole.usdz",
 				BrilliantSoleSwiftDemoApp.swift,
@@ -726,8 +718,6 @@
 			membershipExceptions = (
 				3DModels/generic.usdz,
 				3DModels/glasses.usdz,
-				"3DModels/left glove.usdz",
-				"3DModels/left insole.usdz",
 				"3DModels/right glove.usdz",
 				"3DModels/right insole.usdz",
 				Assets.xcassets,
