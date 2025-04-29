@@ -73,11 +73,6 @@ struct ModelView: View {
             return
         }
 
-        guard device.isInsole else {
-            print("device is not an insole")
-            return
-        }
-
         // MARK: - Model
 
         let deviceType = device.deviceType
