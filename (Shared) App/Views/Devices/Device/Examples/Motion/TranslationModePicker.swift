@@ -31,8 +31,19 @@ struct TranslationModePicker: View {
             }
         }
 
-        var showSensorType: Bool {
-            true
+        func showSensorType(sensorTypes: [BSSensorType]) -> Bool {
+            guard let sensorType else {
+                return true
+            }
+            guard sensorTypes.contains(sensorType) else {
+                return false
+            }
+            return switch self {
+            case .noTranslation, .linearAcceleration, .acceleration:
+                true
+            default:
+                false
+            }
         }
     }
 
@@ -41,11 +52,14 @@ struct TranslationModePicker: View {
     var body: some View {
         HStack {
             Picker(selection: $translationMode, label: EmptyView()) {
-                ForEach(TranslationMode.allCases) { translationMode in
-                    if translationMode.showSensorType {
-                        Text(translationMode.name)
-                            .tag(translationMode)
-                    }
+                ForEach(
+                    TranslationMode.allCases
+                        .filter { $0.showSensorType(sensorTypes: sensorConfigurable.sensorTypes) }
+                        .prefix(3),
+                    id: \.self
+                ) { translationMode in
+                    Text(translationMode.name)
+                        .tag(translationMode)
                 }
             }
             #if os(tvOS)

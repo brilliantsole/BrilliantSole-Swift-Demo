@@ -14,14 +14,22 @@ struct TranslationModePicker: View {
 
     @State private var isEnabled: Bool = false
 
+    let sensorTypes: [BSSensorType] = [.linearAcceleration, .acceleration]
+    var sensorType: BSSensorType? {
+        sensorTypes.first { sensorConfigurable.sensorTypes.contains($0) }
+    }
+
     var body: some View {
         VStack {}
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
+                        guard let sensorType else {
+                            return
+                        }
                         var sensorConfiguration: BSSensorConfiguration = .init()
                         isEnabled.toggle()
-                        sensorConfiguration[.linearAcceleration] = isEnabled ? ._20ms : ._0ms
+                        sensorConfiguration[sensorType] = isEnabled ? ._20ms : ._0ms
                         sensorConfigurable.setSensorConfiguration(sensorConfiguration)
                     } label: {
                         Image(systemName: "move.3d")

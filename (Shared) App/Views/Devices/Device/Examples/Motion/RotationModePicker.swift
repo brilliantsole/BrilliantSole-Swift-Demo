@@ -37,9 +37,15 @@ struct RotationModePicker: View {
             }
         }
 
-        var showSensorType: Bool {
+        func showSensorType(sensorTypes: [BSSensorType]) -> Bool {
+            guard let sensorType else {
+                return true
+            }
+            guard sensorTypes.contains(sensorType) else {
+                return false
+            }
             return switch self {
-            case .noRotation, .gyroscope, .rotation, .gameRotation:
+            case .noRotation, .gyroscope, .rotation, .gameRotation, .orientation:
                 true
             default:
                 false
@@ -52,11 +58,14 @@ struct RotationModePicker: View {
     var body: some View {
         HStack {
             Picker(selection: $rotationMode, label: EmptyView()) {
-                ForEach(RotationMode.allCases) { rotationMode in
-                    if rotationMode.showSensorType {
-                        Text(rotationMode.name)
-                            .tag(rotationMode)
-                    }
+                ForEach(
+                    RotationMode.allCases
+                        .filter { $0.showSensorType(sensorTypes: sensorConfigurable.sensorTypes) }
+                        .prefix(3),
+                    id: \.self
+                ) { rotationMode in
+                    Text(rotationMode.name)
+                        .tag(rotationMode)
                 }
             }
             #if os(tvOS)

@@ -33,8 +33,12 @@ struct ModelView: View {
 
     func onQuaternion(_ quaternion: BSQuaternion) {
         guard let model else { return }
-        self.rotation = .init(quaternion)
-        model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
+
+        let slerpedQuaternion = simd_slerp(rotation.quaternion, quaternion, 0.2)
+
+        rotation = .init(slerpedQuaternion)
+
+        model.rootNode.orientation = .init((offsetQuaternion * slerpedQuaternion).vector)
     }
 
     func onRotation(_ rotation: Rotation3D) {
@@ -54,7 +58,7 @@ struct ModelView: View {
     func onVector(_ vector: Vector3D) {
         guard let model else { return }
         let _vector = model.rootNode.simdOrientation.act(.init(vector))
-        model.rootNode.simdPosition.interpolate(to: _vector * 0.7, with: 0.4)
+        model.rootNode.simdPosition.interpolate(to: _vector * 3, with: 0.3)
     }
 
     func onLinearAcceleration(_ linearAcceleration: Vector3D) {
@@ -72,6 +76,10 @@ struct ModelView: View {
             print("already loaded model")
             return
         }
+
+        #if os(watchOS)
+            scene.background.contents = UIColor.white
+        #endif
 
         // MARK: - Model
 
@@ -100,7 +108,7 @@ struct ModelView: View {
         case .rightGlove, .leftGlove:
             model.rootNode.scale = .init(1.5 * (deviceType.side == .right ? 1 : -1), 1.5, 1.5)
         case .glasses:
-            model.rootNode.scale = .init(20, 20, 20)
+            model.rootNode.scale = .init(25, 25, 25)
         // model.rootNode.position = .init(0, 0.5, 0)
         case .generic:
             model.rootNode.scale = .init(0.06, 0.06, 0.06)
@@ -137,6 +145,9 @@ struct ModelView: View {
     var body: some View {
         SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
             .clipShape(RoundedRectangle(cornerRadius: 16))
+        #if os(watchOS)
+            .background(Color.white)
+        #endif
             .onReceive(device.gameRotationPublisher, perform: { onQuaternion($0.quaternion) })
             .onReceive(device.rotationPublisher, perform: { onQuaternion($0.quaternion) })
             .onReceive(device.orientationPublisher, perform: { onRotation($0.rotation) })
