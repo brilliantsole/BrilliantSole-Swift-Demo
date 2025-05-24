@@ -76,6 +76,7 @@ struct ModelView: View {
         // MARK: - Model
 
         let deviceType = device.deviceType
+        // let deviceType: BSDeviceType = .glasses
         let modelName = switch deviceType {
         case .leftInsole, .rightInsole:
             "right insole"
@@ -99,8 +100,8 @@ struct ModelView: View {
         case .rightGlove, .leftGlove:
             model.rootNode.scale = .init(1.5 * (deviceType.side == .right ? 1 : -1), 1.5, 1.5)
         case .glasses:
-            model.rootNode.scale = .init(0.03, 0.03, 0.03)
-            model.rootNode.position = .init(0, 0.5, 0)
+            model.rootNode.scale = .init(20, 20, 20)
+        // model.rootNode.position = .init(0, 0.5, 0)
         case .generic:
             model.rootNode.scale = .init(0.06, 0.06, 0.06)
             model.rootNode.position = .init(0, -1, 0)

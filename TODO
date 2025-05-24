@@ -1,1 +1,12 @@
+demo
+    better 3d model
+    only show available sensorTypes for motion demo
 
+migration
+    wifi
+    vibrationLocations
+    fileTypes
+frame
+    camera
+    microphone
+    display

@@ -24,7 +24,7 @@ struct Vector3DChart: View {
         case .gyroscope:
             -360...360
         case .magnetometer:
-            -200...200
+            -100...100
         default:
             -1...1
         }
