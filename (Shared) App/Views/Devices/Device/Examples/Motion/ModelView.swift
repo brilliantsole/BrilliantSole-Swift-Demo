@@ -77,7 +77,7 @@ struct ModelView: View {
             return
         }
 
-        #if os(watchOS)
+        #if os(watchOS) || os(iOS)
             scene.background.contents = UIColor.white
         #endif
 
@@ -145,7 +145,7 @@ struct ModelView: View {
     var body: some View {
         SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
             .clipShape(RoundedRectangle(cornerRadius: 16))
-        #if os(watchOS)
+        #if os(watchOS) || os(iOS)
             .background(Color.white)
         #endif
             .onReceive(device.gameRotationPublisher, perform: { onQuaternion($0.quaternion) })

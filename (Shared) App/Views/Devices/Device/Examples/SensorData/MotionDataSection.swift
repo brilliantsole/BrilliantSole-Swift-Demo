@@ -119,11 +119,14 @@ struct MotionDataSection: View {
     }
 
     @State private var stepDetectionData: BSVoidTimestampData?
+    @State private var tapDetectionData: BSVoidTimestampData?
 
     private func getVoidTimestampData(sensorType: BSSensorType) -> BSVoidTimestampData? {
         switch sensorType {
         case .stepDetection:
             stepDetectionData
+        case .tapDetection:
+            tapDetectionData
         default:
             nil
         }
@@ -222,6 +225,9 @@ struct MotionDataSection: View {
         }
         .onReceive(device.stepDetectionPublisher) {
             stepDetectionData = $0
+        }
+        .onReceive(device.tapDetectionPublisher) {
+            tapDetectionData = $0
         }
     }
 }

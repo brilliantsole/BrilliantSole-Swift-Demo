@@ -1,7 +1,5 @@
-demo
-    record
-
 migration
+    tap detector
     wifi
     vibrationLocations
     fileTypes
