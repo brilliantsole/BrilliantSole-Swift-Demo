@@ -22,7 +22,7 @@ struct TfliteInferencingSection: View {
 
             if isTfliteReady {
                 Button(isTfliteInferencingEnabled ? "disable model" : "enable model") {
-                    device.toggleTfliteInferencingEnabled()
+                    device.toggleTfliteInferencing()
                 }
                 .onReceive(device.tfliteInferencingEnabledPublisher) { isTfliteInferencingEnabled = $0 }
             }

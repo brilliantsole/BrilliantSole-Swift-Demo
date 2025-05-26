@@ -14,11 +14,13 @@ struct DeviceRowHeader: View {
 
     @State private var name: String = ""
     @State private var deviceType: BSDeviceType?
+    @State private var ipAddress: String?
 
     init(metaDevice: BSMetaDevice) {
         self.metaDevice = metaDevice
         self.name = metaDevice.name
         self.deviceType = metaDevice.deviceType
+        self.ipAddress = metaDevice.ipAddress
     }
 
     var deviceTypeSystemImage: String? {
@@ -53,12 +55,21 @@ struct DeviceRowHeader: View {
                     Text(deviceType.name)
                 }
             }
+            if let ipAddress {
+                HStack(spacing: 4) {
+                    Image(systemName: "wifi")
+                    Text(ipAddress)
+                }
+            }
         }
         .onReceive(metaDevice.deviceTypePublisher) { newDeviceType in
             deviceType = newDeviceType
         }
         .onReceive(metaDevice.namePublisher) { newName in
             name = newName
+        }
+        .onReceive(metaDevice.ipAddressPublisher) { newIpAddress in
+            ipAddress = newIpAddress
         }
     }
 }
