@@ -29,7 +29,7 @@ struct VibrationConfigurationView: View {
         }
 
         Section {
-            ForEach(BSVibrationLocationFlag.allCases) { location in
+            ForEach(vibratable.vibrationLocations) { location in
                 Toggle(location.name, isOn: Binding(
                     get: { configuration.locations.contains(location) },
                     set: { newValue in
