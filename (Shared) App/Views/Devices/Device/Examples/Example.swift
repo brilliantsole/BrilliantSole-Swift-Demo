@@ -40,9 +40,36 @@ enum Example: CaseIterable, Identifiable {
         }
     }
 
+    var requiresVibration: Bool {
+        switch self {
+        case .vibration:
+            true
+        default:
+            false
+        }
+    }
+
+    var requiresTflite: Bool {
+        switch self {
+        case .tflite:
+            true
+        default:
+            false
+        }
+    }
+
+    var requiresFileTransfer: Bool {
+        switch self {
+        default:
+            false
+        }
+    }
+
     func worksWith(device: BSDevice) -> Bool {
         guard !self.requiresFirmware || device.canUpgradeFirmware else { return false }
-        guard !self.requiresPressure || device.deviceType.isInsole else { return false }
+        guard !self.requiresPressure || (device.sensorTypes.contains(.pressure) && device.isInsole) else { return false }
+        guard !self.requiresTflite || device.isTfliteAvailable else { return false }
+        // guard !self.requiresVibration || !device.vibrationLocations.isEmpty else { return false }
         return true
     }
 

@@ -26,12 +26,12 @@ struct VibrationExample: View {
             }
 
             Button(action: {
-                configurationsState.configurations.append(.init(locations: .all, waveformEffectSegments: .init()))
+                configurationsState.configurations.append(.init(locations: vibratable.vibrationLocations, waveformEffectSegments: .init()))
             }) {
                 Label("Waveform Effect", systemImage: "plus")
             }
             Button(action: {
-                configurationsState.configurations.append(.init(locations: .all, waveformSegments: .init()))
+                configurationsState.configurations.append(.init(locations: vibratable.vibrationLocations, waveformSegments: .init()))
             }) {
                 Label("Waveform", systemImage: "plus")
             }

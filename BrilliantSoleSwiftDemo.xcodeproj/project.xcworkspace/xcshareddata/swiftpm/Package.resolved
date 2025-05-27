@@ -1,15 +1,6 @@
 {
-  "originHash" : "2eb68b89766510841ec24064f9d622040286b6e43eaeb191612cef9e3598bfe3",
+  "originHash" : "d4871f71076345ca4ebc1ef9ecfbd784674431e975e64b713d73e0e0c4f9483e",
   "pins" : [
-    {
-      "identity" : "brilliantsole-swift-package",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/brilliantsole/BrilliantSole-Swift-Package.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "b71e75e68759bbfa6d2fc059c4f956dac44c841e"
-      }
-    },
     {
       "identity" : "ios-nrf-connect-device-manager",
       "kind" : "remoteSourceControl",

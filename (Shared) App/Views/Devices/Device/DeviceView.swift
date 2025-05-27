@@ -18,6 +18,9 @@ struct DeviceView: View {
         List {
             DeviceInformationSection(device: device)
             InformationSection(device: device)
+            if device.isWifiAvailable {
+                WifiSection(device: device)
+            }
             BatterySection(device: device)
             ExamplesSection(device: device)
         }

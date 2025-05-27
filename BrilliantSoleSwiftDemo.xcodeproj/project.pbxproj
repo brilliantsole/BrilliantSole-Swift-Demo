@@ -18,14 +18,13 @@
 		5F6ADB2E2D72342F0075300D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6ADB2D2D72342F0075300D /* SwiftUI.framework */; };
 		5F6ADB392D7234300075300D /* BrilliantSole Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F6ADB2A2D72342F0075300D /* BrilliantSole Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F7ACBA52D9B53E100A4E4A0 /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F7ACBA42D9B53E100A4E4A0 /* BrilliantSole */; };
-		5F857AB72D9C7A0D00C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857AB62D9C7A0D00C904EE /* BrilliantSole */; };
-		5F857AB92D9C7A2D00C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857AB82D9C7A2D00C904EE /* BrilliantSole */; };
-		5F857ABB2D9C7A3100C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857ABA2D9C7A3100C904EE /* BrilliantSole */; };
-		5F857ABD2D9C7A3400C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857ABC2D9C7A3400C904EE /* BrilliantSole */; };
-		5F857ABF2D9C7A3800C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857ABE2D9C7A3800C904EE /* BrilliantSole */; };
-		5F857AC12D9C7A3B00C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857AC02D9C7A3B00C904EE /* BrilliantSole */; };
-		5F857AC32D9C7A4800C904EE /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5F857AC22D9C7A4800C904EE /* BrilliantSole */; };
 		5F8EA9E02D59AF9C00B81545 /* BrilliantSole Demo.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5F8EA9D32D59AF9B00B81545 /* BrilliantSole Demo.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5FA3DE832DE22491003D6C7E /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA3DE822DE22491003D6C7E /* BrilliantSole */; };
+		5FA3E16E2DE22513003D6C7E /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA3E16D2DE22513003D6C7E /* BrilliantSole */; };
+		5FA3E1702DE231EF003D6C7E /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA3E16F2DE231EF003D6C7E /* BrilliantSole */; };
+		5FA3E1722DE231F6003D6C7E /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA3E1712DE231F6003D6C7E /* BrilliantSole */; };
+		5FA3E1742DE231FE003D6C7E /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA3E1732DE231FE003D6C7E /* BrilliantSole */; };
+		5FA3E1762DE23202003D6C7E /* BrilliantSole in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA3E1752DE23202003D6C7E /* BrilliantSole */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -422,6 +421,7 @@
 				Views/Devices/Device/Examples/Vibration/WaveformEffect/VibrationWaveformEffectSegmentView.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
+				Views/Devices/Device/WifiSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -517,6 +517,7 @@
 				Views/Devices/Device/Examples/Vibration/WaveformEffect/VibrationWaveformEffectSegmentView.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
+				Views/Devices/Device/WifiSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -608,6 +609,7 @@
 				Views/Devices/Device/Examples/Vibration/WaveformEffect/VibrationWaveformEffectSegmentView.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
+				Views/Devices/Device/WifiSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -699,6 +701,7 @@
 				Views/Devices/Device/Examples/Vibration/WaveformEffect/VibrationWaveformEffectSegmentView.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
+				Views/Devices/Device/WifiSection.swift,
 				Views/Devices/DeviceRow/DeviceRow.swift,
 				Views/Devices/DeviceRow/DeviceRowConnection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
@@ -787,6 +790,7 @@
 				Views/Devices/Device/Examples/Vibration/WaveformEffect/VibrationWaveformEffectSegmentView.swift,
 				Views/Devices/Device/InformationSection.swift,
 				Views/Devices/Device/SensorsSection.swift,
+				Views/Devices/Device/WifiSection.swift,
 				Views/Devices/DeviceRow/DeviceRowHeader.swift,
 				Views/Devices/DeviceRow/DeviceRowStatus.swift,
 				Views/Devices/DevicesView.swift,
@@ -901,7 +905,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857AC12D9C7A3B00C904EE /* BrilliantSole in Frameworks */,
+				5FA3E16E2DE22513003D6C7E /* BrilliantSole in Frameworks */,
 				5F1004C52D7505A5001E908C /* SwiftUI.framework in Frameworks */,
 				5F1004C22D7505A4001E908C /* WidgetKit.framework in Frameworks */,
 			);
@@ -911,7 +915,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857AC32D9C7A4800C904EE /* BrilliantSole in Frameworks */,
+				5FA3E1722DE231F6003D6C7E /* BrilliantSole in Frameworks */,
 				5F060EC12D7239220032D885 /* SwiftUI.framework in Frameworks */,
 				5F060EC02D7239220032D885 /* WidgetKit.framework in Frameworks */,
 			);
@@ -921,7 +925,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857ABF2D9C7A3800C904EE /* BrilliantSole in Frameworks */,
+				5FA3E1762DE23202003D6C7E /* BrilliantSole in Frameworks */,
 				5F6ADB2E2D72342F0075300D /* SwiftUI.framework in Frameworks */,
 				5F6ADB2C2D72342F0075300D /* WidgetKit.framework in Frameworks */,
 			);
@@ -931,7 +935,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857AB72D9C7A0D00C904EE /* BrilliantSole in Frameworks */,
+				5FA3E1742DE231FE003D6C7E /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +943,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FA3DE832DE22491003D6C7E /* BrilliantSole in Frameworks */,
 				5F3CD4742D77C32300B2399E /* BrilliantSole in Frameworks */,
 				5F7ACBA52D9B53E100A4E4A0 /* BrilliantSole in Frameworks */,
 			);
@@ -948,7 +953,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857AB92D9C7A2D00C904EE /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,7 +960,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857ABB2D9C7A3100C904EE /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,7 +967,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F857ABD2D9C7A3400C904EE /* BrilliantSole in Frameworks */,
+				5FA3E1702DE231EF003D6C7E /* BrilliantSole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,7 +1047,7 @@
 			);
 			name = "(Mac) BrilliantSole Widget";
 			packageProductDependencies = (
-				5F857AC02D9C7A3B00C904EE /* BrilliantSole */,
+				5FA3E16D2DE22513003D6C7E /* BrilliantSole */,
 			);
 			productName = WidgetExtension;
 			productReference = 5F060EA12D7238400032D885 /* BrilliantSole Widget.appex */;
@@ -1067,7 +1070,7 @@
 			);
 			name = "(Watch) BrilliantSole Widget";
 			packageProductDependencies = (
-				5F857AC22D9C7A4800C904EE /* BrilliantSole */,
+				5FA3E1712DE231F6003D6C7E /* BrilliantSole */,
 			);
 			productName = WidgetExtension;
 			productReference = 5F060EBF2D7239220032D885 /* BrilliantSole Widget.appex */;
@@ -1090,7 +1093,7 @@
 			);
 			name = "(iOS) BrilliantSole Widget";
 			packageProductDependencies = (
-				5F857ABE2D9C7A3800C904EE /* BrilliantSole */,
+				5FA3E1752DE23202003D6C7E /* BrilliantSole */,
 			);
 			productName = WidgetExtension;
 			productReference = 5F6ADB2A2D72342F0075300D /* BrilliantSole Widget.appex */;
@@ -1117,7 +1120,7 @@
 			);
 			name = "(iOS) BrilliantSole Demo";
 			packageProductDependencies = (
-				5F857AB62D9C7A0D00C904EE /* BrilliantSole */,
+				5FA3E1732DE231FE003D6C7E /* BrilliantSole */,
 			);
 			productName = "BrilliantSole Demo iOS";
 			productReference = 5F8EA8282D59651400B81545 /* BrilliantSole Demo.app */;
@@ -1144,6 +1147,7 @@
 			packageProductDependencies = (
 				5F3CD4732D77C32300B2399E /* BrilliantSole */,
 				5F7ACBA42D9B53E100A4E4A0 /* BrilliantSole */,
+				5FA3DE822DE22491003D6C7E /* BrilliantSole */,
 			);
 			productName = "BrilliantSole Demo Mac";
 			productReference = 5F8EA8562D59653700B81545 /* BrilliantSole Demo.app */;
@@ -1166,7 +1170,6 @@
 			);
 			name = "(TV) BrilliantSole Demo";
 			packageProductDependencies = (
-				5F857AB82D9C7A2D00C904EE /* BrilliantSole */,
 			);
 			productName = "BrilliantSole Demo TV";
 			productReference = 5F8EA8BD2D59663100B81545 /* BrilliantSole Demo.app */;
@@ -1189,7 +1192,6 @@
 			);
 			name = "(VisionOS) BrilliantSole Demo";
 			packageProductDependencies = (
-				5F857ABA2D9C7A3100C904EE /* BrilliantSole */,
 			);
 			productName = "BrilliantSole Demo VisionOS";
 			productReference = 5F8EA8CF2D59665300B81545 /* BrilliantSole Demo.app */;
@@ -1214,7 +1216,7 @@
 			);
 			name = "(Watch) BrilliantSole Demo";
 			packageProductDependencies = (
-				5F857ABC2D9C7A3400C904EE /* BrilliantSole */,
+				5FA3E16F2DE231EF003D6C7E /* BrilliantSole */,
 			);
 			productName = "BrilliantSole Demo Watch App";
 			productReference = 5F8EA9D32D59AF9B00B81545 /* BrilliantSole Demo.app */;
@@ -1266,7 +1268,7 @@
 			mainGroup = 5FBC34602D38722100B0DB20;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */,
+				5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5FBC346A2D38722100B0DB20 /* Products */;
@@ -2191,16 +2193,12 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brilliantsole/BrilliantSole-Swift-Package.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../BrilliantSole-Swift-Package";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		5F3CD4732D77C32300B2399E /* BrilliantSole */ = {
@@ -2211,39 +2209,33 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = BrilliantSole;
 		};
-		5F857AB62D9C7A0D00C904EE /* BrilliantSole */ = {
+		5FA3DE822DE22491003D6C7E /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
-		5F857AB82D9C7A2D00C904EE /* BrilliantSole */ = {
+		5FA3E16D2DE22513003D6C7E /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
+			package = 5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
-		5F857ABA2D9C7A3100C904EE /* BrilliantSole */ = {
+		5FA3E16F2DE231EF003D6C7E /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
+			package = 5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
-		5F857ABC2D9C7A3400C904EE /* BrilliantSole */ = {
+		5FA3E1712DE231F6003D6C7E /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
+			package = 5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
-		5F857ABE2D9C7A3800C904EE /* BrilliantSole */ = {
+		5FA3E1732DE231FE003D6C7E /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
+			package = 5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
-		5F857AC02D9C7A3B00C904EE /* BrilliantSole */ = {
+		5FA3E1752DE23202003D6C7E /* BrilliantSole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
-			productName = BrilliantSole;
-		};
-		5F857AC22D9C7A4800C904EE /* BrilliantSole */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F857AB52D9C7A0D00C904EE /* XCRemoteSwiftPackageReference "BrilliantSole-Swift-Package" */;
+			package = 5FA3DE812DE22491003D6C7E /* XCLocalSwiftPackageReference "../BrilliantSole-Swift-Package" */;
 			productName = BrilliantSole;
 		};
 /* End XCSwiftPackageProductDependency section */
