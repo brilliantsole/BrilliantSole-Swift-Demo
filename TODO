@@ -1,7 +1,3 @@
-migration
-    vibrationLocations
-    wifi section
-frame
-    camera
-    microphone
-    display
+camera
+microphone
+display
