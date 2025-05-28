@@ -18,7 +18,7 @@ struct CameraExample: View {
     var body: some View {
         VStack {
             CameraView(device: device)
-        }
+        }   
         .toolbar {
             let takePictureButton = Button {
                 device.takePicture()

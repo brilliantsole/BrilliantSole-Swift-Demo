@@ -24,9 +24,14 @@ struct CameraView: View {
                 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
                     if let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
+                        #if os(watchOS)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        #else
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .cornerRadius(12)
+                            .edgesIgnoringSafeArea(.all)
+                        #endif
                     } else {
                         Text("Could not load image")
                     }
@@ -43,11 +48,17 @@ struct CameraView: View {
                     Text("Unsupported platform")
                 #endif
             } else {
-                Text("no picture")
+                if device.isMock {
+                    Image("sampleCameraImage")
+                    #if os(watchOS)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                    #endif
+                } else {
+                    Text("take picture")
+                }
             }
         }
-        .scaledToFit()
-
         .onReceive(device.cameraImagePublisher) {
             imageData = $0
         }

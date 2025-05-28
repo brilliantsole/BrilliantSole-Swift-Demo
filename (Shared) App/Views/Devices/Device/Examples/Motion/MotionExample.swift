@@ -17,8 +17,11 @@ struct MotionExample: View {
     var body: some View {
         VStack {
             ModelView(device: device, recalibrateSubject: recalibrateSubject)
+            #if os(watchOS)
+                .edgesIgnoringSafeArea(.all)
+            #endif
             #if os(tvOS)
-                .focusSection()
+            .focusSection()
             #endif
             RotationModePicker(sensorConfigurable: device)
             #if os(tvOS)
