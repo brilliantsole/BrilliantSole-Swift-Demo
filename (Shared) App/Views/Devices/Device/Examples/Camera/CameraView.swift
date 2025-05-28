@@ -22,29 +22,32 @@ struct CameraView: View {
         ZStack {
             if let imageData {
                 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
-                if let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                } else {
-                    Text("Could not load image")
-                }
+                    if let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(12)
+                    } else {
+                        Text("Could not load image")
+                    }
                 #elseif os(macOS)
-                if let nsImage = NSImage(data: imageData) {
-                    Image(nsImage: nsImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                } else {
-                    Text("Could not load image")
-                }
+                    if let nsImage = NSImage(data: imageData) {
+                        Image(nsImage: nsImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(12)
+                    } else {
+                        Text("Could not load image")
+                    }
                 #else
-                Text("Unsupported platform")
+                    Text("Unsupported platform")
                 #endif
             } else {
                 Text("no picture")
             }
         }
         .scaledToFit()
+
         .onReceive(device.cameraImagePublisher) {
             imageData = $0
         }
