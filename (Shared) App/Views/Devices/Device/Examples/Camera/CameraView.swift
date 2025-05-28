@@ -21,16 +21,32 @@ struct CameraView: View {
     var body: some View {
         ZStack {
             if let imageData {
-                #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
+                #if os(watchOS)
+                    if let uiImage = UIImage(data: imageData) {
+                        GeometryReader { geometry in
+                            Image(uiImage: uiImage)
+                            #if os(watchOS)
+                                .resizable()
+                                .scaledToFill()
+                                .clipped()
+                                .edgesIgnoringSafeArea(.all)
+                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                            #else
+                                .aspectRatio(contentMode: .fit)
+                            #endif
+                        }
+                        .edgesIgnoringSafeArea(.all)
+                    } else {
+                        Text("Could not load image")
+                    }
+                #elseif os(iOS) || os(tvOS) || os(visionOS)
                     if let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
-                        #if os(watchOS)
                             .resizable()
+                        #if os(watchOS)
                             .aspectRatio(contentMode: .fill)
                         #else
-                            .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .edgesIgnoringSafeArea(.all)
                         #endif
                     } else {
                         Text("Could not load image")
@@ -40,7 +56,6 @@ struct CameraView: View {
                         Image(nsImage: nsImage)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .cornerRadius(12)
                     } else {
                         Text("Could not load image")
                     }
@@ -49,11 +64,19 @@ struct CameraView: View {
                 #endif
             } else {
                 if device.isMock {
-                    Image("sampleCameraImage")
-                    #if os(watchOS)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    #endif
+                    GeometryReader { geometry in
+                        Image("sampleCameraImage")
+                        #if os(watchOS)
+                            .resizable()
+                            .scaledToFill()
+                            .clipped()
+                            .edgesIgnoringSafeArea(.all)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 2) // Center the image
+                        #else
+                            .aspectRatio(contentMode: .fit)
+                        #endif
+                    }
+                    .edgesIgnoringSafeArea(.all)
                 } else {
                     Text("take picture")
                 }
@@ -66,8 +89,10 @@ struct CameraView: View {
 }
 
 #Preview {
-    CameraView(device: .mock)
+    NavigationStack {
+        CameraExample(device: .mock)
+    }
     #if os(macOS)
-        .frame(maxWidth: 360, maxHeight: 300)
+    .frame(maxWidth: 300, minHeight: 500)
     #endif
 }

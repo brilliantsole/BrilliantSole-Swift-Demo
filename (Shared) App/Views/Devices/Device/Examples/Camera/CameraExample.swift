@@ -16,9 +16,19 @@ struct CameraExample: View {
     @State private var autoPicture: Bool = false
 
     var body: some View {
-        VStack {
-            CameraView(device: device)
-        }   
+        Group {
+            #if os(watchOS)
+            VStack {
+                CameraView(device: device)
+            }
+            #else
+            ScrollView {
+                CameraView(device: device)
+                CameraControls(device: device, autoPicture: $autoPicture)
+                Spacer()
+            }
+            #endif
+        }
         .toolbar {
             let takePictureButton = Button {
                 device.takePicture()
@@ -92,6 +102,6 @@ struct CameraExample: View {
         CameraExample(device: .mock)
     }
     #if os(macOS)
-    .frame(maxWidth: 350, minHeight: 300)
+    .frame(maxWidth: 300, minHeight: 500)
     #endif
 }
