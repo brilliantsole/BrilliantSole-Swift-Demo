@@ -53,27 +53,27 @@ struct CameraControls: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(cameraStatus != .idle)
-                .frame(width: 100)
+                .frame(width: 140)
 
                 Button(autoPicture ? "Video" : "Camera") {
                     autoPicture.toggle()
                 }
                 .buttonStyle(.borderedProminent)
-                .frame(width: 70)
+                .frame(width: 90)
 
                 Button(cameraStatus == .focusing ? "Focusing" : "Focus") {
                     device.focusCamera()
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(cameraStatus != .idle)
-                .frame(width: 80)
+                .frame(width: 100)
 
                 Button(cameraStatus == .asleep ? "Wake" : "Sleep") {
                     device.toggleCameraWake()
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(cameraStatus == .takingPicture || cameraStatus == .focusing)
-                .frame(width: 60)
+                .frame(width: 70)
             }
 
             ForEach(cameraConfiguration.types, id: \.self) { type in
@@ -104,6 +104,7 @@ struct CameraControls: View {
                 }.padding(.horizontal, 16)
             }
             ColorPicker("__White Balance__", selection: $whiteBalance, supportsOpacity: false)
+                .padding(.horizontal, 16)
                 .onChange(of: whiteBalance) { _, _ in
                     if didWhiteBalanceChangeProgrammatically {
                         didWhiteBalanceChangeProgrammatically = false
