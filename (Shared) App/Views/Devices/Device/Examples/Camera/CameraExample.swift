@@ -22,11 +22,24 @@ struct CameraExample: View {
                 CameraView(device: device)
             }
             #else
-            ScrollView {
-                CameraView(device: device)
-                CameraControls(device: device, autoPicture: $autoPicture)
-                Spacer()
+            GeometryReader { geometry in
+                let isLandscape = geometry.size.width > geometry.size.height
+
+                if isLandscape {
+                    HStack {
+                        CameraView(device: device)
+                        CameraControls(device: device, autoPicture: $autoPicture)
+                    }
+                }
+                else {
+                    ScrollView {
+                        CameraView(device: device)
+                        CameraControls(device: device, autoPicture: $autoPicture)
+                        Spacer()
+                    }
+                }
             }
+
             #endif
         }
         .toolbar {
@@ -80,13 +93,16 @@ struct CameraExample: View {
         .focusSection()
         #endif
         .navigationTitle("Camera")
-        .onReceive(device.cameraStatusPubliher) {
+        .onReceive(device.cameraStatusPublisher) {
             cameraStatus = $0
         }
         .onReceive(device.cameraImagePublisher) { _ in
             if autoPicture {
                 device.takePicture()
             }
+        }
+        .onReceive(device.cameraFinishedFocusingPublisher) { _ in
+            device.takePicture()
         }
         .onDisappear {
             device.clearSensorRate(sensorType: .camera)

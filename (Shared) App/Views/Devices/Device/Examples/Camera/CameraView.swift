@@ -64,19 +64,21 @@ struct CameraView: View {
                 #endif
             } else {
                 if device.isMock {
-                    GeometryReader { geometry in
+                    #if os(watchOS)
+                        GeometryReader { geometry in
+                            Image("sampleCameraImage")
+                                .resizable()
+                                .scaledToFill()
+                                .clipped()
+                                .edgesIgnoringSafeArea(.all)
+                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2) // Center the image
+                        }
+                        .edgesIgnoringSafeArea(.all)
+                    #else
                         Image("sampleCameraImage")
-                        #if os(watchOS)
                             .resizable()
-                            .scaledToFill()
-                            .clipped()
-                            .edgesIgnoringSafeArea(.all)
-                            .position(x: geometry.size.width / 2, y: geometry.size.height / 2) // Center the image
-                        #else
                             .aspectRatio(contentMode: .fit)
-                        #endif
-                    }
-                    .edgesIgnoringSafeArea(.all)
+                    #endif
                 } else {
                     Text("take picture")
                 }
