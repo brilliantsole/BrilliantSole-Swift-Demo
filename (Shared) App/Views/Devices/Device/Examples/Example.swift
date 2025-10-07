@@ -21,6 +21,7 @@ enum Example: CaseIterable, Identifiable {
     case tflite
     case graph
     case firmware
+    case camera
 
     var requiresPressure: Bool {
         switch self {
@@ -65,11 +66,21 @@ enum Example: CaseIterable, Identifiable {
         }
     }
 
+    var requiresCamera: Bool {
+        switch self {
+        case .camera:
+            true
+        default:
+            false
+        }
+    }
+
     func worksWith(device: BSDevice) -> Bool {
         guard !self.requiresFirmware || device.canUpgradeFirmware else { return false }
         guard !self.requiresPressure || (device.sensorTypes.contains(.pressure) && device.isInsole) else { return false }
         guard !self.requiresTflite || device.isTfliteAvailable else { return false }
-        // guard !self.requiresVibration || !device.vibrationLocations.isEmpty else { return false }
+        guard !self.requiresCamera || device.isCameraAvailable else { return false }
+        guard !self.requiresVibration || !device.vibrationLocations.isEmpty else { return false }
         return true
     }
 
@@ -91,6 +102,8 @@ enum Example: CaseIterable, Identifiable {
             GraphExample(device: device)
         case .firmware:
             FirmwareExample(device: device)
+        case .camera:
+            CameraExample(device: device)
         }
     }
 }
