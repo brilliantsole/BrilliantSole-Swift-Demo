@@ -108,7 +108,7 @@ struct CameraExample: View {
             device.clearSensorRate(sensorType: .camera)
         }
         .onAppear {
-            device.setSensorRate(sensorType: .camera, sensorRate: ._5ms)
+            device.setSensorRate(sensorType: .camera, sensorRate: ._20ms)
         }
     }
 }

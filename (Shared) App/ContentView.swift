@@ -164,6 +164,6 @@ struct ContentView: View {
 #Preview {
     ContentView()
     #if os(macOS)
-        .frame(maxWidth: 600, minHeight: 800)
+        .frame(maxWidth: 600, minHeight: 400)
     #endif
 }
